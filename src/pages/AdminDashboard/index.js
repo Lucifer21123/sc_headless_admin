@@ -519,7 +519,7 @@ const AdminDashboardContent = () => {
                             </div>
                             <i className={item.iconClass}></i>
                             <span>{item.span}</span>
-                            <strong>{item.strong}</strong>
+                            <strong className="mycustomFont">{item.strong}</strong>
                           </li>
                         ))}
                       </ul>
@@ -533,7 +533,7 @@ const AdminDashboardContent = () => {
                   >
                     <div className="internal-card internal-card--main w-100 d-flex align-items-start">
                       <div className="internal-card__info">
-                        <h2>{item.title}</h2>
+                        <h2 className="mycustomFont">{item.title}</h2>
                         <p>
                           {item.text}
                           <a href="#">...Read More</a>

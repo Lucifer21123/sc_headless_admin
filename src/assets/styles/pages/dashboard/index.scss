@@ -85,8 +85,10 @@
 
     .toogle-box--timeline,
     .toogle-box--messages {
-      .openHead{
-        display: flex;
+      .toogle-box__header{
+        .toogle-box__header--left{
+          font-family: mycustomFont;
+        }
       }
       .toogle-box__body {
         display: none;
@@ -103,9 +105,6 @@
     }
 
     .toogle-box--timeline {
-      .openHead{
-        display: flex;
-      }
       .toogle-box__body {
         display: none;
       }
@@ -273,6 +272,11 @@
 
   .earning {
     // .earning__table
+    .earning__head{
+      .earning__title{
+        font-family: mycustomBoldFont;
+      }
+    }
 
     &__table:before,
     .table__head,
@@ -349,6 +353,7 @@
 
     &__info-item {
       min-width: 300px;
+      font-family: mycustomFont;
     }
 
     .sort-box {
@@ -425,6 +430,20 @@
   }
 
   .section-content__tiles {
+    .statistic-box{
+      &__post{
+        li{
+          b{
+            font-family: mycustomFont;
+          }
+        }
+      }
+      &__reaction{
+        h4{
+          font-family: mycustomFont;
+        }
+      }
+    }
     height: 420px;
     margin-bottom: 28px;
 
@@ -588,6 +607,9 @@
 
   .moments {
     &__item {
+      .moments__num, .moments__title{
+        font-family: mycustomFont;
+      }
       @media (max-width: 1230px) {
         width: calc(50% - 6px);
         min-height: 175px;
@@ -619,6 +641,13 @@
   }
 
   .statistic {
+    &__list{
+      .statistic__item{
+        .statistic-num{
+          font-family: mycustomFont;
+        }
+      }
+    }
     &__item {
       @media (max-width: 1230px) {
         width: calc(50% - 6px);

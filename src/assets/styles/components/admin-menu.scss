@@ -332,13 +332,14 @@
     padding-top: 7px;
     min-height: 40px;
     border-top: 1px solid rgba(#315293, 0.25);
-
+    font-family: mycustomFont;
     &.js-open {
       display: block;
       // height: auto;
 
       .admin-menu__list {
         display: block;
+        font-family: mycustomLightFont;
       }
     }
 
@@ -354,7 +355,6 @@
         }
       }
     }
-    
     .open{
     height: auto;
     display: block;

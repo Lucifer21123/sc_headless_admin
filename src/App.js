@@ -1,9 +1,6 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 import Mainpage from './pages/MainPage';
-// import AdminDashboardEmpty from './pages/AdminDashboardEmpty';
-// import AdminDashboard from './pages/AdminDashboard';
-// import AdminAlerts from './pages/AdminAlerts';
 import Dashboard from './pages/Dashboard';
 import "./assets/tailwind.css";
 import './App.scss';

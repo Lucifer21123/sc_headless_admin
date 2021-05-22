@@ -1033,6 +1033,7 @@
       color: #315293;
       font-weight: 500;
       font-size: 16px;
+      font-family: mycustomFont;
     }
   }
   .header__content {
@@ -1182,6 +1183,7 @@
     letter-spacing: normal;
     line-height: normal;
     text-align: left;
+    font-family: mycustomFont;
     &::after {
       content: "";
       display: block;

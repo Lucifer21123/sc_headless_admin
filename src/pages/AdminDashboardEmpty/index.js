@@ -234,7 +234,7 @@ const AdminDashboardEmptyContent = ({isOpen}) => {
                             </div>
                             <i className={item.class}></i>
                             <span>{item.text}</span>
-                            <strong>{item.num}</strong>
+                            <strong className="mycustomFont">{item.num}</strong>
                           </li>
                         ))}
                       </ul>
@@ -245,7 +245,7 @@ const AdminDashboardEmptyContent = ({isOpen}) => {
                 <div className="main__card main__card--bias position-relative overflow-hidden">
                   <div className="internal-card internal-card--main w-100 d-flex align-items-start">
                     <div className="internal-card__info">
-                      <h2>Grow your business</h2>
+                      <h2 className="mycustomFont">Grow your business</h2>
                       <p>
                         Shoppers want to get in touch with your business. Expose
                         your business using SplitChek's ads
@@ -269,7 +269,7 @@ const AdminDashboardEmptyContent = ({isOpen}) => {
                 <div className="main__card main__card--bias position-relative overflow-hidden">
                   <div className="internal-card internal-card--main w-100 d-flex align-items-start">
                     <div className="internal-card__info">
-                      <h2>Be open to a people</h2>
+                      <h2 className="mycustomFont">Be open to a people</h2>
                       <p>
                         Goss is here to help you with your business. Expose your
                         business using SplitChek's goss.
