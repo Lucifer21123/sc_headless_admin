@@ -1,6 +1,10 @@
 import React from 'react';
 
 const AdminAlertContent = () => {
+
+  const remindersData = [
+    {}
+  ]
 	return(
 		<div className="section-blur theme-background-one" data-class="blue" id="background">
     <div className="container container--admin">
@@ -16,7 +20,7 @@ const AdminAlertContent = () => {
                 <li className="reminders__item">
                   <div className="card-alerts card-alerts--error w-100 position-relative d-flex flex-column">
                     <div className="card-alerts__body d-flex align-items-start">
-                      <figure className="card-alerts__img" style={{backgroundImage: "url('images/profiles/img1.png')"}}>
+                      <figure className="card-alerts__img" style={{backgroundImage: "url('../../images/profiles/img1.png')"}}>
                       </figure>
                       <div className="card-alerts__info card-alerts__info--fluid">
                         <h2 className="card-alerts__title">Payment is past due</h2>
@@ -39,7 +43,7 @@ const AdminAlertContent = () => {
                     <span className="card-alerts__notif position-relative">Short in stock in store!</span>
                     <div className="card-alerts__body d-flex align-items-center">
                       <figure className="card-alerts__img"
-                        style={{backgroundImage: "url('images/message/variant_42242.png')"}}></figure>
+                        style={{backgroundImage: "url('../../images/message/variant_42242.png')"}}></figure>
                       <div className="card-alerts__info">
                         <h2 className="card-alerts__title">Title here</h2>
                         <div className="card-alerts__detail d-flex flex-wrap">

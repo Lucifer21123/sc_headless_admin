@@ -1,1 +1,27 @@
 @import './assets/styles/main';
+
+@font-face {
+    font-family: mycustomFont;
+    src: url(./assets/fonts/NeueHaasDisplay-Mediu.woff);
+}
+
+@font-face {
+    font-family: mycustomBoldFont;
+    src: url(./assets/fonts/NeueHaasDisplay-Bold.woff);
+}
+
+@font-face {
+    font-family: mycustomLightFont;
+    src: url(./assets/fonts/NeueHaasDisplay-Light.woff);
+}
+
+* {
+    font-family: mycustomFont;
+}
+
+.mycustomBoldFont {
+    font-family: mycustomBoldFont;
+}
+.mycustomLightFont {
+    font-family: mycustomLightFont;
+}

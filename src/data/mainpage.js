@@ -19,17 +19,17 @@ export const data = [
 	{
 	  title: "Admin no alerts",
 	  subTitle: "Admin no alerts",
-	  link: "/admin-no-alerts"
+	  link: "/dashboard/alerts-no"
 	},
 	{
 	  title: "Admin messages dashboard",
 	  subTitle: "Messages dashboard",
-	  link: "/admin-messages-dashboard.html"
+	  link: "/dasboard/message"
 	},
 	{
-	  title: "Admin messages dashboard empty",
+	  title: "Admin messages empty",
 	  subTitle: "Admin-messages-dashboard-empty",
-	  link: "/admin-messages-dashboard-empty.html"
+	  link: "/dasboard/message-no"
 	},
 	{
 	  title: "admin orders",

@@ -219,7 +219,7 @@ const AdminDashboardContent = () => {
                                 </span>
                                 <div className="card-timeline__slider position-relative d-flex align-items-center">
                                   <div className="swiper-container">
-                                    <div className="swiper-wrapper d-flex">
+                                    <div className="swiper-wrapper">
                                       {data[0].swiperWrapperdata.map(
                                         (item, index) => (
                                           <div

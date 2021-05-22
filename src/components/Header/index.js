@@ -16,7 +16,7 @@ const Header = ({isHeader, setIsHeader}) => {
               src="../../images/icons/splitcheck-w-logo.png"
               alt="logo"
             />
-            <span className="d-none d-md-block">Manage stores</span>
+            <span className="d-none d-md-block custom-font-face">Manage stores</span>
           </a>
         </div>
         <div className="header__search">
