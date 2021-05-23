@@ -163,7 +163,7 @@ const AdminDashboardEmptyContent = ({isOpen}) => {
                 </a>
                 <div className="toogle-box__header--right">
                   <button className="arrow-open" onClick={() => setIsCard1Open(!isCard1Open)}>
-                    <img src="images/icons/arrow__bottom.svg" alt="arrow" />
+                    <img src="../../images/icons/arrow__bottom.svg" alt="arrow" />
                   </button>
                 </div>
               </div>
@@ -181,10 +181,10 @@ const AdminDashboardEmptyContent = ({isOpen}) => {
                 </div>
                 <div className="toogle-box__header--right">
                   <button className={`reset ${isLotate ? 'anim' : ''}`}>
-                    <img src="images/icons/loop-24px.svg" alt="reset" onClick={() => setInterval(setIsLotate(!isLotate), 3000)}/>
+                    <img src="../../images/icons/loop-24px.svg" alt="reset" onClick={() => setInterval(setIsLotate(!isLotate), 3000)}/>
                   </button>
                   <button className="arrow-open" onClick={() => setIsCard2Open(!isCard2Open)}>
-                    <img src="images/icons/arrow__bottom.svg" alt="arrow" />
+                    <img src="../../images/icons/arrow__bottom.svg" alt="arrow" />
                   </button>
                 </div>
               </div>
@@ -323,7 +323,7 @@ const AdminDashboardEmptyContent = ({isOpen}) => {
               <div className="main__card main__card--fluid main__card--noshadow position-relative d-flex align-items-center justify-content-between flex-column overflow-hidden">
                 <div className="internal-card d-flex align-items-center justify-content-center flex-column">
                   <figure className="internal-card__img mb-0">
-                    <img src="images/home/buffer.svg" alt="card-img" />
+                    <img src="../../images/home/buffer.svg" alt="card-img" />
                   </figure>
                   <div className="internal-card__info">
                     <h2>Nothing about you, yet</h2>

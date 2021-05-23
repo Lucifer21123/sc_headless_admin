@@ -11,8 +11,8 @@ const Dashboard = () => {
     <div className="admin-default dashboard">
       <PageLayout>
         <Switch>
-          <Route exact path={path} component={AdminDashboard} />
-          <Route path={`${path}/main`} component={AdminDashboardEmpty} />
+          <Route exact path={path} component={AdminDashboardEmpty} />
+          <Route path={`${path}/main`} component={AdminDashboard} />
           <Route path={`${path}/alerts`} component={AlertPage} />
         </Switch>
       </PageLayout>
