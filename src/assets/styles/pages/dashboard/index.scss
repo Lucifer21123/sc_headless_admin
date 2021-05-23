@@ -21,6 +21,14 @@
   }
   .main {
     .toogle-box {
+      .toogle-box__body{
+        display: none;
+      }
+      .openBody {
+        display: block;
+        margin-top: 10px;
+        padding-bottom: 24px;
+      }
       max-width: 100%;
 
       @media (max-width: 767px) {
@@ -139,10 +147,10 @@
         width: 5px;
       }
       .toogle-box__scroll::-webkit-scrollbar-track {
-        background: #e8ebf2; 
+        background: #e8ebf2;
       }
       .toogle-box__scroll::-webkit-scrollbar-thumb {
-        background: #afbbd4; 
+        background: #afbbd4;
       }
 
       .message__single {
