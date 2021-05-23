@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {data} from '../../data/sidebar';
 
 const Sidebar = ({isHide, setIsHeader}) => {
   const [isOpen, setIsOpen]= useState(false);
@@ -60,32 +61,16 @@ const Sidebar = ({isHide, setIsHeader}) => {
             </div>
 
             <ul className="admin-menu__list d-flex flex-column list-unstyled mb-0">
-              <li className="admin-menu__item admin-menu__item--visit">
-                <a href="#" className="admin-menu__link position-relative">
-                  {/* <!-- add className "active" <i className="icon icon-gift"></i> what would the icon change --> */}
-                  <i className="icon icon-dashboard"></i>
-                  <span>Dashboard</span>
+              {data[0].sidebarInfo.map((item, index) => (
+                <li className={`'admin-menu__item' ${item.class}`} key={index}>
+                <a href={item.href} className="admin-menu__link position-relative">
+                  <i className={item.img}></i>
+                  <span>{item.content}<b>{item.num}</b></span>
                 </a>
               </li>
-              <li className="admin-menu__item">
-                <a href="#" className="admin-menu__link position-relative">
-                  {/* <!-- add className "active" <i className="icon icon-gift"></i> what would the icon change --> */}
-                  <i className="icon icon-notification"></i>
-                  <span>
-                    Alerts <b>(2)</b>
-                  </span>
-                </a>
-              </li>
-              <li className="admin-menu__item">
-                <a href="#" className="admin-menu__link position-relative">
-                  {/* <!-- add className "active" <i className="icon icon-gift"></i> what would the icon change --> */}
-                  <i className="icon icon-messages"></i>
-                  <span>Trading room</span>
-                </a>
-              </li>
+              ))}
               <li className={`admin-menu__item admin-menu__item--submenu ${isList1Open && 'js-open'}`}>
                 <div className="admin-menu__title position-relative">
-                  {/* <!-- add className "active" <i className="icon icon-gift"></i> what would the icon change --> */}
                   <i className="icon icon-shipping"></i>
                   <span>Orders</span>
                   <i className="icon icon-blue-arrow" onClick={() => setIsList1Open(!isList1Open)}></i>
@@ -116,7 +101,6 @@ const Sidebar = ({isHide, setIsHeader}) => {
               </li>
               <li className={`admin-menu__item admin-menu__item--submenu ${isList2Open && 'js-open'}`}>
                 <div className="admin-menu__title position-relative">
-                  {/* <!-- add className "active" <i className="icon icon-gift"></i> what would the icon change --> */}
                   <i className="icon icon-networking"></i>
                   <span>Networking</span>
                   <i className="icon icon-blue-arrow" onClick={() => setIsList2Open(!isList2Open)}></i>
@@ -132,7 +116,6 @@ const Sidebar = ({isHide, setIsHeader}) => {
               </li>
               <li className={`admin-menu__item admin-menu__item--submenu ${isList3Open && 'js-open'}`}>
                 <div className="admin-menu__title position-relative">
-                  {/* <!-- add className "active" <i className="icon icon-gift"></i> what would the icon change --> */}
                   <i className="icon icon-social-media"></i>
                   <span>Posts</span>
                   <i className="icon icon-blue-arrow" onClick={() => setIsList3Open(!isList3Open)}></i>
@@ -148,7 +131,6 @@ const Sidebar = ({isHide, setIsHeader}) => {
               </li>
               <li className={`admin-menu__item admin-menu__item--submenu ${isList4Open && 'js-open'}`}>
                 <div className="admin-menu__title position-relative">
-                  {/* <!-- add className "active" <i className="icon icon-gift"></i> what would the icon change --> */}
                   <i className="icon icon-landing-page"></i>
                   <span>Landing pages</span>
                   <i className="icon icon-blue-arrow" onClick={() => setIsList4Open(!isList4Open)}></i>
@@ -164,7 +146,6 @@ const Sidebar = ({isHide, setIsHeader}) => {
               </li>
               <li className={`admin-menu__item admin-menu__item--submenu ${isList5Open && 'js-open'}`}>
                 <div className="admin-menu__title position-relative">
-                  {/* <!-- add className "active" <i className="icon icon-gift"></i> what would the icon change --> */}
                   <i className="icon icon-gift"></i>
                   <span>Products</span>
                   <i className="icon icon-blue-arrow" onClick={() => setIsList5Open(!isList5Open)}></i>
@@ -180,7 +161,6 @@ const Sidebar = ({isHide, setIsHeader}) => {
               </li>
               <li className={`admin-menu__item admin-menu__item--submenu ${isList6Open && 'js-open'}`}>
                 <div className="admin-menu__title position-relative">
-                  {/* <!-- add className "active" <i className="icon icon-gift"></i> what would the icon change --> */}
                   <i className="icon icon-megaphone"></i>
                   <span>Marketing</span>
                   <i className="icon icon-blue-arrow" onClick={() => setIsList6Open(!isList6Open)}></i>
@@ -196,7 +176,6 @@ const Sidebar = ({isHide, setIsHeader}) => {
               </li>
               <li className={`admin-menu__item admin-menu__item--submenu ${isList7Open && 'js-open'}`}>
                 <div className="admin-menu__title position-relative">
-                  {/* <!-- add className "active" <i className="icon icon-gift"></i> what would the icon change --> */}
                   <i className="icon icon-shop"></i>
                   <span>My stores</span>
                   <i className="icon icon-blue-arrow" onClick={() => setIsList7Open(!isList7Open)}></i>

@@ -21,7 +21,12 @@
   }
   .main {
     .toogle-box {
-      .toogle-box__body{
+      &__header{
+        &--left{
+          font-family: mycustomFont;
+        }
+      }
+      &__body{
         display: none;
       }
       .openBody {
