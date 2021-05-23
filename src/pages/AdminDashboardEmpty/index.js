@@ -254,7 +254,7 @@ const AdminDashboardEmptyContent = ({isOpen}) => {
                     </div>
                     <figure className="internal-card__img mb-0">
                       <img
-                        src="images/dashboard/Influencer-bro.svg"
+                        src="../../images/dashboard/Influencer-bro.svg"
                         alt="card-img"
                       />
                     </figure>
@@ -278,7 +278,7 @@ const AdminDashboardEmptyContent = ({isOpen}) => {
                     </div>
                     <figure className="internal-card__img mb-0">
                       <img
-                        src="images/dashboard/Buffer-bro.svg"
+                        src="../../images/dashboard/Buffer-bro.svg"
                         alt="card-img"
                       />
                     </figure>

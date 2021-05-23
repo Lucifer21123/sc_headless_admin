@@ -1,11 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-// import './assets/main.css';
-// import "bootstrap/dist/css/bootstrap.min.css";
+import { render } from 'react-dom';
+import { ApolloProvider } from '@apollo/client/react';
+// import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
+// const client = new ApolloClient({uri, cache});
+
+render(
+  // <ApolloProvider client={client}>
+  //   <App />
+  // </ApolloProvider>,
   <React.StrictMode>
     <App />
   </React.StrictMode>,

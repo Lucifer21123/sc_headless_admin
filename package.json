@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.3.19",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "autoprefixer": "^9.8.6",
     "bootstrap": "^5.0.1",
+    "graphql": "^15.5.0",
     "node-sass": "^4.10.0",
     "postcss": "^7.0.35",
     "react": "^17.0.1",
@@ -24,7 +26,7 @@
     "build": "npm run watch:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
+    "watch:css": "postcss src/assets/tailwind.css"
   },
   "eslintConfig": {
     "extends": [
