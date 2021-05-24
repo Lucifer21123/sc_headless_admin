@@ -277,10 +277,10 @@
       }
     }
 
-    .timeline .swiper-button-next,
-    .timeline .swiper-button-prev {
-      top: calc(50% - 14px);
-    }
+    // .timeline .swiper-button-next,
+    // .timeline .swiper-button-prev {
+    //   top: calc(50% - 8px);
+    // }
   }
 
   .earning {
@@ -712,7 +712,6 @@
       width: 25px;
       height: 25px;
       margin-top: 0;
-      top: calc(50% - 27px);
 
       transition: $transition-fast;
 
@@ -731,14 +730,16 @@
       }
     }
     .swiper-button-prev {
-      left: -5px;
+      left: -13px;
       right: auto;
       transform: rotate(180deg);
+      top: calc(50% - 14px);
     }
 
     .swiper-button-next {
-      right: -5px;
+      right: -13px;
       left: auto;
+      top: calc(50% - 10px);
     }
 
     .swiper-button-next.swiper-button-disabled,
