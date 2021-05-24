@@ -1,29 +1,45 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import AddTimelinDashboard from "../../components/Modals/AddTimelineDashboard";
 import UserProfileMenu from "../../components/Modals/UserProfileMenu";
 import AddPhoto from "../../components/Modals/AddPhoto";
 import { data } from "../../data/adminDashboard";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper.min.css";
+import "swiper/components/pagination/pagination.min.css"
+import SwiperCore, {
+  Navigation,Pagination,Mousewheel,Keyboard
+} from 'swiper/core';
+
+SwiperCore.use([Navigation,Pagination,Mousewheel,Keyboard]);
+
 const AdminDashboardContent = () => {
   const [isCard1Open, setIsCard1Open] = useState(false);
   const [isCard2Open, setIsCard2Open] = useState(false);
+  const [isLotate, setIsLotate] = useState(false);
   const [isAside, setIsAside] = useState(false);
+  const [isSortBox, setIsSortBox] = useState(false);
+
+  const onLotate = (e) => {
+    setIsLotate(!isLotate);
+  };
+  console.log("isLotate", isLotate);
   const onResize = (e) => {
-    if(e.target.innerWidth < 992 && !isAside) {
-      setIsAside(true)
-    } else if(e.target.innerWidth >= 992 && isAside) {
-      setIsAside(false)
+    if (e.target.innerWidth < 992 && !isAside) {
+      setIsAside(true);
+    } else if (e.target.innerWidth >= 992 && isAside) {
+      setIsAside(false);
     }
-  }
+  };
   useEffect(() => {
-    window.addEventListener('resize', onResize);
+    window.addEventListener("resize", onResize);
     return () => {
-      window.removeEventListener('resize', onResize);
+      window.removeEventListener("resize", onResize);
     };
   });
 
   const onGetAside = () => {
-    return(
+    return (
       <section className="section-content">
         <span className="section-content__title position-relative d-flex align-items-center">
           Recent earning
@@ -62,11 +78,11 @@ const AdminDashboardContent = () => {
               <div className="sort-box__line sort">
                 <span className="sort-box__name">State:</span>
                 <div className="sort-box__select">
-                  <span className="sort-box__arrow">
+                  <span className={`sort-box__arrow ${isSortBox && 'open'}`}>
                     <strong>QLD</strong>
                     <img
                       src="../../images/icons/navigate_next-24px.svg"
-                      alt="arrow"
+                      alt="arrow" onClick={() => setIsSortBox(!isSortBox)}
                     />
                   </span>
                   <div className="form__single form__single--select form__single--select-default form__single--fluid">
@@ -137,8 +153,8 @@ const AdminDashboardContent = () => {
         </div>
         {/* <!-- /earning --> */}
       </section>
-    )
-  }
+    );
+  };
 
   return (
     <div
@@ -178,232 +194,267 @@ const AdminDashboardContent = () => {
                   </button>
                 </div>
               </div>
-              <div className={`toogle-box__body ${isCard1Open ? "openBody" : ""}`}>
-                <section className="section-content">
-                  <div
-                    className="timeline-wrap-scrollbar position-relative"
-                    data-scroll="perfect-scrollbar"
-                  >
-                    <div className="timeline position-relative">
-                      <div className="timeline__line"></div>
-                      <ul className="timeline__list d-flex flex-column list-unstyled mb-0">
-                        <li className="timeline__item">
-                          <span className="timeline__date timeline__date--active">
-                            2:30 pm today
-                          </span>
-                          <article className="timeline__card card-timeline card-timeline--active card-timeline--visible-notification">
-                            {/* <!-- notification --> */}
-                            <div className="card-timeline__notification">
-                              <i className="icon icon-bell-white"></i>
-                              <span>Today is the big day!</span>
-                            </div>
-                            {/* <!-- card-inner --> */}
-                            <div className="card-timeline__inner">
-                              {/* <!-- card-header --> */}
-                              <div className="card-timeline__header">
-                                <div className="card-timeline__info card-timeline__info--main">
-                                  <p>
-                                    Lunch with friends in lorem ipsum dolor sit
-                                    amet or something
-                                  </p>
-                                  <p>
-                                    Budget:{" "}
-                                    <span className="bold">$45 per person</span>
-                                  </p>
-                                </div>
+              { isCard1Open &&
+                <div
+                  className={`toogle-box__body openBody`}
+                >
+                  <section className="section-content">
+                    <div
+                      className="timeline-wrap-scrollbar position-relative"
+                      data-scroll="perfect-scrollbar"
+                    >
+                      <div className="timeline position-relative">
+                        <div className="timeline__line"></div>
+                        <ul className="timeline__list d-flex flex-column list-unstyled mb-0">
+                          <li className="timeline__item">
+                            <span className="timeline__date timeline__date--active">
+                              2:30 pm today
+                            </span>
+                            <article className="timeline__card card-timeline card-timeline--active card-timeline--visible-notification">
+                              {/* <!-- notification --> */}
+                              <div className="card-timeline__notification">
+                                <i className="icon icon-bell-white"></i>
+                                <span>Today is the big day!</span>
                               </div>
-                              {/* <!-- card-body --> */}
-                              <div className="card-timeline__body">
-                                <span className="card-timeline__title">
-                                  Who is coming?
-                                </span>
-                                <div className="card-timeline__slider position-relative d-flex align-items-center">
-                                  <div className="swiper-container">
-                                    <div className="swiper-wrapper">
-                                      {data[0].swiperWrapperdata.map(
-                                        (item, index) => (
-                                          <div
-                                            className="swiper-slide"
-                                            key={index}
-                                          >
-                                            <a
-                                              href={item.href}
-                                              className={item.class}
-                                            >
-                                              <img
-                                                src={item.src}
-                                                alt="avatar"
-                                              />
-                                              <span>{item.span}</span>
-                                            </a>
-                                          </div>
-                                        )
-                                      )}
-                                    </div>
+                              {/* <!-- card-inner --> */}
+                              <div className="card-timeline__inner">
+                                {/* <!-- card-header --> */}
+                                <div className="card-timeline__header">
+                                  <div className="card-timeline__info card-timeline__info--main">
+                                    <p>
+                                      Lunch with friends in lorem ipsum dolor sit
+                                      amet or something
+                                    </p>
+                                    <p>
+                                      Budget:{" "}
+                                      <span className="bold">$45 per person</span>
+                                    </p>
                                   </div>
-                                  <div className="swiper-button-prev"></div>
-                                  <div className="swiper-button-next"></div>
                                 </div>
-                              </div>
-                              {/* <!-- card-bottom --> */}
-                              <div className="card-timeline__bottom">
-                                <span className="card-timeline__title">
-                                  Location
-                                </span>
-                                <div className="card-timeline__info">
-                                  <p>4 Bellbird Cres, Coomera, QLD, 4209</p>
+                                {/* <!-- card-body --> */}
+                                <div className="card-timeline__body">
+                                  <span className="card-timeline__title">
+                                    Who is coming?
+                                  </span>
+                                  <div className="card-timeline__slider position-relative d-flex align-items-center">
+                                    <div className="swiper-container">
+                                      <div className="swiper-wrapper">
+                                        <Swiper
+                                          slidesPerView={'auto'}
+                                          spaceBetween={30}
+                                          centeredSlides={true}
+                                          // pagination={{ clickable: true }}
+                                          navigation={true}
+                                          className="mySwiper"
+                                        >
+                                          {data[0].swiperWrapperdata.map(
+                                            (item, index) => (
+                                              <SwiperSlide>
+                                                <div
+                                                  className="swiper-slide"
+                                                  style={{marginRight: '8px'}}
+                                                  key={index}
+                                                >
+                                                  <a
+                                                    href={item.href}
+                                                    className={item.class}
+                                                  >
+                                                    <img
+                                                      src={item.src}
+                                                      alt="avatar"
+                                                    />
+                                                    <span>{item.span}</span>
+                                                  </a>
+                                                </div>
+                                              </SwiperSlide>
+                                            )
+                                          )}
+                                        </Swiper>
+                                        {/* {data[0].swiperWrapperdata.map(
+                                          (item, index) => (
+                                            <div
+                                              className="swiper-slide"
+                                              key={index}
+                                            >
+                                              <a
+                                                href={item.href}
+                                                className={item.class}
+                                              >
+                                                <img
+                                                  src={item.src}
+                                                  alt="avatar"
+                                                />
+                                                <span>{item.span}</span>
+                                              </a>
+                                            </div>
+                                          )
+                                        )} */}
+                                      </div>
+                                    </div>
+                                    {/* <div className="swiper-button-prev"></div>
+                                    <div className="swiper-button-next"></div> */}
+                                  </div>
                                 </div>
-                              </div>
+                                {/* <!-- card-bottom --> */}
+                                <div className="card-timeline__bottom">
+                                  <span className="card-timeline__title">
+                                    Location
+                                  </span>
+                                  <div className="card-timeline__info">
+                                    <p>4 Bellbird Cres, Coomera, QLD, 4209</p>
+                                  </div>
+                                </div>
 
-                              {/* <!-- option  add className: - options--open --> */}
-                              <div className="options">
-                                <button
-                                  type="button"
-                                  className="options__btn"
-                                  data-type="options"
-                                >
-                                  <i className="icon icon-more"></i>
-                                </button>
+                                {/* <!-- option  add className: - options--open --> */}
+                                <div className="options">
+                                  <button
+                                    type="button"
+                                    className="options__btn"
+                                    data-type="options"
+                                  >
+                                    <i className="icon icon-more"></i>
+                                  </button>
 
-                                <div className="options__dropdown">
-                                  <ul className="list-unstyled mb-0">
-                                    {data[1].locationData.map((item, index) => (
-                                      <li key={index}>
-                                        <a href={item.href}>{item.text}</a>
-                                      </li>
-                                    ))}
-                                  </ul>
+                                  <div className="options__dropdown">
+                                    <ul className="list-unstyled mb-0">
+                                      {data[1].locationData.map((item, index) => (
+                                        <li key={index}>
+                                          <a href={item.href}>{item.text}</a>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </article>
-                        </li>
-                        <li className="timeline__item">
-                          <span className="timeline__date">
-                            10:00 am Friday
-                          </span>
-                          <article className="timeline__card card-timeline">
-                            {/* <!-- notification --> */}
-                            <div className="card-timeline__notification">
-                              <i className="icon icon-bell"></i>
-                              <span></span>
-                            </div>
-                            {/* <!-- card-inner --> */}
-                            <div className="card-timeline__inner">
-                              {/* <!-- card-header --> */}
-                              <div className="card-timeline__header">
-                                <div className="card-timeline__info card-timeline__info--main">
-                                  <p>
-                                    Lunch with friends in lorem ipsum dolor sit
-                                    amet or something
-                                  </p>
-                                  <p>
-                                    Budget:{" "}
-                                    <span className="bold">$45 per person</span>
-                                  </p>
-                                </div>
+                            </article>
+                          </li>
+                          <li className="timeline__item">
+                            <span className="timeline__date">
+                              10:00 am Friday
+                            </span>
+                            <article className="timeline__card card-timeline">
+                              {/* <!-- notification --> */}
+                              <div className="card-timeline__notification">
+                                <i className="icon icon-bell"></i>
+                                <span></span>
                               </div>
-                              {/* <!-- option  add className: - options--open --> */}
-                              <div className="options">
-                                <button
-                                  type="button"
-                                  className="options__btn"
-                                  data-type="options"
-                                >
-                                  <i className="icon icon-more"></i>
-                                </button>
+                              {/* <!-- card-inner --> */}
+                              <div className="card-timeline__inner">
+                                {/* <!-- card-header --> */}
+                                <div className="card-timeline__header">
+                                  <div className="card-timeline__info card-timeline__info--main">
+                                    <p>
+                                      Lunch with friends in lorem ipsum dolor sit
+                                      amet or something
+                                    </p>
+                                    <p>
+                                      Budget:{" "}
+                                      <span className="bold">$45 per person</span>
+                                    </p>
+                                  </div>
+                                </div>
+                                {/* <!-- option  add className: - options--open --> */}
+                                <div className="options">
+                                  <button
+                                    type="button"
+                                    className="options__btn"
+                                    data-type="options"
+                                  >
+                                    <i className="icon icon-more"></i>
+                                  </button>
 
-                                <div className="options__dropdown">
-                                  <ul className="list-unstyled mb-0">
-                                    {data[1].locationData.map((item, index) => (
-                                      <li key={index}>
-                                        <a href={item.href}>{item.text}</a>
-                                      </li>
-                                    ))}
-                                  </ul>
+                                  <div className="options__dropdown">
+                                    <ul className="list-unstyled mb-0">
+                                      {data[1].locationData.map((item, index) => (
+                                        <li key={index}>
+                                          <a href={item.href}>{item.text}</a>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </article>
-                        </li>
-                        <li className="timeline__item">
-                          <span className="timeline__date">
-                            14:30 pm Friday
-                          </span>
-                          <article className="timeline__card card-timeline card-timeline--visible-notification">
-                            {/* <!-- notification --> */}
-                            <div className="card-timeline__notification">
-                              <i className="icon icon-bell"></i>
-                              <span></span>
-                            </div>
-                            {/* <!-- card-inner --> */}
-                            <div className="card-timeline__inner">
-                              {/* <!-- card-header --> */}
-                              <div className="card-timeline__header">
-                                <span className="card-timeline__title">
-                                  <span>Added by:</span>
-                                  <span className="bold">You</span>
-                                </span>
-                                <div className="card-timeline__info card-timeline__info--main">
-                                  <p>
-                                    Product name lorem ipsum dolor sit amet or
-                                    something
-                                  </p>
-                                  <p>
-                                    Budget:{" "}
-                                    <span className="bold">$45 per person</span>
-                                  </p>
+                            </article>
+                          </li>
+                          <li className="timeline__item">
+                            <span className="timeline__date">
+                              14:30 pm Friday
+                            </span>
+                            <article className="timeline__card card-timeline card-timeline--visible-notification">
+                              {/* <!-- notification --> */}
+                              <div className="card-timeline__notification">
+                                <i className="icon icon-bell"></i>
+                                <span></span>
+                              </div>
+                              {/* <!-- card-inner --> */}
+                              <div className="card-timeline__inner">
+                                {/* <!-- card-header --> */}
+                                <div className="card-timeline__header">
+                                  <span className="card-timeline__title">
+                                    <span>Added by:</span>
+                                    <span className="bold">You</span>
+                                  </span>
+                                  <div className="card-timeline__info card-timeline__info--main">
+                                    <p>
+                                      Product name lorem ipsum dolor sit amet or
+                                      something
+                                    </p>
+                                    <p>
+                                      Budget:{" "}
+                                      <span className="bold">$45 per person</span>
+                                    </p>
+                                  </div>
                                 </div>
-                              </div>
-                              {/* <!-- card-body --> */}
-                              <div className="card-timeline__body">
-                                <figure className="card-timeline__img mb-0">
-                                  <img
-                                    src="../../images/product/1.jpg"
-                                    alt="product"
-                                  />
-                                </figure>
-                              </div>
-                              {/* <!-- card-bottom --> */}
-                              <div className="card-timeline__bottom">
-                                <span className="card-timeline__title">
-                                  Comment
-                                </span>
-                                <div className="card-timeline__info">
-                                  <p>I plan to buy it for my mum</p>
+                                {/* <!-- card-body --> */}
+                                <div className="card-timeline__body">
+                                  <figure className="card-timeline__img mb-0">
+                                    <img
+                                      src="../../images/product/1.jpg"
+                                      alt="product"
+                                    />
+                                  </figure>
                                 </div>
-                              </div>
-                              {/* <!-- option  add className: - options--open --> */}
-                              <div className="options">
-                                <button
-                                  type="button"
-                                  className="options__btn"
-                                  data-type="options"
-                                >
-                                  <i className="icon icon-more"></i>
-                                </button>
+                                {/* <!-- card-bottom --> */}
+                                <div className="card-timeline__bottom">
+                                  <span className="card-timeline__title">
+                                    Comment
+                                  </span>
+                                  <div className="card-timeline__info">
+                                    <p>I plan to buy it for my mum</p>
+                                  </div>
+                                </div>
+                                {/* <!-- option  add className: - options--open --> */}
+                                <div className="options">
+                                  <button
+                                    type="button"
+                                    className="options__btn"
+                                    data-type="options"
+                                  >
+                                    <i className="icon icon-more"></i>
+                                  </button>
 
-                                <div className="options__dropdown">
-                                  <ul className="list-unstyled mb-0">
-                                    {data[1].locationData.map((item, index) => (
-                                      <li key={index}>
-                                        <a href={item.href}>{item.text}</a>
-                                      </li>
-                                    ))}
-                                  </ul>
+                                  <div className="options__dropdown">
+                                    <ul className="list-unstyled mb-0">
+                                      {data[1].locationData.map((item, index) => (
+                                        <li key={index}>
+                                          <a href={item.href}>{item.text}</a>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </article>
-                        </li>
-                      </ul>
+                            </article>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-                  </div>
-                  <a href="#" className="btn-border">
-                    Load more
-                  </a>
-                </section>
-              </div>
+                    <a href="#" className="btn-border">
+                      Load more
+                    </a>
+                  </section>
+                </div>
+              }
             </div>
             <div className="toogle-box toogle-box--messages">
               <div className={`toogle-box__header ${isCard2Open && "open"}`}>
@@ -413,7 +464,10 @@ const AdminDashboardContent = () => {
                   </h3>
                 </div>
                 <div className="toogle-box__header--right">
-                  <button className="reset">
+                  <button
+                    className={`reset ${isLotate ? "anim" : ""}`}
+                    onClick={(e) => onLotate()}
+                  >
                     <img src="../../images/icons/loop-24px.svg" alt="reset" />
                   </button>
                   <button
@@ -427,7 +481,9 @@ const AdminDashboardContent = () => {
                   </button>
                 </div>
               </div>
-              <div className={`toogle-box__body ${isCard2Open ? "openBody" : ""}`}>
+              <div
+                className={`toogle-box__body ${isCard2Open ? "openBody" : ""}`}
+              >
                 <div
                   className="toogle-box__scroll pl-24 pr-20 position-relative"
                   data-scroll="perfect-scrollbar"
@@ -519,7 +575,9 @@ const AdminDashboardContent = () => {
                             </div>
                             <i className={item.iconClass}></i>
                             <span>{item.span}</span>
-                            <strong className="mycustomFont">{item.strong}</strong>
+                            <strong className="mycustomFont">
+                              {item.strong}
+                            </strong>
                           </li>
                         ))}
                       </ul>
@@ -700,7 +758,7 @@ const AdminDashboardContent = () => {
             </section>
           </main>
           {/* <!-- /main --> */}
-          <aside className={`aside-right ${isAside ? 'd-none' : 'd-lg-block'}`}>
+          <aside className={`aside-right ${isAside ? "d-none" : "d-lg-block"}`}>
             {!isAside && onGetAside()}
           </aside>
         </div>
