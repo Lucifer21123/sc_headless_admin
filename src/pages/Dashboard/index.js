@@ -4,6 +4,7 @@ import { Route, Switch, useRouteMatch } from "react-router-dom";
 import AdminDashboard from "../AdminDashboard";
 import AdminDashboardEmpty from "../AdminDashboardEmpty";
 import AlertPage from "../AdminAlerts";
+import AlertNoPage from "../AdminNoAlerts";
 
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
@@ -14,6 +15,7 @@ const Dashboard = () => {
           <Route exact path={path} component={AdminDashboardEmpty} />
           <Route path={`${path}/main`} component={AdminDashboard} />
           <Route path={`${path}/alerts`} component={AlertPage} />
+          <Route path={`${path}/alerts-no`} component={AlertNoPage} />
         </Switch>
       </PageLayout>
     </div>
