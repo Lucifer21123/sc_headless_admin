@@ -19,7 +19,7 @@ const Sidebar = ({isHide, setIsHeader}) => {
         <a className="admin-menu__logo" href="/home">
           <img
             className="admin-menu__img"
-            src="images/icons/splitcheck-w-logo.png"
+            src="../../images/icons/splitcheck-w-logo.png"
             alt="logo"
           />
           <span>Manage stores</span>

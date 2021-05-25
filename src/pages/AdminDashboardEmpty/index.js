@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import AddTimelinDashboard from "../../components/Modals/AddTimelineDashboard";
+import AddTimelineDashboard from "../../components/Modals/AddTimelineDashboard";
 import UserProfileMenu from "../../components/Modals/UserProfileMenu";
 import GiveDiscount from "../../components/Modals/GiveDiscount";
 import AddPhoto from "../../components/Modals/AddPhoto";
@@ -11,6 +11,7 @@ const AdminDashboardEmptyContent = ({isOpen}) => {
   const [isLotate, setIsLotate] = useState(false);
   const [isOption, setIsOption] = useState(false);
   const [isAside, setIsAside] = useState(false);
+
   const onResize = (e) => {
     if(e.target.innerWidth < 992 && !isAside) {
       setIsAside(true)
@@ -345,7 +346,7 @@ const AdminDashboardEmptyContent = ({isOpen}) => {
           {/* <!-- /aside-right --> */}
         </div>
       </div>
-      <AddTimelinDashboard />
+      <AddTimelineDashboard />
       <GiveDiscount />
       <AddPhoto />
       <UserProfileMenu />

@@ -15,25 +15,38 @@
     }
     .aside-right {
       width: 100%;
-
       @include media-breakpoint-up(lg) {
         max-width: 528px;
       }
       @media (max-width: 1020px) {
         max-width: 100%;
       }
+      .section-content{
+        .notification{
+          &__wrap{
+            overflow: auto;
+          }
+          &__wrap::-webkit-scrollbar {
+            width: 4px;
+          }
+          &__wrap::-webkit-scrollbar-track {
+            background: #e8ebf2;
+          }
+          &__wrap::-webkit-scrollbar-thumb {
+            background: #afbbd4;
+          }
+        }
+      }
     }
     .main {
-      width: 100% !important;
+      width: 100%;
       max-width: 860px;
       @media (max-width: 1550px) {
-        max-width: 100% !important;
+        max-width: 100%;
       }
-
       .section-content {
         margin-bottom: 32px;
-        width: 100%;
-
+        width: 100%!important;
         @include media-breakpoint-up(lg) {
           max-width: 550px;
         }
@@ -43,27 +56,32 @@
         @media (max-width: 1020px) {
           max-width: 100%;
         }
-      }
-    }
-  }
-
-  .reminders {
-    width: 100%;
-    padding: 0 25px 30px 5px;
-    // max-height: 550px;
-
-    @include media-breakpoint-up(lg) {
-      // max-height: calc(100vh - 75px);
-      padding-right: 30px;
-    }
-
-    // .reminders__item
-
-    &__item {
-      margin-bottom: 16px;
-
-      &:last-of-type {
-        margin-bottom: 0;
+        .reminders {
+          &__item {
+            margin-bottom: 16px!important;
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+            .card-alerts {
+              &__body {
+                .card-alerts__info--fluid{
+                  .card-alerts__title {
+                    font-family: mycustomFont;
+                  }
+                }
+              }
+            }
+          }
+          width: 100%;
+          padding: 0 25px 30px 5px;
+          // max-height: 550px;
+          @include media-breakpoint-up(lg) {
+            // max-height: calc(100vh - 75px);
+            padding-right: 30px;
+          }
+          // .reminders__item
+          
+        }
       }
     }
   }

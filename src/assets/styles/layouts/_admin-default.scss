@@ -66,3 +66,18 @@
 .admin-fixed {
   position: fixed;
 }
+
+@media (max-width: 991.98px) {
+  .admin-default .main-content {
+      padding-top: 0px;
+      flex-wrap: wrap;
+      padding-left: 0px !important;
+  }
+  .sidebar-show {
+      left: 0px;
+      z-index: 9991;
+  }
+  .sidebar-hide {
+      left: -100%;
+  }
+}

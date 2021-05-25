@@ -23,7 +23,6 @@ const AdminDashboardContent = () => {
   const onLotate = (e) => {
     setIsLotate(!isLotate);
   };
-  console.log("isLotate", isLotate);
   const onResize = (e) => {
     if (e.target.innerWidth < 992 && !isAside) {
       setIsAside(true);
@@ -163,7 +162,8 @@ const AdminDashboardContent = () => {
       id="background"
     >
       <div className="container container--admin">
-        <div className="main-content position-relative d-flex align-items-start justify-content-between">
+        <div className="dashboard">
+          <div className="main-content position-relative d-flex align-items-start justify-content-between">
           {/* <!-- main --> */}
           <main className="main">
             <div className="toogle-box toogle-box--timeline">
@@ -762,6 +762,7 @@ const AdminDashboardContent = () => {
             {!isAside && onGetAside()}
           </aside>
         </div>
+        </div>                  
       </div>
       <AddTimelinDashboard />
       <AddPhoto />
