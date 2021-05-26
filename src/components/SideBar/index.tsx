@@ -16,7 +16,7 @@ const Sidebar: React.FC<SideBarProps> = (props) => {
   const [isList5Open, setIsList5Open] = useState(false);
   const [isList6Open, setIsList6Open] = useState(false);
   const [isList7Open, setIsList7Open] = useState(false);
-  console.log('data---', sidebarInfo);
+
   return (
     <div className={`admin-menu position-fixed ${isOpen && 'admin-menu--minimize'} ${ isHide ? 'sidebar-show' :  'sidebar-hide'}`}>
       <div className="admin-menu__header d-flex d-lg-none">
