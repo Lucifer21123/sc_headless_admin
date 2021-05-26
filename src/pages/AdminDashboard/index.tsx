@@ -14,14 +14,8 @@ import { swiperWrapperdata } from "../../data/adminDashboard/swiperWrapperdata";
 import { table1Data } from "../../data/adminDashboard/table1Data";
 import { table2Data } from "../../data/adminDashboard/table2Data";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.min.css";
-import "swiper/components/pagination/pagination.min.css"
-import SwiperCore, {
-  Navigation,Pagination,Mousewheel,Keyboard
-} from 'swiper/core';
-
-SwiperCore.use([Navigation,Pagination,Mousewheel,Keyboard]);
+import {timelineData} from "../../data/adminDashboard/timelineData";
+import Timeline from "./Timeline";
 
 interface AdminDashbordProps {
 
@@ -117,22 +111,34 @@ const AdminDashboardContent: React.FC<AdminDashbordProps> = () => {
               <span>Paid to SC</span>
               <span>Total earned</span>
             </div>
-            <div
-              className="table__body position-relative"
-              data-scroll="perfect-scrollbar"
-            >
-              {table1Data.map((item: any, index: number) => (
-                <div
-                  className="table__row d-flex align-items-center"
-                  key={index}
-                >
-                  <span>{item.date}</span>
-                  <span>{item.sales}</span>
-                  <span className="text-orange">{item.paid}</span>
-                  <span>{item.tEarned}</span>
+            {table1Data.length > 0 ? <div
+                className="table__body position-relative"
+                data-scroll="perfect-scrollbar"
+              >
+                {table1Data.map((item: any, index: number) => (
+                  <div
+                    className="table__row d-flex align-items-center"
+                    key={index}
+                  >
+                    <span>{item.date}</span>
+                    <span>{item.sales}</span>
+                    <span className="text-orange">{item.paid}</span>
+                    <span>{item.tEarned}</span>
+                  </div>
+                ))}
+              </div> :
+              <div className="table__body position-relative">
+                <div className="table__row d-flex align-items-center">
+                  <p>No data to display for this period</p>
+                  <figure className="table__img mb-0">
+                    <img
+                      src="../../images/dashboard/Data_report-bro.svg"
+                      alt="img-table"
+                    />
+                  </figure>
                 </div>
-              ))}
-            </div>
+              </div>
+            }
           </div>
 
           <div
@@ -144,21 +150,33 @@ const AdminDashboardContent: React.FC<AdminDashbordProps> = () => {
               <span>Orders</span>
               <span>Total earned</span>
             </div>
-            <div
-              className="table__body position-relative"
-              data-scroll="perfect-scrollbar"
-            >
-              {table2Data.map((item: any, index: number) => (
-                <div
-                  className="table__row d-flex align-items-center"
-                  key={index}
-                >
-                  <span>{item.states}</span>
-                  <span>{item.orders}</span>
-                  <span>{item.tEarned}</span>
+            {table2Data.length > 0 ?<div
+                className="table__body position-relative"
+                data-scroll="perfect-scrollbar"
+              >
+                {table2Data.map((item: any, index: number) => (
+                  <div
+                    className="table__row d-flex align-items-center"
+                    key={index}
+                  >
+                    <span>{item.states}</span>
+                    <span>{item.orders}</span>
+                    <span>{item.tEarned}</span>
+                  </div>
+                ))}
+              </div> :
+              <div className="table__body position-relative">
+                <div className="table__row d-flex align-items-center">
+                  <p>No data to display for this period</p>
+                  <figure className="table__img mb-0">
+                    <img
+                      src="../../images/dashboard/Financial_data-bro.svg"
+                      alt="img-table"
+                    />
+                  </figure>
                 </div>
-              ))}
-            </div>
+              </div>
+            }
           </div>
         </div>
         {/* <!-- /earning --> */}
@@ -198,17 +216,12 @@ const AdminDashboardContent: React.FC<AdminDashbordProps> = () => {
                     className="arrow-open"
                     onClick={() => setIsCard1Open(!isCard1Open)}
                   >
-                    <img
-                      src="../../images/icons/arrow__bottom.svg"
-                      alt="arrow"
-                    />
+                    <img src="../../images/icons/arrow__bottom.svg" alt="arrow" />
                   </button>
                 </div>
               </div>
-              { isCard1Open &&
-                <div
-                  className={`toogle-box__body openBody`}
-                >
+              { (isCard1Open && timelineData.length > 0) ?
+                <div className={`toogle-box__body openBody`} >
                   <section className="section-content">
                     <div
                       className="timeline-wrap-scrollbar position-relative"
@@ -217,227 +230,18 @@ const AdminDashboardContent: React.FC<AdminDashbordProps> = () => {
                       <div className="timeline position-relative">
                         <div className="timeline__line"></div>
                         <ul className="timeline__list d-flex flex-column list-unstyled mb-0">
-                          <li className="timeline__item">
-                            <span className="timeline__date timeline__date--active">
-                              2:30 pm today
-                            </span>
-                            <article className="timeline__card card-timeline card-timeline--active card-timeline--visible-notification">
-                              {/* <!-- notification --> */}
-                              <div className="card-timeline__notification">
-                                <i className="icon icon-bell-white"></i>
-                                <span>Today is the big day!</span>
-                              </div>
-                              {/* <!-- card-inner --> */}
-                              <div className="card-timeline__inner">
-                                {/* <!-- card-header --> */}
-                                <div className="card-timeline__header">
-                                  <div className="card-timeline__info card-timeline__info--main">
-                                    <p>
-                                      Lunch with friends in lorem ipsum dolor sit
-                                      amet or something
-                                    </p>
-                                    <p>
-                                      Budget:{" "}
-                                      <span className="bold">$45 per person</span>
-                                    </p>
-                                  </div>
-                                </div>
-                                {/* <!-- card-body --> */}
-                                <div className="card-timeline__body">
-                                  <span className="card-timeline__title">
-                                    Who is coming?
-                                  </span>
-                                  <div className="card-timeline__slider position-relative d-flex align-items-center">
-                                    <div className="swiper-container">
-                                      <div className="swiper-wrapper">
-                                        <Swiper
-                                          slidesPerView={'auto'}
-                                          spaceBetween={30}
-                                          centeredSlides={true}
-                                          // pagination={{ clickable: true }}
-                                          navigation={true}
-                                          className="mySwiper"
-                                        >
-                                          {swiperWrapperdata.map(
-                                            (item:any, index:number) => (
-                                              <SwiperSlide>
-                                                <div
-                                                  className="swiper-slide"
-                                                  style={{marginRight: '8px'}}
-                                                  key={index}
-                                                >
-                                                  <a
-                                                    href={item.href}
-                                                    className={item.class}
-                                                  >
-                                                    <img
-                                                      src={item.src}
-                                                      alt="avatar"
-                                                    />
-                                                    <span>{item.span}</span>
-                                                  </a>
-                                                </div>
-                                              </SwiperSlide>
-                                            )
-                                          )}
-                                        </Swiper>
-                                      </div>
-                                    </div>
-                                    {/* <div className="swiper-button-prev"></div>
-                                    <div className="swiper-button-next"></div> */}
-                                  </div>
-                                </div>
-                                {/* <!-- card-bottom --> */}
-                                <div className="card-timeline__bottom">
-                                  <span className="card-timeline__title">
-                                    Location
-                                  </span>
-                                  <div className="card-timeline__info">
-                                    <p>4 Bellbird Cres, Coomera, QLD, 4209</p>
-                                  </div>
-                                </div>
-
-                                {/* <!-- option  add className: - options--open --> */}
-                                <div className="options">
-                                  <button
-                                    type="button"
-                                    className="options__btn"
-                                    data-type="options"
-                                  >
-                                    <i className="icon icon-more"></i>
-                                  </button>
-
-                                  <div className="options__dropdown">
-                                    <ul className="list-unstyled mb-0">
-                                      {locationData.map((item: any, index: number) => (
-                                        <li key={index}>
-                                          <a href={item.href}>{item.text}</a>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                            </article>
-                          </li>
-                          <li className="timeline__item">
-                            <span className="timeline__date">
-                              10:00 am Friday
-                            </span>
-                            <article className="timeline__card card-timeline">
-                              {/* <!-- notification --> */}
-                              <div className="card-timeline__notification">
-                                <i className="icon icon-bell"></i>
-                                <span></span>
-                              </div>
-                              {/* <!-- card-inner --> */}
-                              <div className="card-timeline__inner">
-                                {/* <!-- card-header --> */}
-                                <div className="card-timeline__header">
-                                  <div className="card-timeline__info card-timeline__info--main">
-                                    <p>
-                                      Lunch with friends in lorem ipsum dolor sit
-                                      amet or something
-                                    </p>
-                                    <p>
-                                      Budget:{" "}
-                                      <span className="bold">$45 per person</span>
-                                    </p>
-                                  </div>
-                                </div>
-                                {/* <!-- option  add className: - options--open --> */}
-                                <div className="options">
-                                  <button
-                                    type="button"
-                                    className="options__btn"
-                                    data-type="options"
-                                  >
-                                    <i className="icon icon-more"></i>
-                                  </button>
-
-                                  <div className="options__dropdown">
-                                    <ul className="list-unstyled mb-0">
-                                      {locationData.map((item:any, index:number) => (
-                                        <li key={index}>
-                                          <a href={item.href}>{item.text}</a>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                            </article>
-                          </li>
-                          <li className="timeline__item">
-                            <span className="timeline__date">
-                              14:30 pm Friday
-                            </span>
-                            <article className="timeline__card card-timeline card-timeline--visible-notification">
-                              {/* <!-- notification --> */}
-                              <div className="card-timeline__notification">
-                                <i className="icon icon-bell"></i>
-                                <span></span>
-                              </div>
-                              {/* <!-- card-inner --> */}
-                              <div className="card-timeline__inner">
-                                {/* <!-- card-header --> */}
-                                <div className="card-timeline__header">
-                                  <span className="card-timeline__title">
-                                    <span>Added by:</span>
-                                    <span className="bold">You</span>
-                                  </span>
-                                  <div className="card-timeline__info card-timeline__info--main">
-                                    <p>
-                                      Product name lorem ipsum dolor sit amet or
-                                      something
-                                    </p>
-                                    <p>
-                                      Budget:{" "}
-                                      <span className="bold">$45 per person</span>
-                                    </p>
-                                  </div>
-                                </div>
-                                {/* <!-- card-body --> */}
-                                <div className="card-timeline__body">
-                                  <figure className="card-timeline__img mb-0">
-                                    <img
-                                      src="../../images/product/1.jpg"
-                                      alt="product"
-                                    />
-                                  </figure>
-                                </div>
-                                {/* <!-- card-bottom --> */}
-                                <div className="card-timeline__bottom">
-                                  <span className="card-timeline__title">
-                                    Comment
-                                  </span>
-                                  <div className="card-timeline__info">
-                                    <p>I plan to buy it for my mum</p>
-                                  </div>
-                                </div>
-                                {/* <!-- option  add className: - options--open --> */}
-                                <div className="options">
-                                  <button
-                                    type="button"
-                                    className="options__btn"
-                                    data-type="options"
-                                  >
-                                    <i className="icon icon-more"></i>
-                                  </button>
-
-                                  <div className="options__dropdown">
-                                    <ul className="list-unstyled mb-0">
-                                      {locationData.map((item: any, index: number) => (
-                                        <li key={index}>
-                                          <a href={item.href}>{item.text}</a>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                            </article>
-                          </li>
+                          {timelineData.map((item: any, index: any) => (
+                            <Timeline
+                              key={index}
+                              info={item.info}
+                              time={item.time}
+                              adder={item.adder}
+                              content={item.content}
+                              budget={item.budget}
+                              product={item.product}
+                              comment={item.comment}
+                            />
+                          ))}
                         </ul>
                       </div>
                     </div>
@@ -445,6 +249,10 @@ const AdminDashboardContent: React.FC<AdminDashbordProps> = () => {
                       Load more
                     </a>
                   </section>
+                </div> :
+                <div className={`toogle-box__body ${isCard1Open && 'openBody'}`}>
+                  <div className="toogle-box__scroll pl-24 pr-20">
+                  </div>
                 </div>
               }
             </div>
@@ -452,7 +260,7 @@ const AdminDashboardContent: React.FC<AdminDashbordProps> = () => {
               <div className={`toogle-box__header ${isCard2Open && "open"}`}>
                 <div className="toogle-box__header--left">
                   <h3>
-                    shoppers messages (<span>4</span>)
+                    shoppers messages <span>({`${sectionData.length}`})</span>
                   </h3>
                 </div>
                 <div className="toogle-box__header--right">
@@ -476,37 +284,40 @@ const AdminDashboardContent: React.FC<AdminDashbordProps> = () => {
               <div
                 className={`toogle-box__body ${isCard2Open ? "openBody" : ""}`}
               >
-                <div
-                  className="toogle-box__scroll pl-24 pr-20 position-relative"
-                  data-scroll="perfect-scrollbar"
-                >
-                  <div className="message">
-                    <section className="section-content">
-                      {sectionData.map((item:any, index: number) => (
-                        <div
-                          className="message__single new__message d-flex w-100"
-                          key={index}
-                        >
-                          <div className="message__body d-flex w-100 justify-content-between">
-                            <div className="message__left d-flex align-items-center">
-                              <div
-                                className="message__photo"
-                                style={{ backgroundImage: `${item.bgImg}` }}
-                              ></div>
-                              <div className="message__detail d-flex flex-column">
-                                <strong>{item.title}</strong>
-                                <span>{item.text}</span>
+                {sectionData.length > 0 ?
+                  <div
+                    className="toogle-box__scroll pl-24 pr-20 position-relative"
+                    data-scroll="perfect-scrollbar"
+                  >
+                    <div className="message">
+                      <section className="section-content">
+                        {sectionData.map((item:any, index: number) => (
+                          <div
+                            className="message__single new__message d-flex w-100"
+                            key={index}
+                          >
+                            <div className="message__body d-flex w-100 justify-content-between">
+                              <div className="message__left d-flex align-items-center">
+                                <div
+                                  className="message__photo"
+                                  style={{ backgroundImage: `${item.bgImg}` }}
+                                ></div>
+                                <div className="message__detail d-flex flex-column">
+                                  <strong>{item.title}</strong>
+                                  <span>{item.text}</span>
+                                </div>
+                              </div>
+                              <div className="message__right d-flex flex-column">
+                                <span className="message__date">{item.time}</span>
                               </div>
                             </div>
-                            <div className="message__right d-flex flex-column">
-                              <span className="message__date">{item.time}</span>
-                            </div>
                           </div>
-                        </div>
-                      ))}
-                    </section>
-                  </div>
-                </div>
+                        ))}
+                      </section>
+                    </div>
+                  </div> :
+                  <div className="toogle-box__scroll pl-24 pr-20 mt-4"></div>
+                }
               </div>
             </div>
             <section className="section-aside-right-mob">
@@ -523,7 +334,7 @@ const AdminDashboardContent: React.FC<AdminDashbordProps> = () => {
                       className="statistic__item d-flex flex-column align-items-center justify-content-center"
                       key={index}
                     >
-                      <span className="statistic-num">{item.num}</span>
+                      <span className="statistic-num">{item.num ? item.num : 0}</span>
                       <span className="statistic-text">{item.text}</span>
                     </li>
                   ))}
@@ -568,7 +379,7 @@ const AdminDashboardContent: React.FC<AdminDashbordProps> = () => {
                             <i className={item.iconClass}></i>
                             <span>{item.span}</span>
                             <strong className="mycustomFont">
-                              {item.strong}
+                              {item.strong ? item.strong : 0}
                             </strong>
                           </li>
                         ))}
@@ -614,7 +425,7 @@ const AdminDashboardContent: React.FC<AdminDashbordProps> = () => {
                 <ul className="moments__list d-flex flex-wrap align-items-start justify-content-between list-unstyled mb-0">
                   {momentData.map((item: any, index: number) => (
                     <li className="moments__item d-flex flex-column" key={index}>
-                      <span className="moments__num">{item.num}</span>
+                      <span className="moments__num">{item.num ? item.num : 0}</span>
                       <h2 className="moments__title text-orange">
                         {item.title}
                       </h2>
