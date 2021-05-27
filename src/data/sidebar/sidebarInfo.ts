@@ -3,7 +3,7 @@ import React from 'react';
 export const sidebarInfo = [
     {
       id: 1,
-      href: "/dashboard",
+      href: "/dashboard/main",
       img: "icon icon-dashboard",
       content: "Dashboard",
       num: "",
