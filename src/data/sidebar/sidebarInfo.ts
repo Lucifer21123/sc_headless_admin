@@ -2,22 +2,22 @@ import React from 'react';
 
 export const sidebarInfo = [
     {
-      class: "admin-menu__item--visit",
-      href: "#",
+      id: 1,
+      href: "/dashboard",
       img: "icon icon-dashboard",
       content: "Dashboard",
       num: "",
     },
     {
-      class: "",
-      href: "#",
+      id: 2,
+      href: "/dashboard/alerts",
       img: "icon icon-notification",
       content: "Alerts",
       num: "(2)",
     },
     {
-      class: "",
-      href: "#",
+      id: 3,
+      href: "/dashboard/alerts-no",
       img: "icon icon-messages",
       content: "Trading room",
       num: "",

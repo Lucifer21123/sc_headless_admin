@@ -14,8 +14,6 @@ interface AlertsBoxProps {
 
 const AlertsBox = (props: AlertsBoxProps) => {
 
-	// const { info, bgImg, title, contentVal, sku, qty, price, commentsNum, editLink } = props;
-	console.log("props", props)
 	if (props.info === '1')
 		return (
 			<li className="reminders__item">
@@ -41,7 +39,7 @@ const AlertsBox = (props: AlertsBoxProps) => {
 						</div>
 					</div>
 					<div className="card-alerts__bottom w-100 d-flex justify-content-end">
-						<a href="#" className="btn-blue-link">
+						<a href="#" className="btn-blue-link mycustomFont">
 							{props.editLink}
 						</a>
 					</div>

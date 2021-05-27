@@ -16,6 +16,12 @@ const Sidebar: React.FC<SideBarProps> = (props) => {
   const [isList5Open, setIsList5Open] = useState(false);
   const [isList6Open, setIsList6Open] = useState(false);
   const [isList7Open, setIsList7Open] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleClick = (e: any) => {
+    setActiveIndex(e)
+    console.log(e)
+  }
 
   return (
     <div className={`admin-menu position-fixed ${isOpen && 'admin-menu--minimize'} ${ isHide ? 'sidebar-show' :  'sidebar-hide'}`}>
@@ -69,11 +75,11 @@ const Sidebar: React.FC<SideBarProps> = (props) => {
 
             <ul className="admin-menu__list d-flex flex-column list-unstyled mb-0">
               {sidebarInfo.map((item: any, index: number) => (
-                <li className={`'admin-menu__item' ${item.class}`} key={index}>
-                <a href={item.href} className="admin-menu__link position-relative">
-                  <i className={item.img}></i>
-                  <span>{item.content}<b>{item.num}</b></span>
-                </a>
+                <li className={`'admin-menu__item' ${activeIndex === index ? 'admin-menu__item--visit' : ''}`} key={index} onClick={() => handleClick(index)}>
+                  <a href={item.href} className="admin-menu__link position-relative">
+                    <i className={item.img}></i>
+                    <span>{item.content}<b>{item.num}</b></span>
+                  </a>
               </li>
               ))}
               <li className={`admin-menu__item admin-menu__item--submenu ${isList1Open && 'js-open'}`}>
