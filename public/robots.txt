@@ -1,3 +1,14 @@
-# https://www.robotstxt.org/robotstxt.html
+User-agent: Twitterbot
+Allow: /
+
 User-agent: *
-Disallow:
+Allow: /
+#Allow: /a
+#Allow: /b
+#Allow: /posts/*
+#Disallow: /
+#Disallow: /a/*
+#Disallow: /b/*
+#Disallow: /posts
+
+#Sitemap: https://sitemap-robots.now.sh/sitemap.xml
