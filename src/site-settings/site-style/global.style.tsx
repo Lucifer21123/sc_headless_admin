@@ -22,8 +22,6 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
     body: {
       maxWidth: "1920px",
       margin: "0 auto",
-      overflow: "hidden",
-      overflowY: "auto",
       fontFamily: "Neue Haas Grotesk Display Pro, sans-serif",
       fontWeight: "regular",
       fontSize: "base",
@@ -136,9 +134,9 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
     ".wrapper": {
       maxWidth: "1400px",
       margin: "0 auto",
-      position: "relative",
       zIndex: "10",
       padding: "0 30px",
+      minHeight: "100vh",
     },
     ".container": {
       marginLeft: "0px",

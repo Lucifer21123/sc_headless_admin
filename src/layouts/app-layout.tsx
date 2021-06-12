@@ -12,6 +12,10 @@ import LeftMenu from "./leftmenu";
 
 import OverLay from "./overlay";
 
+import SideBar from "components/Sidebar/Sidebar";
+
+import SidebarMenu from "components/SidbarMenu/index";
+
 type LayoutProps = {
   deviceType: {
     mobile: boolean;
@@ -30,16 +34,17 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
     setOpen(false);
   };
   return (
-    <LayoutWrapper>
+    <>
+      <SidebarMenu open={open} onClose={onOverLayClick}></SidebarMenu>
       <HeaderContainer>
-        <Header />
+        <Header onMenuClick={onMenuClick} />
       </HeaderContainer>
       <LeftMenuContainer>
         <LeftMenu></LeftMenu>
       </LeftMenuContainer>
       <BodyContainer>{children}</BodyContainer>
       {open && <OverLay handleSide={onOverLayClick} />}
-    </LayoutWrapper>
+    </>
   );
 };
 

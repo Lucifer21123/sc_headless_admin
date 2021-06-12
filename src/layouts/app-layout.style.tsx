@@ -13,6 +13,8 @@ export const BodyContainer = styled.div`
   position: relative;
   width: 100%;
   z-index: 0;
+  height: auto;
+  background-color: #f8f9fb !important;
 `;
 
 export const HeaderContainer = styled.div`
@@ -37,7 +39,6 @@ export const LeftMenuContainer = styled.div`
   position: fixed;
   left: 0px;
   top: 94px;
-  bottom: 0;
   transition: top 0.3s;
   z-index: 3;
 `;

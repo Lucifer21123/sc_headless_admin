@@ -79,7 +79,7 @@ const onItemClick = (item) => {
   console.log(item);
 };
 
-const Header: React.FC = () => {
+const Header = ({ onMenuClick }) => {
   return (
     <HeaderWrapper>
       <HeaderContainer>
@@ -100,7 +100,11 @@ const Header: React.FC = () => {
           </SearchInput>
         </HeaderSearch>
         <HeaderRight>
-          <HeaderAdmin>
+          <HeaderAdmin
+            onClick={() => {
+              onMenuClick();
+            }}
+          >
             <span>AD</span>
           </HeaderAdmin>
           <HeaderUserSelect>

@@ -5,14 +5,15 @@ import styled from "styled-components";
 export const OverLayWrapper = styled.header`
   position: fixed;
   width: 100%;
-  height: calc(100%-60px);
+  height: 100%;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 100;
+  background-color: #f8f9fb !important;
+  z-index: 9999;
+  filter: blur(15px);
+  transition: 0.3s;
 `;
 
 const OverLay = ({ handleSide }) => {
