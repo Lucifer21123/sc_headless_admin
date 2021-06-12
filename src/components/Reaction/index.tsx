@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import commentImage from "assets/images/home/image14.png";
 
-import likeSvg from "assets/images/product/viewProduct/like.svg";
-import heartSvg from "assets/images/product/viewProduct/heart.svg";
-import joySvg from "assets/images/product/viewProduct/joy.svg";
-import wowSvg from "assets/images/product/viewProduct/wow.svg";
-import angrySvg from "assets/images/product/viewProduct/angry.svg";
+import likeSvg from "assets/images/Product/viewProduct/like.svg";
+import heartSvg from "assets/images/Product/viewProduct/heart.svg";
+import joySvg from "assets/images/Product/viewProduct/joy.svg";
+import wowSvg from "assets/images/Product/viewProduct/wow.svg";
+import angrySvg from "assets/images/Product/viewProduct/angry.svg";
 
 export const CommentContainer = styled.div`
   display: flex;

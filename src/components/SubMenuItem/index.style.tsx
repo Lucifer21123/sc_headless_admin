@@ -63,7 +63,8 @@ type AdminSubMenuContainerProps = {
 export const AdminSubMenuContainer = styled.div<AdminSubMenuContainerProps>`
   display: ${(props) => (props.show ? "block" : "none")};
   width: auto;
-  height: auto;
+  height: ${(props) => (props.show ? "auto" : "0")};
+  transition: height 0.3s ease-in-out;
 `;
 
 export const Icon = styled.svg`

@@ -29,11 +29,11 @@ import { BiChevronDown } from "react-icons/bi";
 import { BiChevronUp } from "react-icons/bi";
 
 //! import emotion Icons
-import likeSvg from "assets/images/product/viewProduct/like.svg";
-import heartSvg from "assets/images/product/viewProduct/heart.svg";
-import joySvg from "assets/images/product/viewProduct/joy.svg";
-import wowSvg from "assets/images/product/viewProduct/wow.svg";
-import angrySvg from "assets/images/product/viewProduct/angry.svg";
+import likeSvg from "assets/images/Product/viewProduct/like.svg";
+import heartSvg from "assets/images/Product/viewProduct/heart.svg";
+import joySvg from "assets/images/Product/viewProduct/joy.svg";
+import wowSvg from "assets/images/Product/viewProduct/wow.svg";
+import angrySvg from "assets/images/Product/viewProduct/angry.svg";
 import Progress from "components/Progress";
 
 const ProductItems = ({ item }) => {
