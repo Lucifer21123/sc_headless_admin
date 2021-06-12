@@ -37,6 +37,7 @@ export const LeftMenuContainer = styled.div`
   position: fixed;
   left: 0px;
   top: 94px;
+  bottom: 0;
   transition: top 0.3s;
   z-index: 3;
 `;

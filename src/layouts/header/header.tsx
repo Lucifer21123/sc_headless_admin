@@ -49,7 +49,7 @@ const onSearchClick = () => {
  */
 const dropDownSettings = {
   fontSize: "18px",
-  fontWeight: "900",
+  fontWeight: "500",
   color: "#212529",
   headerColor: "#315293",
   backgroundColor: "white",

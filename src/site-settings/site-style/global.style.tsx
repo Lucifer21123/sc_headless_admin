@@ -17,12 +17,13 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
       outline: "none !important",
     },
     html: {
-      overflowX: "hidden",
+      overflowX: "auto",
     },
     body: {
       maxWidth: "1920px",
       margin: "0 auto",
-      overflowX: "hidden",
+      overflow: "hidden",
+      overflowY: "auto",
       fontFamily: "Neue Haas Grotesk Display Pro, sans-serif",
       fontWeight: "regular",
       fontSize: "base",
@@ -142,6 +143,18 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
     ".container": {
       marginLeft: "0px",
       padding: "20px 0 40px 219px",
+
+      "@media screen and (max-width: 768px)": {
+        maxWidth: "100%",
+        paddingRight: "30px",
+        paddingLeft: "30px",
+      },
+      "@media screen and (max-width: 992px)": {
+        maxWidth: "100%",
+      },
+      "@media screen and (max-width: 1400px)": {
+        maxWidth: "1433px !important",
+      },
     },
     ".header-wrapper": {
       maxWidth: "1400px",

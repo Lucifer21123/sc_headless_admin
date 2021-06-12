@@ -38,7 +38,7 @@ export default class CustomDocument extends Document {
       <Html lang="zh" style={{ scrollBehavior: "smooth" }}>
         <Head>
           <link
-            href="https://fonts.googleapis.com/css?family=Neue+Haas+Grotesk+Display:100,200,300,400,500,600,700,800,900"
+            href="https://fonts.cdnfonts.com/css/neue-haas-grotesk-display"
             rel="stylesheet"
           ></link>
         </Head>

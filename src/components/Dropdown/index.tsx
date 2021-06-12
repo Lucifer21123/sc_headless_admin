@@ -21,7 +21,6 @@ const ArrowContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  magin-right: 10px;
 `;
 
 const StyledDropDownHeader = styled.div<HeaderProps>`
@@ -30,7 +29,7 @@ const StyledDropDownHeader = styled.div<HeaderProps>`
   span {
     font-weight: ${(props) => props.fontWeight};
     font-size: ${(props) => props.fontSize};
-    color: ${(props) => props.color};
+    color: ${(props) => props.color} !important;
   }
   text-align: left;
   display: flex;

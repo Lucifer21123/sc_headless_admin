@@ -81,6 +81,7 @@ const SearchInput = ({
   BackgroundColor = "rgba(232,235,242,.3)",
   Transition = ".3s",
   ActiveBorder = "1px solid rgba(53,85,143,.5)",
+  Placeholder = "Search for Something",
   None = true,
   onChange,
   onClick,
@@ -122,7 +123,7 @@ const SearchInput = ({
             setHide(true);
           }
         }}
-        placeholder="Search for something"
+        placeholder={Placeholder}
       />
       <button
         className="search-button"

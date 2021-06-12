@@ -124,8 +124,8 @@ export const defaultTheme = {
     bolder: 800,
   },
   fonts: {
-    base: "Montserrat",
-    montserrat: "Montserrat",
+    base: "Neue Haas Grotesk Display Pro, sans-serif",
+    montserrat: "Neue Haas Grotesk Display Pro, sans-serif",
   },
 
   // Custom Theme keys
