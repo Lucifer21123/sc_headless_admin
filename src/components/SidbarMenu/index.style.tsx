@@ -195,3 +195,72 @@ export const SectionContent = styled.div`
     }
   }
 `;
+
+export const ThemeBackground = styled.div`
+  & ul {
+    display: flex;
+    flex-wrap: wrap !important;
+    & li {
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+  }
+`;
+
+export const ThemeSelect = styled.div`
+  display: flex;
+  flex-direction: column;
+  & .theme-box-shadow {
+    cursor: pointer;
+    position: relative;
+    width: 57px;
+    height: 57px;
+    border-width: 0;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    box-shadow: 2px 2px 4px 1px rgb(11 2 18 / 8%);
+    & img {
+      width: 55px;
+      height: 55px;
+    }
+    :hover {
+      border-width: 1px;
+      border-color: #f97d00;
+    }
+  }
+  & span {
+    font-size: 14px;
+    line-height: 17px;
+    color: #0b0212;
+  }
+`;
+
+export const ModalFooter = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 80px;
+  z-index: 2;
+  background-color: #fff;
+  padding: 0 24px;
+`;
+
+export const FooterCenter = styled.div`
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  justify-content: space-between;
+
+  & .icon-button {
+    & span {
+      margin-left: 8px;
+      margin-bottom: 0px;
+      font-size: 16px;
+      line-height: 19px;
+      color: #335491;
+    }
+  }
+`;

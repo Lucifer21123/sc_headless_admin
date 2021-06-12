@@ -14,45 +14,60 @@ type HeaderProps = {
   fontWeight: string;
   color: string;
   hover: string;
+  borderColor: string;
+  backgroundColor: string;
 };
 
 const ArrowContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   magin-right: 10px;
 `;
 
 const StyledDropDownHeader = styled.div<HeaderProps>`
   cursor: pointer;
+  padding-left: 10px;
+  padding-right: 4px;
+  border: none;
+  display: flex;
   width: 100%;
+  align-items: center;
+
+  background-color: ${(props) => props.backgroundColor};
   span {
     font-weight: ${(props) => props.fontWeight};
     font-size: ${(props) => props.fontSize};
     color: ${(props) => props.color};
+    margin-bottom: 0px !important;
   }
   text-align: left;
-  display: flex;
-  align-items: baseline;
+  border-radius: 8px;
+  height: 40px;
   :hover {
     color: ${(props) => props.hover};
+  }
+  :active {
+    border: 0.1px solid ${(props) => props.borderColor};
+  }
+  :focus {
+    border: 0.1px solid ${(props) => props.borderColor};
   }
 `;
 
 type DropdownDivProps = {
-  backgroundColor: string;
   borderRadius: string;
   boxShadow: string;
   arrowTop: string;
   arrowRight: string;
-
   hide: boolean;
 };
 
 const StyledDropDownDiv = styled.div<DropdownDivProps>`
   padding: 12px 10px;
-  background: ${(props) => props.backgroundColor};
+  background: white;
   border-radius: ${(props) => props.borderRadius};
   box-shadow: ${(props) => props.boxShadow};
   z-index: 999;
@@ -66,17 +81,17 @@ const StyledDropDownDiv = styled.div<DropdownDivProps>`
     content: "";
     position: absolute;
     bottom: 100%;
-    right: 32px;
+    left: 32px;
     margin-left: -7px;
     border-width: 7px;
     border-style: solid;
     border-color: transparent transparent white transparent;
   }
   & ul {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 200px;
     & li {
       width: 100%;
       padding: 4px;
@@ -94,11 +109,11 @@ type ItemProps = {
 };
 
 const DropdownItemDiv = styled.div<ItemProps>`
+  width: 100%;
   text-align: left;
   font-size: ${(props) => props.itemFontSize};
   font-weight: ${(props) => props.itemFontWeight};
   color: ${(props) => props.itemFontColor};
-  width: 100%;
   :hover {
     background-color: ${(props) => props.hoverBackgroundColor};
     color: ${(props) => props.hoverColor};
@@ -129,7 +144,7 @@ type currentType = {
  * 
  */
 
-const Dropdown = ({ settings, list, label, click }) => {
+const Select = ({ settings, list, label, click }) => {
   const [current, setCurrent] = useState<currentType>({
     id: label,
     label: label,
@@ -165,6 +180,8 @@ const Dropdown = ({ settings, list, label, click }) => {
         fontSize={settings.fontSize}
         fontWeight={settings.fontWeight}
         color={settings.headerColor}
+        borderColor={settings.borderColor}
+        backgroundColor={settings.backgroundColor}
         hover={settings.hoverColor}
         onClick={() => {
           setHide(!hide);
@@ -176,7 +193,6 @@ const Dropdown = ({ settings, list, label, click }) => {
         </ArrowContainer>
       </StyledDropDownHeader>
       <StyledDropDownDiv
-        backgroundColor={settings.backgroundColor}
         borderRadius={settings.borderRadius}
         boxShadow={settings.boxShadow}
         arrowTop={settings.arrowTop}
@@ -212,4 +228,4 @@ const Dropdown = ({ settings, list, label, click }) => {
   );
 };
 
-export default Dropdown;
+export default Select;
