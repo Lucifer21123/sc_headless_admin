@@ -133,6 +133,7 @@ export const ModalBody = styled.div`
   height: calc(100% - 80px);
   position: relative;
   flex: 1 1 auto;
+  overflow: scroll;
 `;
 
 export const ModalContainer = styled.div`

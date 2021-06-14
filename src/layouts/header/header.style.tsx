@@ -109,3 +109,28 @@ export const ButtonContainer = styled.div`
   flex: 1;
   justify-content: flex-end;
 `;
+
+export const SearchContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`;
+
+export const PopularBottom = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & .link-blue {
+    color: #335491;
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+  }
+`;
+
+export const SnatchButtonContent = styled.div`
+  width: 100%;
+  margin-bottom: 16px;
+  margin-top: 22px;
+`;

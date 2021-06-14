@@ -26,12 +26,18 @@ type LayoutProps = {
 
 const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
   const [open, setOpen] = useState(false);
+  const [scroll, setscroll] = useState(false);
+  const [scrollTop, setscrollTop] = useState(0);
+  const [myRef, setmyRef] = useState(null);
   const onMenuClick = () => {
     setOpen(true);
   };
 
   const onOverLayClick = () => {
     setOpen(false);
+  };
+  const onScroll = () => {
+    console.log("scroll event is running");
   };
   return (
     <>
@@ -42,7 +48,9 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
       <LeftMenuContainer>
         <LeftMenu></LeftMenu>
       </LeftMenuContainer>
-      <BodyContainer>{children}</BodyContainer>
+      <BodyContainer ref={myRef} onScroll={onScroll}>
+        {children}
+      </BodyContainer>
       {open && <OverLay handleSide={onOverLayClick} />}
     </>
   );

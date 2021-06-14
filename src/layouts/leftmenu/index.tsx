@@ -185,6 +185,7 @@ const LeftMenu = () => {
                 </MenuItem>
               ) : (
                 <SubMenuItem
+                  key={key}
                   onClick={onClickSubItem}
                   hide={hide}
                   item={item.label}

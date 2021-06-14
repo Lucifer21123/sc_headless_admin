@@ -12,6 +12,7 @@ import {
 } from "./index.style";
 
 import { FiChevronDown } from "react-icons/fi";
+import { FiChevronUp } from "react-icons/fi";
 
 const SubMenuItem = ({ hide, item, list, onClick, children }) => {
   const [itemShow, setitemShow] = useState(false);
@@ -20,20 +21,31 @@ const SubMenuItem = ({ hide, item, list, onClick, children }) => {
       <AdminSubMenuLink
         hide={hide}
         onClick={() => {
+          if (itemShow == false && hide == true) {
+            onClick(!itemShow);
+          }
           setitemShow(!itemShow);
         }}
       >
         <Icon>{children}</Icon>
         <span>{item}</span>
-        <IconArrow hide={hide}>
-          <FiChevronDown size={20} color="#315293"></FiChevronDown>
-        </IconArrow>
+        {itemShow ? (
+          <IconArrow hide={hide}>
+            <FiChevronUp size={15} color="#315293"></FiChevronUp>
+          </IconArrow>
+        ) : (
+          <IconArrow hide={hide}>
+            <FiChevronDown size={15} color="#315293"></FiChevronDown>
+          </IconArrow>
+        )}
       </AdminSubMenuLink>
-      <AdminSubMenuContainer show={itemShow}>
+      <AdminSubMenuContainer
+        show={hide ? false && setitemShow(!itemShow) : itemShow}
+      >
         <AdminMenuList>
           {list.map((item, key) => {
             return (
-              <AdminMenuItem>
+              <AdminMenuItem key={key}>
                 <AdminMenuLink hide={hide}>
                   <span>{item.label}</span>
                 </AdminMenuLink>

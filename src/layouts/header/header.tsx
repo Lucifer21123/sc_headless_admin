@@ -11,7 +11,15 @@ import {
   UserSelect,
   HeaderDropDown,
   ButtonContainer,
+  SearchContainer,
+  PopularBottom,
+  SnatchButtonContent,
 } from "./header.style";
+
+//!import productImage
+
+import ProductImg1 from "assets/images/product/viewProduct/7142447382608.png";
+import PopularImg from "assets/images/product/viewProduct/car.jpg";
 
 //!import logoIcon
 import SplitcheckLogo from "assets/icons/splitcheck-w-logo.png";
@@ -21,6 +29,11 @@ import UserImage from "assets/images/layout/header/header-logo.png";
 import SearchInput from "components/SearchInput";
 import Dropdown from "components/Dropdown";
 import { Button } from "components/Button";
+
+import Hashtags from "components/Hashtags/index";
+import SearchProduct from "components/SearchProduct/index";
+import PopularItems from "components/SearchProductPopular/index";
+import SnatchButton from "components/SnatchButton/index";
 
 const onChange = (event) => {
   console.log(event);
@@ -79,6 +92,62 @@ const onItemClick = (item) => {
   console.log(item);
 };
 
+const SearchProductData = {
+  hastags: [
+    {
+      title: "#esomething",
+      description: "Some short headline there",
+    },
+    {
+      title: "#esomething",
+      description: "Some short headline there",
+    },
+  ],
+  products: [
+    {
+      productSrc: ProductImg1,
+      title: "Short title could be here;could even be a bit longer one",
+      price: "$45.00",
+    },
+    {
+      productSrc: ProductImg1,
+      title: "Short title could be here;could even be a bit longer one",
+      price: "$45.00",
+    },
+  ],
+  populars: {
+    popularItems: [
+      {
+        title: "energy",
+      },
+      {
+        title: "echinacea",
+      },
+      {
+        title: "endurance",
+      },
+    ],
+    popularImg: {
+      popularImg: PopularImg,
+      text: "To help your skin thrive, use Moroccan argan extract which conditions and moisturiz",
+    },
+  },
+};
+const SnatchButtonSetting = {
+  width: "100%",
+  height: "40px",
+  fontSize: "16px",
+  radius: "5px",
+  bg: "#d36a00",
+  hoverColor: "#d36a00",
+  fontColor: "white",
+  borderColor: "#c66300",
+};
+
+const SnatchClick = () => {
+  console.log("Snatch Button Click");
+};
+
 const Header = ({ onMenuClick }) => {
   return (
     <HeaderWrapper>
@@ -96,7 +165,24 @@ const Header = ({ onMenuClick }) => {
         </HeaderLogo>
         <HeaderSearch>
           <SearchInput onChange={onChange} onClick={onSearchClick}>
-            <div>123</div>
+            <SearchContainer>
+              <Hashtags data={SearchProductData.hastags}></Hashtags>
+              <SearchProduct data={SearchProductData.products}></SearchProduct>
+              <PopularItems items={SearchProductData.populars}></PopularItems>
+              <PopularBottom>
+                <SnatchButtonContent>
+                  <SnatchButton
+                    onClick={SnatchClick}
+                    setting={SnatchButtonSetting}
+                  >
+                    Snatch it!
+                  </SnatchButton>
+                </SnatchButtonContent>
+                <a href="#" className="link-blue">
+                  Show all results(999)
+                </a>
+              </PopularBottom>
+            </SearchContainer>
           </SearchInput>
         </HeaderSearch>
         <HeaderRight>

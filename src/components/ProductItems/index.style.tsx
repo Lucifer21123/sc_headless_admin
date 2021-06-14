@@ -128,10 +128,11 @@ type ItemBodyProps = {
 export const ProductItemBody = styled.div<ItemBodyProps>`
   max-width: 660px;
   width: 100%;
-  height: ${(props) => (props.hide ? "0" : "auto")};
+  max-height: ${(props) => (props.hide ? "0" : "1000px")};
+  opacity: ${(props) => (props.hide ? "0" : "1")};
+  margin: ${(props) => (props.hide ? "0px 0px 0px 84px" : "40px 0px 0px 84px")};
+  transition: all 0.5s ease-in-out;
   visibility: ${(props) => (props.hide ? "hidden" : "visible")};
-  margin: ${(props) => (props.hide ? "0" : "40px 0px 0px 84px")};
-  transition: height 1s ease;
 `;
 
 export const StatisticBox = styled.div`

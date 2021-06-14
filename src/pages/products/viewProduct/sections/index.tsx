@@ -296,7 +296,7 @@ const ViewProductSection = () => {
       </SortBox>
       <ProductItemsList>
         {ProductItemsData.map((item, key) => {
-          return <ProductItems item={item}></ProductItems>;
+          return <ProductItems key={key} item={item}></ProductItems>;
         })}
       </ProductItemsList>
     </MainContent>

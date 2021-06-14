@@ -59,17 +59,18 @@ const SeachContainer = styled.div<ContainerProps>`
   top: 50px;
   width: 100%;
   max-width: inherit;
-  height: 80vh;
   z-index: 9999;
   box-shadow: 1px 1px 4px 1px rgb(11 2 18 / 8%);
   border-radius: 8px;
   background-color: #fff;
   padding: 30px 16px 16px;
   transition: 0.4s;
-  overflow: hidden;
+  overflow: scroll;
   overflow-anchor: none;
   touch-action: none;
-  visibility: ${(props) => (props.hide == false ? "hidden" : "visible")};
+  height: ${(props) => (props.hide == false ? "0" : "80vh")};
+  transition: all 1s ease-in;
+  display: ${(props) => (props.hide == false ? "none" : "block")};
 `;
 
 const SearchInput = ({
@@ -133,7 +134,9 @@ const SearchInput = ({
       >
         <HiSearch size={25} color="#315293"></HiSearch>
       </button>
-      <SeachContainer hide={hide}>{children}</SeachContainer>
+      <SeachContainer hide={hide} ref={dropMenuRef}>
+        {children}
+      </SeachContainer>
     </SearchInputContent>
   );
 };

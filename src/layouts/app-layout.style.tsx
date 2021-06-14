@@ -11,16 +11,13 @@ export const BodyContainer = styled.div`
   padding-top: 75px;
   transition: 0.3s;
   position: relative;
-  width: 100%;
-  z-index: 0;
-  height: auto;
   background-color: #f8f9fb !important;
+  box-sizing: border-box;
 `;
 
 export const HeaderContainer = styled.div`
   padding: 0 16px;
   position: fixed;
-
   top: 0px;
   left: 0px;
   right: 0px;

@@ -4,6 +4,7 @@ export const MainContent = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  max-width: 1150px;
 `;
 
 export const MainHeader = styled.div`

@@ -20,8 +20,6 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
       overflowX: "auto",
     },
     body: {
-      maxWidth: "1920px",
-      margin: "0 auto",
       fontFamily: "Neue Haas Grotesk Display Pro, sans-serif",
       fontWeight: "regular",
       fontSize: "base",
@@ -132,26 +130,53 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
       zIndex: 20,
     },
     ".wrapper": {
-      maxWidth: "1400px",
-      margin: "0 auto",
       zIndex: "10",
-      padding: "0 30px",
       minHeight: "100vh",
-    },
-    ".container": {
-      marginLeft: "0px",
-      padding: "20px 0 40px 219px",
-
-      "@media screen and (max-width: 768px)": {
+      marginRight: "auto",
+      marginLeft: "auto",
+      "@media (min-width: 576px)": {
+        maxWidth: "100%",
+        paddingRight: "15px",
+        paddingLeft: "15px",
+      },
+      "@media (min-width: 768px)": {
         maxWidth: "100%",
         paddingRight: "30px",
         paddingLeft: "30px",
       },
-      "@media screen and (max-width: 992px)": {
+      "@media (min-width: 992px)": {
         maxWidth: "100%",
       },
-      "@media screen and (max-width: 1400px)": {
-        maxWidth: "1433px !important",
+      "@media (min-width: 1260px)": {
+        maxWidth: "1433px",
+      },
+    },
+    ".main-content": {
+      display: "flex",
+      alignItems: "flex-start",
+      padding: "20px 0 40px 219px",
+      "@media (min-width: 576px)": {},
+      "@media (min-width: 768px)": {},
+      "@media (min-width: 992px)": {},
+      "@media (min-width: 1500px)": {
+        paddingLeft: "217.5px",
+        marginLeft: "-15px",
+      },
+      "@media (min-width: 1600px)": {
+        paddingLeft: "135.5px",
+        marginLeft: "-15px",
+      },
+      "@media (min-width: 1700px)": {
+        paddingLeft: "85.5px",
+        marginLeft: "-15px",
+      },
+      "@media (min-width: 1800px)": {
+        paddingLeft: "35.5px",
+        marginLeft: "-15px",
+      },
+      "@media (min-width: 1900px)": {
+        paddingLeft: "0",
+        marginLeft: "-15px",
       },
     },
     ".header-wrapper": {

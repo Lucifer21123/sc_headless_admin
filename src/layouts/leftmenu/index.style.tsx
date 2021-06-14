@@ -6,7 +6,7 @@ type AdminMenuNavProps = {
 
 export const AdminMenuContainer = styled.div`
   height: 100%;
-  overflow-y: scroll;
+  //overflow-y: scroll;
   background-color: transparent;
 `;
 
