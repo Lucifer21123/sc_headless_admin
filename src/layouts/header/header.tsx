@@ -3,7 +3,9 @@ import React from "react";
 import {
   HeaderWrapper,
   HeaderContainer,
+  HeaderLeft,
   HeaderLogo,
+  HeaderBuger,
   HeaderSearch,
   HeaderRight,
   HeaderAdmin,
@@ -24,6 +26,10 @@ import PopularImg from "assets/images/Product/viewProduct/car.jpg";
 //!import logoIcon
 import SplitcheckLogo from "assets/icons/splitcheck-w-logo.png";
 import UserImage from "assets/images/layout/header/header-logo.png";
+
+//! import bugerimage
+
+import BugerImage from "assets/icons/burger-blue.svg";
 
 //! import components
 import SearchInput from "components/SearchInput";
@@ -152,17 +158,25 @@ const Header = ({ onMenuClick }) => {
   return (
     <HeaderWrapper>
       <HeaderContainer>
-        <HeaderLogo href="#">
-          <img className="header_img" src={SplitcheckLogo} />
-          <HoverText
-            FontWeight="500"
-            FontSize="16px"
-            HoverColor="#315293"
-            TextColor="#315293"
-          >
-            Manage stores
-          </HoverText>
-        </HeaderLogo>
+        <HeaderLeft>
+          <HeaderBuger>
+            <img src={BugerImage}></img>
+          </HeaderBuger>
+          <HeaderLogo href="#">
+            <img className="header_img" src={SplitcheckLogo} />
+            <div className="logoText">
+              <HoverText
+                FontWeight="500"
+                FontSize="16px"
+                HoverColor="#315293"
+                TextColor="#315293"
+              >
+                Manage stores
+              </HoverText>
+            </div>
+          </HeaderLogo>
+        </HeaderLeft>
+
         <HeaderSearch>
           <SearchInput onChange={onChange} onClick={onSearchClick}>
             <SearchContainer>

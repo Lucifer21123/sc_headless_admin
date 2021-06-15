@@ -40,7 +40,7 @@ const ProductItems = ({ item }) => {
   const [hide, setHide] = useState(true);
   return (
     <ProductItemContainer>
-      <ProductHeader>
+      <ProductHeader hide={hide}>
         <LeftContainer>
           <ProductItemPhoto>
             {item.isPhoto ? (

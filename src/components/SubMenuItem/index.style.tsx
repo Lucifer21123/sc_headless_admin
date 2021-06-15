@@ -61,11 +61,12 @@ type AdminSubMenuContainerProps = {
   show: boolean;
 };
 export const AdminSubMenuContainer = styled.div<AdminSubMenuContainerProps>`
-  visibility: ${(props) => (props.show ? "visible" : "hidden")};
+  display: block;
   opacity: ${(props) => (props.show ? "1" : "0")};
   width: auto;
-  max-height: ${(props) => (props.show ? "100px" : "0")};
-  transition: max-height 0.3s ease-in-out;
+  height: ${(props) => (props.show ? "auto" : "0")};
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
 `;
 
 export const Icon = styled.svg`

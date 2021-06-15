@@ -5,11 +5,9 @@ type AdminMenuNavProps = {
 };
 
 export const AdminMenuContainer = styled.div`
-  height: 100%;
-  //overflow-y: scroll;
   background-color: transparent;
-  diaplay: block;
-  @media screen and (max-width: 960px) {
+  display: block;
+  @media screen and (max-width: 991px) {
     display: none;
   }
 `;

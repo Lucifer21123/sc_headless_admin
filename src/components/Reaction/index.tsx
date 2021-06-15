@@ -58,6 +58,11 @@ export const CommentNumberImage = styled.div`
 
 export const CommentImageArea = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 767.98px) {
+    flex-direction: row;
+  }
 `;
 
 export const CommentText = styled.div`

@@ -34,6 +34,9 @@ export const ModalDialog = styled.div`
   transform: translate3d(0, 0, 0);
   display: flex;
   transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  @media screen and (max-width: 573px) {
+    width: 100%;
+  }
 `;
 
 export const ModalContent = styled.div`

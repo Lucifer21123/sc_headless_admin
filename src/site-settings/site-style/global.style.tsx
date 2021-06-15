@@ -132,6 +132,8 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
     ".wrapper": {
       zIndex: "10",
       minHeight: "100vh",
+      paddingRight: "15px",
+      paddingLeft: "15px",
       marginRight: "auto",
       marginLeft: "auto",
       "@media (min-width: 576px)": {
@@ -157,31 +159,29 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
       padding: "20px 0 40px 219px",
       "@media (max-width: 1900px)": {
         paddingLeft: "0",
-        marginLeft: "-15px",
       },
       "@media (max-width: 1800px)": {
         paddingLeft: "35.5px",
-        marginLeft: "-15px",
       },
       "@media (max-width: 1700px)": {
         paddingLeft: "85.5px",
-        marginLeft: "-15px",
       },
       "@media (max-width: 1600px)": {
         paddingLeft: "135.5px",
-        marginLeft: "-15px",
       },
       "@media (max-width: 1500px)": {
         paddingLeft: "217.5px",
-        marginLeft: "-15px",
       },
-      "@media (max-width: 960px)": {
-        padding: "0 0 0 0",
-        marginRight: "-15px",
+      "@media (max-width: 1300px)": {
+        padding: "20px 0 40px 219px",
+      },
+      "@media (max-width: 991px)": {
+        padding: "0",
+        margin: "0",
       },
       "@media (max-width: 320px)": {
-        padding: "0 0 0 0",
-        marginRight: "-15px",
+        padding: "0",
+        margin: "0",
       },
     },
     ".header-wrapper": {
@@ -191,7 +191,6 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
       zIndex: "11",
       padding: "0 30px",
     },
-
     ".circle": {
       borderRadius: "50%",
       position: "absolute",

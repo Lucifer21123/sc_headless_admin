@@ -30,6 +30,9 @@ export const HeaderContainer = styled.div`
   @media (min-width: 768px) {
     padding: 0 30px;
   }
+  @media screen and (max-width: 767.98px) {
+    height: 55px;
+  }
 `;
 
 export const LeftMenuContainer = styled.div`

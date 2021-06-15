@@ -15,26 +15,62 @@ export const HeaderContainer = styled.div`
   align-items: center;
 `;
 
+export const HeaderLeft = styled.div`
+  display: flex;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    max-width: 200px;
+    flex: 0 0 200px;
+    margin-right: 19px;
+  }
+  @media screen and (max-width: 1199px) {
+    max-width: 300px;
+  }
+  @media screen and (max-width: 768px) {
+    margin-right: 0;
+  }
+`;
+
+export const HeaderBuger = styled.div`
+  margin-right: 15px;
+  margin-top: -5px;
+  & img {
+    min-width: 24px;
+    height: 24px;
+  }
+  @media (min-width: 992px) {
+    display: none;
+  }
+`;
+
 export const HeaderLogo = styled.a`
   display: flex;
   align-items: center;
-  width: 100%;
-  max-width: 200px;
-  margin-right: 19px;
-
   :hover {
     outline: 0;
     text-decoration: none;
   }
   & .header_img {
-    max-width: 34px;
+    max-width: 24px;
     margin-right: 16px;
+    @media screen and (max-width: 996px) {
+      max-width: 24px;
+      margin-right: 0;
+    }
+  }
+  & .logoText {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
 `;
 
 export const HeaderSearch = styled.div`
   width: 100%;
   margin-left: 0px;
+  max-width: 670px;
+  margin-right: 7px;
+  margin-left: 7px;
   @media (min-width: 992px) {
     margin-right: 24px;
   }
@@ -69,7 +105,7 @@ export const HeaderUserSelect = styled.div`
   display: flex;
   @media (min-width: 992px) {
     min-width: 240px;
-    margin-right: auot;
+    margin-right: auto;
     margin-left: 0;
   }
 `;
@@ -94,6 +130,10 @@ export const UserSelect = styled.div`
     width: 100%;
     height: 100%;
   }
+  @media (max-width: 992px) {
+    margin-left: 0;
+    margin-right: 0;
+  }
 `;
 
 export const HeaderDropDown = styled.div`
@@ -102,12 +142,18 @@ export const HeaderDropDown = styled.div`
   display: flex;
   align-items: center;
   margin-left: -30px;
+  @media (max-width: 992px) {
+    display: none;
+  }
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
   flex: 1;
   justify-content: flex-end;
+  @media (max-width: 992px) {
+    display: none;
+  }
 `;
 
 export const SearchContainer = styled.div`

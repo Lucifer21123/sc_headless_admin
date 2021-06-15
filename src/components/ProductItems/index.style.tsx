@@ -10,10 +10,17 @@ export const ProductItemContainer = styled.div`
   transition: all 1s ease;
 `;
 
-export const ProductHeader = styled.div`
+type ProdudctHeaderProps = {
+  hide: boolean;
+};
+
+export const ProductHeader = styled.div<ProdudctHeaderProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 1199px) {
+    margin-bottom: ${(props) => (props.hide ? "-40px" : "0px")};
+  }
   @media screen and (max-width: 990px) {
     flex-direction: column;
     align-items: flex-start;
@@ -155,11 +162,23 @@ export const ProductItemsListControl = styled.div`
     text-decoration: underline !important;
     display: inline-block;
     margin-right: 24px;
-    @media screen and (max-width: 960px) {
+
+    @media screen and (max-width: 991px) {
       position: absolute;
       right: 30px;
       top: 40px;
     }
+    @media screen and (max-width: 575px) {
+      position: relative;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      height: 100% !important;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    padding-bottom: 15px;
+    width: 100%;
   }
 `;
 type ItemBodyProps = {
@@ -169,11 +188,16 @@ type ItemBodyProps = {
 export const ProductItemBody = styled.div<ItemBodyProps>`
   max-width: 660px;
   width: 100%;
-  max-height: ${(props) => (props.hide ? "0" : "1000px")};
   opacity: ${(props) => (props.hide ? "0" : "1")};
   margin: ${(props) => (props.hide ? "0px 0px 0px 84px" : "40px 0px 0px 84px")};
   transition: all 0.5s ease-in-out;
-  visibility: ${(props) => (props.hide ? "hidden" : "visible")};
+  height: ${(props) => (props.hide ? "0" : "auto")};
+  display: block;
+  overflow: hidden;
+  @media screen and (max-width: 1199px) {
+    margin: 0;
+    padding: 40px 25px 0;
+  }
 `;
 
 export const StatisticBox = styled.div`
@@ -182,6 +206,10 @@ export const StatisticBox = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0;
+  margin-bottom: 24px;
+  @media screen and (max-width: 991px) {
+    flex-direction: column;
+  }
 `;
 
 export const StatisticBoxHeader = styled.div`
@@ -308,5 +336,11 @@ export const ReachAndConversation = styled.div`
       text-align: left;
       margin-bottom: 15px;
     }
+    @media screen and (max-width: 991px) {
+      max-width: 100%;
+    }
+  }
+  @media screen and (max-width: 991px) {
+    flex-direction: column;
   }
 `;

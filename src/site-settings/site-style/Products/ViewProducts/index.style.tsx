@@ -19,6 +19,10 @@ export const MainHeader = styled.div`
     letter-spacing: 0.8px;
     font-weight: 500;
     margin-right: 8px;
+    text-transform: uppercase;
+  }
+  @media screen and (max-width: 991px) {
+    padding-left: 0 !important;
   }
 `;
 
@@ -26,7 +30,7 @@ export const SortBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 991px) {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -39,8 +43,14 @@ export const SearchContent = styled.div`
   width: 360px;
   transition: 0.3s;
   margin-right: 24px;
-  @media screen and (max-width: 960px) {
-    margin-bottom: 6px;
+  @media screen and (max-width: 1070px) {
+    margin-bottom: 17px;
+  }
+  @media screen and (max-width: 991px) {
+    width: 430px;
+  }
+  @media screen and (max-width: 767.98px) {
+    width: 100%;
   }
 `;
 
@@ -57,7 +67,7 @@ export const SortBoxInline = styled.div`
     margin: 0px;
     margin-right: 15px;
   }
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 991px) {
     margin-bottom: 6px;
   }
 `;
@@ -76,9 +86,26 @@ export const SortBoxFilter = styled.div`
   }
   & .sort-box-select {
     margin-right: 37px;
+    @media screen and (max-width: 1120px) {
+      margin-right: 16px;
+    }
+    @media screen and (max-width: 991px) {
+      margin-right: 37px;
+    }
+    @media screen and (max-width: 480px) {
+      margin-right: 20px;
+      :nth-child(4) {
+        padding-top: 7px;
+        margin-right: 45px !important;
+        margin-left: 72px;
+      }
+    }
   }
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 991px) {
     margin-bottom: 6px;
+  }
+  @media screen and (max-width: 430px) {
+    flex-wrap: wrap;
   }
 `;
 
