@@ -18,8 +18,8 @@ import {
 
 //!import productImage
 
-import ProductImg1 from "assets/images/product/viewProduct/7142447382608.png";
-import PopularImg from "assets/images/product/viewProduct/car.jpg";
+import ProductImg1 from "assets/images/Product/viewProduct/7142447382608.png";
+import PopularImg from "assets/images/Product/viewProduct/car.jpg";
 
 //!import logoIcon
 import SplitcheckLogo from "assets/icons/splitcheck-w-logo.png";

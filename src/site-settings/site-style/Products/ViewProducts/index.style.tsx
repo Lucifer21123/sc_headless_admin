@@ -26,6 +26,12 @@ export const SortBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  @media screen and (max-width: 960px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 `;
 
 export const SearchContent = styled.div`
@@ -33,6 +39,9 @@ export const SearchContent = styled.div`
   width: 360px;
   transition: 0.3s;
   margin-right: 24px;
+  @media screen and (max-width: 960px) {
+    margin-bottom: 6px;
+  }
 `;
 
 export const SortBoxInline = styled.div`
@@ -47,6 +56,9 @@ export const SortBoxInline = styled.div`
     text-transform: uppercase;
     margin: 0px;
     margin-right: 15px;
+  }
+  @media screen and (max-width: 960px) {
+    margin-bottom: 6px;
   }
 `;
 
@@ -64,6 +76,9 @@ export const SortBoxFilter = styled.div`
   }
   & .sort-box-select {
     margin-right: 37px;
+  }
+  @media screen and (max-width: 960px) {
+    margin-bottom: 6px;
   }
 `;
 

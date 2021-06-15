@@ -14,6 +14,10 @@ export const ProductHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 990px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const LeftContainer = styled.div`
@@ -75,6 +79,21 @@ export const ProductItemInfoHeader = styled.h3`
   display: inline-block;
   width: calc(100% - 5px);
   max-width: 450px;
+  @media screen and (max-width: 1350px) {
+    max-width: 450px;
+  }
+  @media screen and (max-width: 1230px) {
+    max-width: 300px;
+  }
+  @media screen and (max-width: 1045px) {
+    max-width: 200px;
+  }
+  @media screen and (max-width: 991px) {
+    max-width: 450px;
+  }
+  @media screen and (max-width: 575px) {
+    max-width: 200px;
+  }
 `;
 
 export const ProductItemInfoUL = styled.ul`
@@ -102,6 +121,13 @@ export const ProductItemLi = styled.li`
 export const RightContainer = styled.div`
   display: flex;
   align-items: center;
+  @media screen and (max-width: 990px) {
+    padding-right: 32px;
+    margin-left: 85px;
+  }
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 export const ProductReactions = styled.div`
@@ -119,6 +145,21 @@ export const ProductItemsListControl = styled.div`
     text-decoration: underline !important;
     display: inline-block;
     margin-right: 24px;
+  }
+  & .openFill {
+    cursor: pointer;
+    color: #335491 !important;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: right;
+    text-decoration: underline !important;
+    display: inline-block;
+    margin-right: 24px;
+    @media screen and (max-width: 960px) {
+      position: absolute;
+      right: 30px;
+      top: 40px;
+    }
   }
 `;
 type ItemBodyProps = {

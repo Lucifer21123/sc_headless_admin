@@ -74,7 +74,7 @@ const ProductItems = ({ item }) => {
             </a>
             <a>Edit</a>
             <a>Delete</a>
-            <a>
+            <a className="openFill">
               {hide ? (
                 <BiChevronDown
                   size={20}

@@ -6,6 +6,7 @@ import {
   AdminMenuWrap,
   AdminMenuList,
   AdminMenuContainer,
+  CopyRight,
 } from "./index.style";
 
 //! icons
@@ -198,6 +199,9 @@ const LeftMenu = () => {
           </AdminMenuList>
         </AdminMenuWrap>
       </AdminMenuNav>
+      <CopyRight hide={hide}>
+        <span>All rights reserved SplitchChek 2020</span>
+      </CopyRight>
     </AdminMenuContainer>
   );
 };

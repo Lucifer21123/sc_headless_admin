@@ -8,6 +8,10 @@ export const AdminMenuContainer = styled.div`
   height: 100%;
   //overflow-y: scroll;
   background-color: transparent;
+  diaplay: block;
+  @media screen and (max-width: 960px) {
+    display: none;
+  }
 `;
 
 export const AdminMenuNav = styled.div<AdminMenuNavProps>`
@@ -52,4 +56,22 @@ export const AdminMenuList = styled.ul`
   margin-bottom: 0px;
   padding-left: 0px;
   list-style: none;
+`;
+type CopyRightProps = {
+  hide: boolean;
+};
+export const CopyRight = styled.div<CopyRightProps>`
+  width: ${(props) => (props.hide ? "0px" : "226px")};
+  font-size: ${(props) => (props.hide ? "0" : "12px")};
+  opacity: ${(props) => (props.hide ? "0" : "1")};
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: 10px;
+  text-align: center;
+  opacity: 1;
+  pointer-events: none;
+  transition: 0.3s ease-in-out;
+  transition-delay: 0.5s;
+  color: #335491;
 `;

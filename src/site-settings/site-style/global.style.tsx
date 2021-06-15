@@ -155,28 +155,33 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
       display: "flex",
       alignItems: "flex-start",
       padding: "20px 0 40px 219px",
-      "@media (min-width: 576px)": {},
-      "@media (min-width: 768px)": {},
-      "@media (min-width: 992px)": {},
-      "@media (min-width: 1500px)": {
-        paddingLeft: "217.5px",
+      "@media (max-width: 1900px)": {
+        paddingLeft: "0",
         marginLeft: "-15px",
       },
-      "@media (min-width: 1600px)": {
-        paddingLeft: "135.5px",
-        marginLeft: "-15px",
-      },
-      "@media (min-width: 1700px)": {
-        paddingLeft: "85.5px",
-        marginLeft: "-15px",
-      },
-      "@media (min-width: 1800px)": {
+      "@media (max-width: 1800px)": {
         paddingLeft: "35.5px",
         marginLeft: "-15px",
       },
-      "@media (min-width: 1900px)": {
-        paddingLeft: "0",
+      "@media (max-width: 1700px)": {
+        paddingLeft: "85.5px",
         marginLeft: "-15px",
+      },
+      "@media (max-width: 1600px)": {
+        paddingLeft: "135.5px",
+        marginLeft: "-15px",
+      },
+      "@media (max-width: 1500px)": {
+        paddingLeft: "217.5px",
+        marginLeft: "-15px",
+      },
+      "@media (max-width: 960px)": {
+        padding: "0 0 0 0",
+        marginRight: "-15px",
+      },
+      "@media (max-width: 320px)": {
+        padding: "0 0 0 0",
+        marginRight: "-15px",
       },
     },
     ".header-wrapper": {
