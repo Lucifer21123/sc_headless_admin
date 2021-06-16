@@ -171,7 +171,7 @@ const Header = ({ onMenuClick }) => {
                 HoverColor="#315293"
                 TextColor="#315293"
               >
-                Manage stores
+                Manage Stores
               </HoverText>
             </div>
           </HeaderLogo>
@@ -216,7 +216,7 @@ const Header = ({ onMenuClick }) => {
                 settings={dropDownSettings}
                 list={list}
                 click={onItemClick}
-                label="Gnetix Nutrition"
+                label="Genetix Nutrition"
               ></Dropdown>
             </HeaderDropDown>
           </HeaderUserSelect>

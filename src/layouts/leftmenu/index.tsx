@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { RiDashboardFill } from "react-icons/ri";
 import {
   AdminMenuNav,
@@ -9,6 +9,9 @@ import {
   CopyRight,
 } from "./index.style";
 
+//! import custom Hook
+import { useWindowSize } from "utils/use-windowsize";
+import { useScrollPosition } from "utils/use-scroll";
 //! icons
 import { FiMinimize2 } from "react-icons/fi";
 import { BiChevronRight } from "react-icons/bi";
@@ -21,6 +24,7 @@ import { HiGift } from "react-icons/hi";
 import { IoMegaphoneOutline } from "react-icons/io5";
 import { BiStoreAlt } from "react-icons/bi";
 import { BsPhoneLandscape } from "react-icons/bs";
+
 //! import components
 import MenuItem from "components/MenuItem";
 import SubMenuItem from "components/SubMenuItem";
@@ -158,13 +162,44 @@ const MenuData = [
     ],
   },
 ];
+
 const LeftMenu = () => {
   const [hide, setHide] = useState(false);
+  const [currentHeight, setHeight] = useState(0);
+  const [leftMenuHeight, setLeftMenuHeight] = useState("auto");
+  const [overflowflag, setOverflow] = useState(false);
+
+  const leftMenuRef = useRef(null);
+  const [width, height] = useWindowSize();
+
+  useEffect(() => {
+    let height = leftMenuRef.current.offsetHeight;
+    if (height < leftMenuHeight) {
+      setLeftMenuHeight(height - 89 - 50 + "px");
+      setOverflow(true);
+    } else {
+      setLeftMenuHeight("auto");
+      setOverflow(false);
+    }
+    setHeight(height);
+  }, [leftMenuRef]);
+
+  useEffect(() => {
+    if (height < currentHeight) {
+      setLeftMenuHeight(height - 89 - 50 + "px");
+      setOverflow(true);
+    } else {
+      setLeftMenuHeight("auto");
+      setOverflow(false);
+    }
+  }, [height]);
+
   const onClickSubItem = () => {
     setHide(!hide);
   };
+
   return (
-    <AdminMenuContainer>
+    <AdminMenuContainer ref={leftMenuRef}>
       <AdminMenuNav hide={hide}>
         <MinimizeButtonContainer
           onClick={() => {
@@ -177,7 +212,7 @@ const LeftMenu = () => {
             <FiMinimize2 size={20} color="#315293"></FiMinimize2>
           )}
         </MinimizeButtonContainer>
-        <AdminMenuWrap>
+        <AdminMenuWrap overflowflag={overflowflag} height={leftMenuHeight}>
           <AdminMenuList>
             {MenuData.map((item, key) => {
               return item.type == "menuItem" ? (

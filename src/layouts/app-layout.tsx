@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./header/header";
 
 import {
@@ -16,6 +16,9 @@ import SideBar from "components/Sidebar/Sidebar";
 
 import SidebarMenu from "components/SidbarMenu/index";
 
+import { useWindowSize } from "utils/use-windowsize";
+import { useScrollPosition } from "utils/use-scroll";
+
 type LayoutProps = {
   deviceType: {
     mobile: boolean;
@@ -26,9 +29,30 @@ type LayoutProps = {
 
 const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
   const [open, setOpen] = useState(false);
-  const [scroll, setscroll] = useState(false);
-  const [scrollTop, setscrollTop] = useState(0);
+  const [scrollPositionTop, setScrollPosition] = useState(0);
+  const [leftPosition, setLeftMenuPosition] = useState("92px");
+  const [headerTransform, setTransform] = useState("0");
   const [myRef, setmyRef] = useState(null);
+
+  const [top, bottom] = useScrollPosition();
+
+  useEffect(() => {
+    if (scrollPositionTop - bottom < 0) {
+      if (leftPosition == "10px" && headerTransform == "-100%") {
+        return;
+      }
+      setLeftMenuPosition("10px");
+      setTransform("-100%");
+    } else {
+      if (leftPosition == "92px" && headerTransform == "0") {
+        return;
+      }
+      setLeftMenuPosition("92px");
+      setTransform("0");
+    }
+    setScrollPosition(bottom);
+  }, [bottom]);
+
   const onMenuClick = () => {
     setOpen(true);
   };
@@ -42,10 +66,10 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
   return (
     <>
       <SidebarMenu open={open} onClose={onOverLayClick}></SidebarMenu>
-      <HeaderContainer>
+      <HeaderContainer transform={headerTransform}>
         <Header onMenuClick={onMenuClick} />
       </HeaderContainer>
-      <LeftMenuContainer>
+      <LeftMenuContainer position={leftPosition}>
         <LeftMenu></LeftMenu>
       </LeftMenuContainer>
       <BodyContainer ref={myRef} onScroll={onScroll}>

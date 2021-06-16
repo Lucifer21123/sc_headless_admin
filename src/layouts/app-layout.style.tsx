@@ -14,19 +14,24 @@ export const BodyContainer = styled.div`
   background-color: #f8f9fb !important;
   box-sizing: border-box;
 `;
+type HeaderContainerProps = {
+  transform: string;
+};
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.div<HeaderContainerProps>`
   padding: 0 16px;
   position: fixed;
   top: 0px;
   left: 0px;
   right: 0px;
   z-index: 999;
-  tranition: 0.2s;
+  transform: translateY(${(props) => props.transform});
+  transition: 0.2s;
   background-color: #fff;
   box-shadow: 0 2px 4px 1px rgb(11 2 18 / 8%);
   width: 100%;
   height: 69px;
+  transform: ${(props) => props.transform};
   @media (min-width: 768px) {
     padding: 0 30px;
   }
@@ -35,10 +40,14 @@ export const HeaderContainer = styled.div`
   }
 `;
 
-export const LeftMenuContainer = styled.div`
+type LeftMenuContainerProps = {
+  position: string;
+};
+
+export const LeftMenuContainer = styled.div<LeftMenuContainerProps>`
   position: fixed;
   left: 0px;
-  top: 94px;
-  transition: top 0.3s;
+  top: ${(props) => props.position};
+  transition: top 0.3s ease-in-out, z-index 0.3s;
   z-index: 3;
 `;

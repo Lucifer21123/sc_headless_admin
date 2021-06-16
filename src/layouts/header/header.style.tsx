@@ -51,7 +51,7 @@ export const HeaderLogo = styled.a`
     text-decoration: none;
   }
   & .header_img {
-    max-width: 24px;
+    max-width: 34px;
     margin-right: 16px;
     @media screen and (max-width: 996px) {
       max-width: 24px;
@@ -99,6 +99,12 @@ export const HeaderAdmin = styled.div`
   align-items: center;
   color: white;
   cursor: pointer;
+  & span {
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+  }
 `;
 
 export const HeaderUserSelect = styled.div`

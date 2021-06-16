@@ -7,6 +7,7 @@ type AdminMenuNavProps = {
 export const AdminMenuContainer = styled.div`
   background-color: transparent;
   display: block;
+
   @media screen and (max-width: 991px) {
     display: none;
   }
@@ -14,6 +15,7 @@ export const AdminMenuContainer = styled.div`
 
 export const AdminMenuNav = styled.div<AdminMenuNavProps>`
   position: relative;
+
   width: ${(props) => (props.hide ? "68px" : "226px")};
   padding: 40px 10px 10px 32px;
   border-radius: 8px;
@@ -24,7 +26,6 @@ export const AdminMenuNav = styled.div<AdminMenuNavProps>`
   background-color: #fff;
   box-shadow: 0 2px 4px 1px rgb(11 2 18 / 8%);
   transition: width 0.3s ease-in-out;
-  min-height: 500px;
 `;
 
 export const MinimizeButtonContainer = styled.button`
@@ -41,10 +42,16 @@ export const MinimizeButtonContainer = styled.button`
   outline: 0;
 `;
 
-export const AdminMenuWrap = styled.div`
+type AdminMenuWrapProps = {
+  overflowflag: boolean;
+  height: string;
+};
+
+export const AdminMenuWrap = styled.div<AdminMenuWrapProps>`
+  height: ${(props) => props.height};
   padding-right: 6px;
   position: relative;
-  overflow: hidden;
+  overflow: ${(props) => (props.overflowflag ? "scroll" : "hidden")};
   overflow-anchor: none;
 `;
 
