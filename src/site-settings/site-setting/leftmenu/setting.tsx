@@ -11,33 +11,41 @@ import { BiStoreAlt } from "react-icons/bi";
 import { BsPhoneLandscape } from "react-icons/bs";
 import { RiDashboardFill } from "react-icons/ri";
 
+import {
+  DashBoardIcon,
+  NotificationIcon,
+  MessageIcon,
+  ShippingIcon,
+  NetworkingIcon,
+  GroupIcon,
+  LadingPageIcon,
+  GiftIcon,
+  MegaPhoneIcon,
+  ShopIcon,
+} from "components/icons/index";
+
 export const MenuData = [
   {
     type: "menuItem",
-    icon: <RiDashboardFill size={20} color="#315293"></RiDashboardFill>,
+    icon: <DashBoardIcon></DashBoardIcon>,
     label: "Dashboard",
     href: "#",
   },
   {
     type: "menuItem",
-    icon: (
-      <IoMdNotificationsOutline
-        size={20}
-        color="#315293"
-      ></IoMdNotificationsOutline>
-    ),
+    icon: <NotificationIcon></NotificationIcon>,
     label: "Alerts(2)",
     href: "#",
   },
   {
     type: "menuItem",
-    icon: <FiMail size={20} color="#315293"></FiMail>,
+    icon: <MessageIcon></MessageIcon>,
     label: "Trading room",
     href: "#",
   },
   {
     type: "SubMenuItem",
-    icon: <MdLocalShipping size={20} color="#315293"></MdLocalShipping>,
+    icon: <ShippingIcon></ShippingIcon>,
     label: "Orders",
     href: "#",
     list: [
@@ -61,7 +69,7 @@ export const MenuData = [
   },
   {
     type: "SubMenuItem",
-    icon: <FaNetworkWired size={20} color="#315293"></FaNetworkWired>,
+    icon: <NetworkingIcon></NetworkingIcon>,
     label: "Networking",
     href: "#",
     list: [
@@ -73,7 +81,7 @@ export const MenuData = [
   },
   {
     type: "SubMenuItem",
-    icon: <HiOutlineUserGroup size={20} color="#315293"></HiOutlineUserGroup>,
+    icon: <GroupIcon></GroupIcon>,
     label: "Posts",
     href: "#",
     list: [
@@ -85,7 +93,7 @@ export const MenuData = [
   },
   {
     type: "SubMenuItem",
-    icon: <BsPhoneLandscape size={20} color="#315293"></BsPhoneLandscape>,
+    icon: <LadingPageIcon></LadingPageIcon>,
     label: "Landing Pages",
     href: "#",
     list: [
@@ -97,7 +105,7 @@ export const MenuData = [
   },
   {
     type: "SubMenuItem",
-    icon: <HiGift size={20} color="#315293"></HiGift>,
+    icon: <GiftIcon></GiftIcon>,
     label: "Products",
     href: "#",
     list: [
@@ -121,7 +129,7 @@ export const MenuData = [
   },
   {
     type: "SubMenuItem",
-    icon: <IoMegaphoneOutline size={20} color="#315293"></IoMegaphoneOutline>,
+    icon: <MegaPhoneIcon></MegaPhoneIcon>,
     label: "Marketing",
     href: "#",
     list: [
@@ -133,7 +141,7 @@ export const MenuData = [
   },
   {
     type: "My stores",
-    icon: <BiStoreAlt size={20} color="#315293"></BiStoreAlt>,
+    icon: <ShopIcon></ShopIcon>,
     label: "My stores",
     href: "#",
     list: [

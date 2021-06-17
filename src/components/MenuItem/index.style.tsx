@@ -8,7 +8,7 @@ export const AdminMenuItem = styled.li`
   transition: 0.3s ease-in-out;
   list-style: none;
 `;
-export const Icon = styled.svg`
+export const Icon = styled.div`
   width: 24px;
   height: 20px;
   top: 50%;

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ProductItems from "./index";
 import styled from "styled-components";
 import isEmpty from "utils/is-empty";
@@ -10,14 +11,26 @@ export const ProductItemsList = styled.div`
 `;
 
 const ProductList = ({ data }) => {
+  const [state, setstate] = useState(false);
   let content = <>There is no data</>;
+  const onBodyToggle = (item) => {
+    setstate(item);
+  };
   if (!isEmpty(data)) {
     content = data.edges.map((item, key) => {
-      return <ProductItems item={item} key={key}></ProductItems>;
+      return (
+        <ProductItems
+          onBodyToggle={onBodyToggle}
+          item={item}
+          key={key}
+          state={state}
+        ></ProductItems>
+      );
     });
   } else {
     content = <PageLoader />;
   }
+
   return <ProductItemsList>{content}</ProductItemsList>;
 };
 export default ProductList;

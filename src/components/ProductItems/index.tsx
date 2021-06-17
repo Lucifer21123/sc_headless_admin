@@ -39,8 +39,10 @@ import wowSvg from "assets/images/Product/viewProduct/wow.svg";
 import angrySvg from "assets/images/Product/viewProduct/angry.svg";
 import Progress from "components/Progress";
 
-const ProductItems = ({ item }) => {
+const ProductItems = ({ item, onBodyToggle, state }) => {
   const [hide, setHide] = useState(true);
+
+  const [bodystate, setState] = useState(true);
 
   const productItemPhoto = item.node.mutable.public;
 
@@ -135,7 +137,12 @@ const ProductItems = ({ item }) => {
                   size={20}
                   color="#315293"
                   onClick={() => {
-                    setHide(!hide);
+                    if (state) {
+                      setHide(true);
+                    } else {
+                      setHide(!hide);
+                      onBodyToggle(true);
+                    }
                   }}
                 ></BiChevronDown>
               ) : (
@@ -143,7 +150,10 @@ const ProductItems = ({ item }) => {
                   size={20}
                   color="#315293"
                   onClick={() => {
-                    setHide(!hide);
+                    if (state) {
+                      setHide(true);
+                      onBodyToggle(false);
+                    }
                   }}
                 ></BiChevronUp>
               )}

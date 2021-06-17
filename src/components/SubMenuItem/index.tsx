@@ -4,7 +4,7 @@ import {
   AdminSubMenuContainer,
   AdminSubMenuItem,
   AdminSubMenuLink,
-  Icon,
+  CustomIcon,
   IconArrow,
   AdminMenuList,
   AdminMenuItem,
@@ -29,7 +29,7 @@ const SubMenuItem = ({ hide, item, list, onClick, children }) => {
           setitemShow(!itemShow);
         }}
       >
-        <Icon>{children}</Icon>
+        <CustomIcon>{children}</CustomIcon>
         <span>{item}</span>
         {itemShow ? (
           <IconArrow hide={hide}>

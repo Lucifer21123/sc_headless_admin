@@ -68,9 +68,7 @@ export const AdminSubMenuContainer = styled.div<AdminSubMenuContainerProps>`
   transition: all 0.3s ease-in-out;
 `;
 
-export const Icon = styled.svg`
-  width: 24px;
-  height: 20px;
+export const CustomIcon = styled.div`
   top: 50%;
   transform: translateY(-50%);
   transition: 0.3s ease-in-out;

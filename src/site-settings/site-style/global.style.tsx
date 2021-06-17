@@ -167,21 +167,6 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
       display: "flex",
       alignItems: "flex-start",
       padding: "20px 0 40px 219px",
-      "@media (max-width: 1900px)": {
-        paddingLeft: "0",
-      },
-      "@media (max-width: 1800px)": {
-        paddingLeft: "35.5px",
-      },
-      "@media (max-width: 1700px)": {
-        paddingLeft: "85.5px",
-      },
-      "@media (max-width: 1600px)": {
-        paddingLeft: "135.5px",
-      },
-      "@media (max-width: 1500px)": {
-        paddingLeft: "217.5px",
-      },
       "@media (max-width: 1300px)": {
         padding: "20px 0 40px 219px",
       },

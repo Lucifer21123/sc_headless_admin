@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { useRouter } from "next/router";
 import {
   MainContent,
   MainHeader,
@@ -18,7 +18,6 @@ import ProductList from "components/ProductItems/productlist";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 
 //!import utils
-
 import isEmpty from "utils/is-empty";
 
 //! import apollo
@@ -41,6 +40,10 @@ const onSearchChange = (eve) => {};
 const onSearchButtonClick = () => {};
 
 const ViewProductSection = ({}) => {
+  //get the store///but now it didn't use .
+  const router = useRouter();
+  const { id, comment } = router.query;
+
   const [productData, setProductData] = useState(null);
 
   //get Products

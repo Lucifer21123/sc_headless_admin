@@ -195,3 +195,45 @@ export const UserSelectPhoto = styled.div`
 export const UserSelectDropDown = styled.div`
   display: flex;
 `;
+
+export const AdminMenuFooter = styled.div`
+  padding-top: 20px;
+  margin-bottom: 7px;
+`;
+
+export const AdminFooterFormWrap = styled.div`
+  width: 100%;
+  margin-bottom: 16px;
+`;
+type swicth1Props = {
+  switch1: boolean;
+};
+export const AdminFooterFormList1 = styled.div<swicth1Props>`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  & b {
+    font-weight: ${(props) => (props.switch1 ? "500" : "normal")};
+    margin-left: 5px;
+    font-size: 12px;
+    color: #0b0212;
+  }
+`;
+type swicth2Props = {
+  switch2: boolean;
+};
+export const AdminFooterFormList2 = styled.div<swicth2Props>`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  & b {
+    font-weight: ${(props) => (props.switch2 ? "500" : "normal")};
+    margin-left: 5px;
+    font-size: 12px;
+    color: #0b0212;
+  }
+`;
+
+export const SwitchButtonContainer = styled.div`
+  margin-right: 20px;
+`;

@@ -15,6 +15,11 @@ import {
   UserSelect,
   UserSelectDropDown,
   UserSelectPhoto,
+  AdminFooterFormList1,
+  AdminFooterFormList2,
+  AdminFooterFormWrap,
+  AdminMenuFooter,
+  SwitchButtonContainer,
 } from "./index.style";
 
 //!import Icons
@@ -32,6 +37,7 @@ import { useWindowSize } from "utils/use-windowsize";
 import MenuItem from "components/MenuItem";
 import SubMenuItem from "components/SubMenuItem";
 import Dropdown from "components/Dropdown/index";
+import SwitchButton from "components/SwitchButton/index";
 
 //!import settings
 import {
@@ -42,6 +48,9 @@ import {
 import { list } from "site-settings/site-setting/header/setting";
 
 const LeftMenu = ({ leftMenuOpen, closeButtonClick }) => {
+  const [switch1, setSwitch1] = useState(true);
+  const [switch2, setSwitch2] = useState(true);
+
   const [hide, setHide] = useState(false);
   const [currentHeight, setHeight] = useState(0);
   const [leftMenuHeight, setLeftMenuHeight] = useState("auto");
@@ -78,7 +87,7 @@ const LeftMenu = ({ leftMenuOpen, closeButtonClick }) => {
     }
 
     let leftMenuHeight = leftMenuRef.current.offsetHeight;
-    if (height - 89 - 50 < leftMenuHeight) {
+    if (height - 89 - 80 < leftMenuHeight) {
       setLeftMenuHeight(height - 89 - 50 + "px");
       setOverflow(true);
     }
@@ -87,6 +96,13 @@ const LeftMenu = ({ leftMenuOpen, closeButtonClick }) => {
   };
 
   const onItemClick = () => {};
+
+  const onSwitchChange1 = (item) => {
+    setSwitch1(item);
+  };
+  const onSwitchChange2 = (item) => {
+    setSwitch2(item);
+  };
 
   return (
     <>
@@ -153,11 +169,43 @@ const LeftMenu = ({ leftMenuOpen, closeButtonClick }) => {
                 );
               })}
             </AdminMenuList>
+            {leftMenuOpen ? (
+              <>
+                <AdminMenuFooter>
+                  <AdminFooterFormWrap>
+                    <AdminFooterFormList1 switch1={switch1}>
+                      <SwitchButtonContainer>
+                        <SwitchButton onChange={onSwitchChange1}></SwitchButton>
+                      </SwitchButtonContainer>
+                      <b>Alert me when new message arrive</b>
+                    </AdminFooterFormList1>
+                  </AdminFooterFormWrap>
+                  <AdminFooterFormWrap>
+                    <AdminFooterFormList2 switch2={switch2}>
+                      <SwitchButtonContainer>
+                        <SwitchButton onChange={onSwitchChange2}></SwitchButton>
+                      </SwitchButtonContainer>
+                      <b>Alert me when shoppers visits my store</b>
+                    </AdminFooterFormList2>
+                  </AdminFooterFormWrap>
+                </AdminMenuFooter>
+                <CopyRight hide={hide}>
+                  <span>All rights reserved SplitchChek 2020</span>
+                </CopyRight>
+              </>
+            ) : (
+              <></>
+            )}
           </AdminMenuWrap>
         </AdminMenuNav>
-        <CopyRight hide={hide}>
-          <span>All rights reserved SplitchChek 2020</span>
-        </CopyRight>
+
+        {!leftMenuOpen ? (
+          <CopyRight hide={hide}>
+            <span>All rights reserved SplitchChek 2020</span>
+          </CopyRight>
+        ) : (
+          <></>
+        )}
       </AdminMenuContainer>
     </>
   );
