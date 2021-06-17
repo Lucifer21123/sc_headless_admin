@@ -1,7 +1,7 @@
 import { GraphQLClient } from "graphql-request";
 
 import { GET_PRODUCTS } from "graphql/query/products.query";
-const url = "https://www.splitchek.com/stores/graphql";
+const url = process.env.NEXT_PUBLIC_GRAPHQL_API_ENDPOINT;
 
 export async function getProducts() {
   const client = new GraphQLClient(url, {

@@ -27,7 +27,7 @@ let apolloClient: ApolloClient<NormalizedCacheObject> | undefined;
 
 function createIsomorphLink() {
   return new HttpLink({
-    uri: "https://www.splitchek.com/stores/graphql", // Server URL (must be absolute)
+    uri: process.env.NEXT_PUBLIC_GRAPHQL_API_ENDPOINT, // Server URL (must be absolute)
   });
 }
 
@@ -35,7 +35,7 @@ function createApolloClient() {
   return new ApolloClient({
     ssrMode: true,
     link: createHttpLink({
-      uri: "https://www.splitchek.com/stores/graphql",
+      uri: process.env.NEXT_PUBLIC_GRAPHQL_API_ENDPOINT,
       credentials: "same-origin",
       headers: {
         "x-store-id": "6049c8262544a8f2a6f8182e",
