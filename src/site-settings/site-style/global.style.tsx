@@ -129,6 +129,16 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
       color: "#140A01",
       zIndex: 20,
     },
+    ".nft-scrollbar::-webkit-scrollbar": {
+      width: "4px",
+      height: "6px",
+      backgroundColor: "transparent",
+    },
+
+    ".nft-scrollbar::-webkit-scrollbar-thumb": {
+      bordeRadius: "6px",
+      background: "#afbbd4",
+    },
     ".wrapper": {
       zIndex: "10",
       minHeight: "100vh",

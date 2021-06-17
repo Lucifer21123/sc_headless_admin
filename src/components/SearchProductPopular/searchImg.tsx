@@ -33,7 +33,6 @@ const SearchImgContainer = styled.div`
 `;
 
 const SearchImg = ({ item }) => {
-  console.log(item);
   return (
     <SearchImgContainer>
       <img src={item.popularImg} />

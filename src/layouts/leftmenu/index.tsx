@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { RiDashboardFill } from "react-icons/ri";
+
 import {
   AdminMenuNav,
   MinimizeButtonContainer,
@@ -7,163 +7,41 @@ import {
   AdminMenuList,
   AdminMenuContainer,
   CopyRight,
+  AdminMenuClose,
+  AdminMenuHeader,
+  AdminMenuImg,
+  AdminMenuLogo,
+  AdminMenuUserSelect,
+  UserSelect,
+  UserSelectDropDown,
+  UserSelectPhoto,
 } from "./index.style";
+
+//!import Icons
+import { FiMinimize2 } from "react-icons/fi";
+import { BiChevronRight } from "react-icons/bi";
+import { AiOutlineClose } from "react-icons/ai";
+
+import LogoImg from "assets/icons/splitcheck-w-logo.png";
+import Avatar1 from "assets/images/layout/header/leftmenu/img-1.png";
 
 //! import custom Hook
 import { useWindowSize } from "utils/use-windowsize";
-import { useScrollPosition } from "utils/use-scroll";
-//! icons
-import { FiMinimize2 } from "react-icons/fi";
-import { BiChevronRight } from "react-icons/bi";
-import { IoMdNotificationsOutline } from "react-icons/io";
-import { FiMail } from "react-icons/fi";
-import { MdLocalShipping } from "react-icons/md";
-import { FaNetworkWired } from "react-icons/fa";
-import { HiOutlineUserGroup } from "react-icons/hi";
-import { HiGift } from "react-icons/hi";
-import { IoMegaphoneOutline } from "react-icons/io5";
-import { BiStoreAlt } from "react-icons/bi";
-import { BsPhoneLandscape } from "react-icons/bs";
 
 //! import components
 import MenuItem from "components/MenuItem";
 import SubMenuItem from "components/SubMenuItem";
+import Dropdown from "components/Dropdown/index";
 
-const MenuData = [
-  {
-    type: "menuItem",
-    icon: <RiDashboardFill size={20} color="#315293"></RiDashboardFill>,
-    label: "Dashboard",
-    href: "#",
-  },
-  {
-    type: "menuItem",
-    icon: (
-      <IoMdNotificationsOutline
-        size={20}
-        color="#315293"
-      ></IoMdNotificationsOutline>
-    ),
-    label: "Alerts(2)",
-    href: "#",
-  },
-  {
-    type: "menuItem",
-    icon: <FiMail size={20} color="#315293"></FiMail>,
-    label: "Trading room",
-    href: "#",
-  },
-  {
-    type: "SubMenuItem",
-    icon: <MdLocalShipping size={20} color="#315293"></MdLocalShipping>,
-    label: "Orders",
-    href: "#",
-    list: [
-      {
-        label: "View orders",
-        href: "#",
-      },
-      {
-        label: "Abandoned cart",
-        href: "#",
-      },
-      {
-        label: "Items in wishlist",
-        href: "#",
-      },
-      {
-        label: "Shop for your store",
-        href: "#",
-      },
-    ],
-  },
-  {
-    type: "SubMenuItem",
-    icon: <FaNetworkWired size={20} color="#315293"></FaNetworkWired>,
-    label: "Networking",
-    href: "#",
-    list: [
-      {
-        label: "View orders",
-        href: "#",
-      },
-    ],
-  },
-  {
-    type: "SubMenuItem",
-    icon: <HiOutlineUserGroup size={20} color="#315293"></HiOutlineUserGroup>,
-    label: "Posts",
-    href: "#",
-    list: [
-      {
-        label: "View orders",
-        href: "#",
-      },
-    ],
-  },
-  {
-    type: "SubMenuItem",
-    icon: <BsPhoneLandscape size={20} color="#315293"></BsPhoneLandscape>,
-    label: "Landing Pages",
-    href: "#",
-    list: [
-      {
-        label: "View orders",
-        href: "#",
-      },
-    ],
-  },
-  {
-    type: "SubMenuItem",
-    icon: <HiGift size={20} color="#315293"></HiGift>,
-    label: "Products",
-    href: "#",
-    list: [
-      {
-        label: "View products",
-        href: "#",
-      },
-      {
-        label: "Inventory",
-        href: "#",
-      },
-      {
-        label: "View seasonal",
-        href: "#",
-      },
-      {
-        label: "Create Product",
-        href: "#",
-      },
-    ],
-  },
-  {
-    type: "SubMenuItem",
-    icon: <IoMegaphoneOutline size={20} color="#315293"></IoMegaphoneOutline>,
-    label: "Marketing",
-    href: "#",
-    list: [
-      {
-        label: "View orders",
-        href: "#",
-      },
-    ],
-  },
-  {
-    type: "My stores",
-    icon: <BiStoreAlt size={20} color="#315293"></BiStoreAlt>,
-    label: "My stores",
-    href: "#",
-    list: [
-      {
-        label: "View orders",
-        href: "#",
-      },
-    ],
-  },
-];
+//!import settings
+import {
+  MenuData,
+  dropDownSettings,
+} from "site-settings/site-setting/leftmenu/setting";
 
-const LeftMenu = () => {
+import { list } from "site-settings/site-setting/header/setting";
+
+const LeftMenu = ({ leftMenuOpen, closeButtonClick }) => {
   const [hide, setHide] = useState(false);
   const [currentHeight, setHeight] = useState(0);
   const [leftMenuHeight, setLeftMenuHeight] = useState("auto");
@@ -173,7 +51,8 @@ const LeftMenu = () => {
   const [width, height] = useWindowSize();
 
   useEffect(() => {
-    let height = leftMenuRef.current.offsetHeight;
+    let leftMenuHeight = leftMenuRef.current.offsetHeight;
+    console.log("the height is changes");
     if (height < leftMenuHeight) {
       setLeftMenuHeight(height - 89 - 50 + "px");
       setOverflow(true);
@@ -194,50 +73,96 @@ const LeftMenu = () => {
     }
   }, [height]);
 
-  const onClickSubItem = () => {
-    setHide(!hide);
+  const onClickSubItem = (itemshow, flag) => {
+    if (flag == "minimize") {
+      setHide(!hide);
+    }
+
+    let leftMenuHeight = leftMenuRef.current.offsetHeight;
+    if (height - 89 - 50 < leftMenuHeight) {
+      console.log("scroll");
+      setLeftMenuHeight(height - 89 - 50 + "px");
+      setOverflow(true);
+      console.log("scroll", leftMenuHeight);
+    }
+
+    setHeight(height);
   };
 
+  const onItemClick = () => {};
+
   return (
-    <AdminMenuContainer ref={leftMenuRef}>
-      <AdminMenuNav hide={hide}>
-        <MinimizeButtonContainer
-          onClick={() => {
-            setHide(!hide);
-          }}
-        >
-          {hide ? (
-            <BiChevronRight size={20} color="#315293"></BiChevronRight>
-          ) : (
-            <FiMinimize2 size={20} color="#315293"></FiMinimize2>
-          )}
-        </MinimizeButtonContainer>
-        <AdminMenuWrap overflowflag={overflowflag} height={leftMenuHeight}>
-          <AdminMenuList>
-            {MenuData.map((item, key) => {
-              return item.type == "menuItem" ? (
-                <MenuItem key={key} hide={hide} item={item.label}>
-                  {item.icon}
-                </MenuItem>
-              ) : (
-                <SubMenuItem
-                  key={key}
-                  onClick={onClickSubItem}
-                  hide={hide}
-                  item={item.label}
-                  list={item.list}
-                >
-                  {item.icon}
-                </SubMenuItem>
-              );
-            })}
-          </AdminMenuList>
-        </AdminMenuWrap>
-      </AdminMenuNav>
-      <CopyRight hide={hide}>
-        <span>All rights reserved SplitchChek 2020</span>
-      </CopyRight>
-    </AdminMenuContainer>
+    <>
+      <AdminMenuHeader leftMenuOpen={leftMenuOpen}>
+        <AdminMenuClose onClick={closeButtonClick}>
+          <AiOutlineClose size={20} color="#335491"></AiOutlineClose>
+        </AdminMenuClose>
+        <AdminMenuLogo>
+          <AdminMenuImg>
+            <img src={LogoImg} />
+          </AdminMenuImg>
+          <span>Manage stores</span>
+        </AdminMenuLogo>
+      </AdminMenuHeader>
+      <AdminMenuContainer leftMenuOpen={leftMenuOpen}>
+        <AdminMenuNav hide={hide} ref={leftMenuRef}>
+          <MinimizeButtonContainer
+            onClick={() => {
+              setHide(!hide);
+            }}
+          >
+            {hide ? (
+              <BiChevronRight size={20} color="#315293"></BiChevronRight>
+            ) : (
+              <FiMinimize2 size={20} color="#315293"></FiMinimize2>
+            )}
+          </MinimizeButtonContainer>
+          <AdminMenuUserSelect leftMenuOpen={leftMenuOpen}>
+            <UserSelect>
+              <UserSelectPhoto>
+                <img src={Avatar1} />
+              </UserSelectPhoto>
+              <UserSelectDropDown>
+                <Dropdown
+                  settings={dropDownSettings}
+                  list={list}
+                  click={onItemClick}
+                  label="Genetix Nutrition"
+                ></Dropdown>
+              </UserSelectDropDown>
+            </UserSelect>
+          </AdminMenuUserSelect>
+          <AdminMenuWrap
+            overflowflag={overflowflag}
+            height={leftMenuHeight}
+            className="nft-scrollbar"
+          >
+            <AdminMenuList>
+              {MenuData.map((item, key) => {
+                return item.type == "menuItem" ? (
+                  <MenuItem key={key} hide={hide} item={item.label}>
+                    {item.icon}
+                  </MenuItem>
+                ) : (
+                  <SubMenuItem
+                    key={key}
+                    onClick={onClickSubItem}
+                    hide={hide}
+                    item={item.label}
+                    list={item.list}
+                  >
+                    {item.icon}
+                  </SubMenuItem>
+                );
+              })}
+            </AdminMenuList>
+          </AdminMenuWrap>
+        </AdminMenuNav>
+        <CopyRight hide={hide}>
+          <span>All rights reserved SplitchChek 2020</span>
+        </CopyRight>
+      </AdminMenuContainer>
+    </>
   );
 };
 

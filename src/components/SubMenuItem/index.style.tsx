@@ -65,7 +65,6 @@ export const AdminSubMenuContainer = styled.div<AdminSubMenuContainerProps>`
   opacity: ${(props) => (props.show ? "1" : "0")};
   width: auto;
   height: ${(props) => (props.show ? "auto" : "0")};
-  overflow: hidden;
   transition: all 0.3s ease-in-out;
 `;
 

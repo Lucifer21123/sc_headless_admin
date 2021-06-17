@@ -195,7 +195,6 @@ const Dropdown = ({ settings, list, label, click }) => {
                   hoverBackgroundColor={settings.hoverBackgroundColor}
                   hoverColor={settings.hoverColor}
                   onClick={(e) => {
-                    console.log("headertytytclick");
                     setHide(!hide);
                     setCurrent(item);
                     click(item);

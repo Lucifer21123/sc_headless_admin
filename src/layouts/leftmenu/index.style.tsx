@@ -4,12 +4,22 @@ type AdminMenuNavProps = {
   hide: boolean;
 };
 
-export const AdminMenuContainer = styled.div`
+type AdminMenuContainerProps = {
+  leftMenuOpen: boolean;
+};
+
+export const AdminMenuContainer = styled.div<AdminMenuContainerProps>`
   background-color: transparent;
   display: block;
 
-  @media screen and (max-width: 991px) {
-    display: none;
+  @media screen and (max-width: 992px) {
+    background-color: white !important;
+    height: 100% !important;
+    display: block;
+    overflow: hidden;
+    opacity: ${(props) => (props.leftMenuOpen ? "1" : "0")};
+    width: ${(props) => (props.leftMenuOpen ? "auto" : "0")};
+    transition: all ease-in-out;
   }
 `;
 
@@ -26,6 +36,12 @@ export const AdminMenuNav = styled.div<AdminMenuNavProps>`
   background-color: #fff;
   box-shadow: 0 2px 4px 1px rgb(11 2 18 / 8%);
   transition: width 0.3s ease-in-out;
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: 0 0 0;
+    padding: 12px 24px 10px;
+  }
 `;
 
 export const MinimizeButtonContainer = styled.button`
@@ -51,7 +67,7 @@ export const AdminMenuWrap = styled.div<AdminMenuWrapProps>`
   height: ${(props) => props.height};
   padding-right: 6px;
   position: relative;
-  overflow: ${(props) => (props.overflowflag ? "scroll" : "hidden")};
+  overflow-y: ${(props) => (props.overflowflag ? "scroll" : "hidden")};
   overflow-anchor: none;
 `;
 
@@ -79,4 +95,103 @@ export const CopyRight = styled.div<CopyRightProps>`
   transition: 0.3s ease-in-out;
   transition-delay: 0.5s;
   color: #335491;
+`;
+type AdminMenuHeaderProps = {
+  leftMenuOpen: boolean;
+};
+export const AdminMenuHeader = styled.div<AdminMenuHeaderProps>`
+  position: relative;
+  width: 100%;
+  padding: 0 16px;
+  height: 69px;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  box-shadow: 0 2px 4px 1px rgb(11 2 18 / 8%);
+  background-color: white;
+  display: none;
+
+  @media screen and (max-width: 992px) {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    opacity: ${(props) => (props.leftMenuOpen ? "1" : "0")};
+    width: ${(props) => (props.leftMenuOpen ? "auto" : "0")};
+    transition: all ease-in-out;
+  }
+
+  @media screen and (max-width: 767.98px) {
+    height: 55px;
+  }
+`;
+export const AdminMenuClose = styled.div`
+  cursor: pointer;
+  margin-right: 15px;
+`;
+
+export const AdminMenuLogo = styled.div`
+  width: 100%;
+  margin-right: 16px;
+  display: flex;
+  flex-direction: row;
+  & span {
+    color: #315293;
+    font-weight: 500;
+    font-size: 18px;
+  }
+`;
+
+export const AdminMenuImg = styled.div`
+  width: 100%;
+  max-width: 24px;
+  margin-right: 7px;
+`;
+type AdminMenuUserSelectprops = {
+  leftMenuOpen: boolean;
+};
+export const AdminMenuUserSelect = styled.div<AdminMenuUserSelectprops>`
+  display: none;
+  margin-bottom: 32px;
+  z-index: 999;
+  @media screen and (max-width: 992px) {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    opacity: ${(props) => (props.leftMenuOpen ? "1" : "0")};
+    width: ${(props) => (props.leftMenuOpen ? "auto" : "0")};
+    transition: all ease-in-out;
+  }
+`;
+export const UserSelect = styled.div`
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  align-items: center;
+`;
+
+export const UserSelectPhoto = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: #335491;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  & img {
+    max-width: 40px;
+    min-height: 40px;
+  }
+  & span {
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #fff;
+  }
+`;
+export const UserSelectDropDown = styled.div`
+  display: flex;
 `;

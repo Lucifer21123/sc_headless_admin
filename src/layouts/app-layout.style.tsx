@@ -42,6 +42,7 @@ export const HeaderContainer = styled.div<HeaderContainerProps>`
 
 type LeftMenuContainerProps = {
   position: string;
+  leftMenuOpen: boolean;
 };
 
 export const LeftMenuContainer = styled.div<LeftMenuContainerProps>`
@@ -50,4 +51,12 @@ export const LeftMenuContainer = styled.div<LeftMenuContainerProps>`
   top: ${(props) => props.position};
   transition: top 0.3s ease-in-out, z-index 0.3s;
   z-index: 3;
+  @media screen and (max-width: 991px) {
+    top: 0;
+    left: ${(props) => (props.leftMenuOpen ? "0" : "-100%")};
+    z-index: 999991;
+    width: 100%;
+    height: 100%;
+    transition: left 0.5s ease-in-out;
+  }
 `;

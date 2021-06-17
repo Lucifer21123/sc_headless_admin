@@ -66,6 +66,14 @@ export const CommentImageArea = styled.div`
 `;
 
 export const CommentText = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  @media screen and (max-width: 767.98px) {
+    margin-left: 5px;
+    margin-bottom: 3px;
+  }
   text-align: right;
   font-weight: normal;
   font-size: 14px;
@@ -172,25 +180,37 @@ const Reaction = ({ comments }) => {
             <img src={angrySvg} />
           </li>
         </ul>
-        <p>{comments}</p>
+        <p>{comments.comments}</p>
       </CommentNumberImage>
-      <CommentText>Comments {comments}</CommentText>
+      <CommentText>Comments {comments.comments}</CommentText>
       <CommentReactionContainer hide={hide}>
         <ul>
           <li>
-            <Emotion src={likeSvg} title="like" number={200}></Emotion>
+            <Emotion
+              src={likeSvg}
+              title="like"
+              number={comments.like}
+            ></Emotion>
           </li>
           <li>
-            <Emotion src={heartSvg} title="Love" number={170}></Emotion>
+            <Emotion
+              src={heartSvg}
+              title="Love"
+              number={comments.love}
+            ></Emotion>
           </li>
           <li>
-            <Emotion src={joySvg} title="joy" number={2}></Emotion>
+            <Emotion src={joySvg} title="joy" number={comments.haha}></Emotion>
           </li>
           <li>
-            <Emotion src={wowSvg} title="wow" number={65}></Emotion>
+            <Emotion src={wowSvg} title="wow" number={comments.wow}></Emotion>
           </li>
           <li>
-            <Emotion src={angrySvg} title="angry" number={0}></Emotion>
+            <Emotion
+              src={angrySvg}
+              title="angry"
+              number={comments.angry}
+            ></Emotion>
           </li>
         </ul>
       </CommentReactionContainer>

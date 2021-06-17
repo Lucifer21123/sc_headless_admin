@@ -22,7 +22,9 @@ const SubMenuItem = ({ hide, item, list, onClick, children }) => {
         hide={hide}
         onClick={() => {
           if (itemShow == false && hide == true) {
-            onClick(!itemShow);
+            onClick(!itemShow, "minimize");
+          } else {
+            onClick(!itemShow, "unminimize");
           }
           setitemShow(!itemShow);
         }}

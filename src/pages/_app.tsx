@@ -7,6 +7,9 @@ import AppLayout from "layouts/app-layout";
 import { useMedia } from "utils/use-media";
 import PageLoader from "components/Loader/page-loader";
 
+import { ApolloProvider } from "@apollo/client";
+import { useApollo } from "utils/apollo-client";
+
 // External CSS import here
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
@@ -15,22 +18,21 @@ import "slick-carousel/slick/slick-theme.css";
 //!import the fonts
 
 import "assets/fonts/index.css";
-
 import { GlobalStyle } from "site-settings/site-style/global.style";
 
-// Language translation messages
+//! Language translation messages
 import { messages } from "site-settings/site-translation/messages";
 import "typeface-lato";
 import "typeface-poppins";
 
-// need to provide types
+//! need to provide types
 export default function ExtendedApp({ Component, pageProps }) {
   const mobile = useMedia("(max-width: 580px)");
   const tablet = useMedia("(max-width: 991px)");
   const desktop = useMedia("(min-width: 992px)");
 
   const [loading, setLoading] = useState(false);
-
+  const apolloClient = useApollo(pageProps.initialApolloState);
   useEffect(() => {
     Router.events.on("routeChangeStart", (url) => {
       setLoading(true);
@@ -45,22 +47,24 @@ export default function ExtendedApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <LocationProvider messages={messages}>
-        <>
-          <AppLayout deviceType={{ mobile, tablet, desktop }}>
-            {loading ? (
-              <PageLoader />
-            ) : (
-              <Component
-                {...pageProps}
-                deviceType={{ mobile, tablet, desktop }}
-              />
-            )}
-          </AppLayout>
-          <GlobalStyle />
-        </>
-      </LocationProvider>
-    </ThemeProvider>
+    <ApolloProvider client={apolloClient}>
+      <ThemeProvider theme={defaultTheme}>
+        <LocationProvider messages={messages}>
+          <>
+            <AppLayout deviceType={{ mobile, tablet, desktop }}>
+              {loading ? (
+                <PageLoader />
+              ) : (
+                <Component
+                  {...pageProps}
+                  deviceType={{ mobile, tablet, desktop }}
+                />
+              )}
+            </AppLayout>
+            <GlobalStyle />
+          </>
+        </LocationProvider>
+      </ThemeProvider>
+    </ApolloProvider>
   );
 }

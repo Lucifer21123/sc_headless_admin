@@ -36,12 +36,7 @@ export default class CustomDocument extends Document {
   render() {
     return (
       <Html lang="zh" style={{ scrollBehavior: "smooth" }}>
-        <Head>
-          <link
-            href="https://fonts.cdnfonts.com/css/neue-haas-grotesk-display"
-            rel="stylesheet"
-          ></link>
-        </Head>
+        <Head></Head>
         <body>
           <Main />
           <noscript>Sorry, your browser does not support JavaScript!</noscript>

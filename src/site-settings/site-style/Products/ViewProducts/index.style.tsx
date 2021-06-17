@@ -108,10 +108,3 @@ export const SortBoxFilter = styled.div`
     flex-wrap: wrap;
   }
 `;
-
-export const ProductItemsList = styled.div`
-  margin-top: 15px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;

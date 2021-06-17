@@ -54,16 +54,14 @@ export const ProductItemPhoto = styled.div`
     text-align: left;
     text-transform: uppercase;
   }
-  & img-container {
-    width: 100%;
-    height: 100%;
+  & img {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 72px !important;
-    max-width: 72px !important;
-    height: 72px;
+    max-width: 70px !important;
+    height: 70px;
     z-index: -1000;
+    background: transparent;
   }
 `;
 
@@ -84,7 +82,6 @@ export const ProductItemInfoHeader = styled.h3`
   overflow: hidden;
   text-overflow: ellipsis;
   display: inline-block;
-  width: calc(100% - 5px);
   max-width: 450px;
   @media screen and (max-width: 1350px) {
     max-width: 450px;
@@ -134,11 +131,18 @@ export const RightContainer = styled.div`
   }
   @media screen and (max-width: 767px) {
     flex-direction: column;
+    padding-right: 0;
   }
 `;
 
 export const ProductReactions = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
   margin-right: 70px;
+  @media screen and (max-width: 767px) {
+    margin-right: auto;
+  }
 `;
 export const ProductItemsListControl = styled.div`
   display: flex;

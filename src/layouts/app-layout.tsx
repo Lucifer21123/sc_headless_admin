@@ -29,6 +29,7 @@ type LayoutProps = {
 
 const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
   const [open, setOpen] = useState(false);
+  const [leftMenuOpen, setLeftMenuOpen] = useState(false);
   const [scrollPositionTop, setScrollPosition] = useState(0);
   const [leftPosition, setLeftMenuPosition] = useState("92px");
   const [headerTransform, setTransform] = useState("0");
@@ -63,17 +64,28 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
   const onScroll = () => {
     console.log("scroll event is running");
   };
+  const onBugerClick = () => {
+    setLeftMenuOpen(!leftMenuOpen);
+  };
+  const closeButtonClick = () => {
+    setLeftMenuOpen(!leftMenuOpen);
+  };
   return (
     <>
       <SidebarMenu open={open} onClose={onOverLayClick}></SidebarMenu>
       <HeaderContainer transform={headerTransform}>
-        <Header onMenuClick={onMenuClick} />
+        <Header onMenuClick={onMenuClick} onBugerClick={onBugerClick} />
       </HeaderContainer>
-      <LeftMenuContainer position={leftPosition}>
-        <LeftMenu></LeftMenu>
+      <LeftMenuContainer position={leftPosition} leftMenuOpen={leftMenuOpen}>
+        <LeftMenu
+          leftMenuOpen={leftMenuOpen}
+          closeButtonClick={closeButtonClick}
+        ></LeftMenu>
       </LeftMenuContainer>
       <BodyContainer ref={myRef} onScroll={onScroll}>
-        {children}
+        <div className="wrapper">
+          <div className="main-content">{children}</div>
+        </div>
       </BodyContainer>
       {open && <OverLay handleSide={onOverLayClick} />}
     </>

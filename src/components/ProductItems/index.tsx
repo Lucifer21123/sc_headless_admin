@@ -28,6 +28,9 @@ import {
 import { BiChevronDown } from "react-icons/bi";
 import { BiChevronUp } from "react-icons/bi";
 
+//!import isEmpty
+import isEmpty from "utils/is-empty";
+
 //! import emotion Icons
 import likeSvg from "assets/images/Product/viewProduct/like.svg";
 import heartSvg from "assets/images/Product/viewProduct/heart.svg";
@@ -38,35 +41,88 @@ import Progress from "components/Progress";
 
 const ProductItems = ({ item }) => {
   const [hide, setHide] = useState(true);
+
+  const productItemPhoto = item.node.mutable.public;
+
+  const productInfo = {
+    qty: item.node.soh,
+    totalvariants: item.node.total_variants,
+    sku: item.node.sku,
+    price: item.node.formatted_price,
+  };
+
+  const staticboxData = item.node.reporting.engagement;
+
+  let feedback = {
+    like: 0,
+    wow: 0,
+    haha: 0,
+    love: 0,
+    angry: 0,
+    comments: item.node.reporting.engagement.comments,
+  };
+
+  const reach = item.node.internal.reach;
+
+  const conversion = item.node.internal.conversion;
+
+  if (!isEmpty(item.node.reporting.feedback)) {
+    console.log("aaa");
+    item.node.reporting.feedback.map((item, key) => {
+      switch (item.reaction) {
+        case "Like":
+          feedback.like = item.len;
+          break;
+        case "Haha":
+          feedback.wow = item.len;
+          break;
+        case "Love":
+          feedback.haha = item.len;
+          break;
+        case "Wow":
+          feedback.love = item.len;
+          break;
+        case "Angry":
+          feedback.angry = item.len;
+          break;
+      }
+    });
+  }
+
   return (
     <ProductItemContainer>
       <ProductHeader hide={hide}>
         <LeftContainer>
           <ProductItemPhoto>
-            {item.isPhoto ? (
+            {productItemPhoto.image.url != "" ? (
               <div className="img-container">
-                <img src={item.src} />
+                <img src={productItemPhoto.image.url} />
               </div>
             ) : (
               <span>D</span>
             )}
           </ProductItemPhoto>
           <ProductItemInfo>
-            <ProductItemInfoHeader>{item.title}</ProductItemInfoHeader>
+            <ProductItemInfoHeader>
+              {productItemPhoto.title}
+            </ProductItemInfoHeader>
             <ProductItemInfoUL>
               <ProductItemLi>
-                Sku: <span>{item.sku}</span>
+                Sku: <span>{productInfo.sku}</span>
               </ProductItemLi>
               <ProductItemLi>
-                Qty: <span>{item.Qty}</span>
+                Qty: <span>{productInfo.qty}</span>
               </ProductItemLi>
-              <ProductItemLi>{item.price}</ProductItemLi>
+              <ProductItemLi>
+                Total Variants: <span>{productInfo.totalvariants}</span>
+              </ProductItemLi>
+              <ProductItemLi>${productInfo.price}</ProductItemLi>
             </ProductItemInfoUL>
           </ProductItemInfo>
         </LeftContainer>
         <RightContainer>
           <ProductReactions>
-            <Reaction comments={item.comments}></Reaction>
+            <Reaction comments={feedback}></Reaction>
           </ProductReactions>
           <ProductItemsListControl>
             <a>
@@ -101,11 +157,11 @@ const ProductItems = ({ item }) => {
           <StatisticBoxHeader>
             <StatisticBoxHead>
               <StatisticNumberBox>
-                <h3>{item.views}</h3>
+                <h3>{staticboxData.views}</h3>
                 <span>Views</span>
               </StatisticNumberBox>
               <StatisticNumberBox>
-                <h3>{item.clicks}</h3>
+                <h3>{staticboxData.views}</h3>
                 <span>Clicks</span>
               </StatisticNumberBox>
             </StatisticBoxHead>
@@ -129,19 +185,19 @@ const ProductItems = ({ item }) => {
                     <img src={angrySvg} />
                   </li>
                 </ul>
-                <b>{item.reactions}</b>
+                <b>{staticboxData.feedback}</b>
               </StaticBoxPostLi>
               <StaticBoxPostLi>
                 <span>comments</span>
-                <b>{item.comments}</b>
+                <b>{staticboxData.feedback}</b>
               </StaticBoxPostLi>
               <StaticBoxPostLi>
                 <span>added to timeline</span>
-                <b>{item.timeline}</b>
+                <b>{staticboxData.timeline}</b>
               </StaticBoxPostLi>
               <StaticBoxPostLi>
                 <span>shared</span>
-                <b>{item.shared}</b>
+                <b>{staticboxData.shares}</b>
               </StaticBoxPostLi>
             </StatisticBoxPost>
           </StatisticBoxHeader>
@@ -151,43 +207,49 @@ const ProductItems = ({ item }) => {
               <ul>
                 <li>
                   <Progress
-                    height={item.likepercent}
+                    height={feedback.like + "px"}
                     color="#3c6ecd"
                   ></Progress>
                   <img src={likeSvg}></img>
                   <span>like</span>
-                  <strong>{item.like}</strong>
+                  <strong>{feedback.like}</strong>
                 </li>
                 <li>
                   <Progress
-                    height={item.lovepercent}
+                    height={feedback.love + "px"}
                     color="#ff613b"
                   ></Progress>
                   <img src={heartSvg}></img>
                   <span>love</span>
-                  <strong>{item.love}</strong>
-                </li>
-                <li>
-                  <Progress height={item.joypercent} color="#ffc200"></Progress>
-                  <img src={joySvg}></img>
-                  <span>joy</span>
-                  <strong>{item.joy}</strong>
-                </li>
-
-                <li>
-                  <Progress height={item.wowpercent} color="#ffc200"></Progress>
-                  <img src={wowSvg}></img>
-                  <span>wow</span>
-                  <strong>{item.wow}</strong>
+                  <strong>{feedback.love}</strong>
                 </li>
                 <li>
                   <Progress
-                    height={item.angrypercent}
+                    height={feedback.haha + "px"}
+                    color="#ffc200"
+                  ></Progress>
+                  <img src={joySvg}></img>
+                  <span>joy</span>
+                  <strong>{feedback.haha}</strong>
+                </li>
+
+                <li>
+                  <Progress
+                    height={feedback.wow + "px"}
+                    color="#ffc200"
+                  ></Progress>
+                  <img src={wowSvg}></img>
+                  <span>wow</span>
+                  <strong>{feedback.wow}</strong>
+                </li>
+                <li>
+                  <Progress
+                    height={feedback.angry + "px"}
                     color="#ffc200"
                   ></Progress>
                   <img src={angrySvg}></img>
                   <span>angry</span>
-                  <strong>{item.angry}</strong>
+                  <strong>{feedback.angry}</strong>
                 </li>
               </ul>
             </StatisticBoxEmotion>
@@ -198,46 +260,46 @@ const ProductItems = ({ item }) => {
             <h3>Reach</h3>
             <li>
               fans
-              <b>{item.fans}</b>
+              <b>{reach.fans}</b>
             </li>
             <li>
               non-fans
-              <b>{item.nonfans}</b>
+              <b>{reach.non_fans}</b>
             </li>
             <li>
               organic
-              <b>{item.organic}</b>
+              <b>{reach.organic}</b>
             </li>
             <li>
               paid
-              <b>{item.paid}</b>
+              <b>{reach.paid}</b>
             </li>
           </ul>
           <ul>
             <h3>Conversion</h3>
             <li>
               Ad cost
-              <b>{item.cost}</b>
+              <b>{conversion.ad_cost}</b>
             </li>
             <li>
               Ad spent
-              <b>{item.spent}</b>
+              <b>{conversion.ad_spent}</b>
             </li>
             <li>
               CPC
-              <b>{item.cpc}</b>
+              <b>{conversion.cost_per_click}</b>
             </li>
             <li>
               CPV
-              <b>{item.cpv}</b>
+              <b>{conversion.cost_per_view}</b>
             </li>
             <li>
               Added to Cart
-              <b>{item.addcart}</b>
+              <b>{conversion.added_to_cart}</b>
             </li>
             <li>
               Sales
-              <b>{item.sales}</b>
+              <b>{conversion.sales}</b>
             </li>
           </ul>
         </ReachAndConversation>
