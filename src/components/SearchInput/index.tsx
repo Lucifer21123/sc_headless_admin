@@ -65,7 +65,7 @@ const SeachContainer = styled.div<ContainerProps>`
   background-color: #fff;
   padding: 30px 16px 16px;
   transition: 0.4s;
-  overflow: scroll;
+  overflow-y: scroll;
   overflow-anchor: none;
   touch-action: none;
   height: ${(props) => (props.hide == false ? "0" : "80vh")};
@@ -134,7 +134,7 @@ const SearchInput = ({
       >
         <HiSearch size={25} color="#315293"></HiSearch>
       </button>
-      <SeachContainer hide={hide} ref={dropMenuRef}>
+      <SeachContainer hide={hide} ref={dropMenuRef} className="nft-scrollbar">
         {children}
       </SeachContainer>
     </SearchInputContent>
