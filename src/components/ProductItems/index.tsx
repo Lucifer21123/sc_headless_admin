@@ -67,7 +67,6 @@ const ProductItems = ({ item }) => {
   const conversion = item.node.internal.conversion;
 
   if (!isEmpty(item.node.reporting.feedback)) {
-    console.log("aaa");
     item.node.reporting.feedback.map((item, key) => {
       switch (item.reaction) {
         case "Like":

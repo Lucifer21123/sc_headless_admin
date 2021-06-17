@@ -52,7 +52,6 @@ const LeftMenu = ({ leftMenuOpen, closeButtonClick }) => {
 
   useEffect(() => {
     let leftMenuHeight = leftMenuRef.current.offsetHeight;
-    console.log("the height is changes");
     if (height < leftMenuHeight) {
       setLeftMenuHeight(height - 89 - 50 + "px");
       setOverflow(true);
@@ -80,10 +79,8 @@ const LeftMenu = ({ leftMenuOpen, closeButtonClick }) => {
 
     let leftMenuHeight = leftMenuRef.current.offsetHeight;
     if (height - 89 - 50 < leftMenuHeight) {
-      console.log("scroll");
       setLeftMenuHeight(height - 89 - 50 + "px");
       setOverflow(true);
-      console.log("scroll", leftMenuHeight);
     }
 
     setHeight(height);

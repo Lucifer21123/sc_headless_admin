@@ -61,9 +61,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
   const onOverLayClick = () => {
     setOpen(false);
   };
-  const onScroll = () => {
-    console.log("scroll event is running");
-  };
+  const onScroll = () => {};
   const onBugerClick = () => {
     setLeftMenuOpen(!leftMenuOpen);
   };

@@ -57,9 +57,7 @@ const onItemClick = (item) => {
   console.log(item);
 };
 
-const SnatchClick = () => {
-  console.log("Snatch Button Click");
-};
+const SnatchClick = () => {};
 
 const Header = ({ onMenuClick, onBugerClick }) => {
   return (

@@ -52,7 +52,7 @@ const ViewProductSection = ({}) => {
       })
       .then((res) => {
         const data = res.data.adminGridProducts;
-        console.log("mainpage", data);
+
         if (isEmpty(data)) {
           setProductData([]);
         } else {

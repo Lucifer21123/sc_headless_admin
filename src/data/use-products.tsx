@@ -10,7 +10,6 @@ export async function getProducts() {
     },
   });
   const res = await client.request(GET_PRODUCTS).then((data) => {
-    console.log("111", data);
     return data.adminGridProducts;
   });
 }
