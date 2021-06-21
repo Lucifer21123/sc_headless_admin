@@ -51,6 +51,7 @@ const SearchInputContent = styled.div<StyledProps>`
 `;
 type ContainerProps = {
   hide: boolean;
+  height: string;
 };
 
 const SeachContainer = styled.div<ContainerProps>`
@@ -68,7 +69,7 @@ const SeachContainer = styled.div<ContainerProps>`
   overflow-y: scroll;
   overflow-anchor: none;
   touch-action: none;
-  height: ${(props) => (props.hide == false ? "0" : "80vh")};
+  height: ${(props) => (props.hide == false ? "0" : props.height)};
   transition: all 1s ease-in;
   display: ${(props) => (props.hide == false ? "none" : "block")};
 `;
@@ -83,6 +84,7 @@ const SearchInput = ({
   Transition = ".3s",
   ActiveBorder = "1px solid rgba(53,85,143,.5)",
   Placeholder = "Search for Something",
+  containerHeight = "80vh",
   None = true,
   onChange,
   onClick,
@@ -134,7 +136,12 @@ const SearchInput = ({
       >
         <HiSearch size={25} color="#315293"></HiSearch>
       </button>
-      <SeachContainer hide={hide} ref={dropMenuRef} className="nft-scrollbar">
+      <SeachContainer
+        hide={hide}
+        ref={dropMenuRef}
+        height={containerHeight}
+        className="nft-scrollbar"
+      >
         {children}
       </SeachContainer>
     </SearchInputContent>

@@ -194,6 +194,19 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
         zIndex: -1,
       },
     },
+    ".form-input": {
+      width: "100%",
+      borderRadius: "5px",
+      fontSize: "16px",
+      fontWeight: "400",
+      padding: "9px 50px 9px 16px",
+      outline: "0 !important",
+      border: "1px solid transparent",
+      transition: "border .3s ease",
+      resize: "none",
+      backgroundColor: "#f8f9fb",
+      color: "#48414d !important",
+    },
     //@ts-ignore
     ...theme.globals,
   })

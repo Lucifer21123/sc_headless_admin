@@ -10,6 +10,8 @@ import PageLoader from "components/Loader/page-loader";
 import { ApolloProvider } from "@apollo/client";
 import { useApollo } from "utils/apollo-client";
 
+//! import LayoutContext
+import { LayoutProvider } from "contexts/layout/layout.provider";
 // External CSS import here
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
@@ -50,19 +52,21 @@ export default function ExtendedApp({ Component, pageProps }) {
     <ApolloProvider client={apolloClient}>
       <ThemeProvider theme={defaultTheme}>
         <LocationProvider messages={messages}>
-          <>
-            <AppLayout deviceType={{ mobile, tablet, desktop }}>
-              {loading ? (
-                <PageLoader />
-              ) : (
-                <Component
-                  {...pageProps}
-                  deviceType={{ mobile, tablet, desktop }}
-                />
-              )}
-            </AppLayout>
-            <GlobalStyle />
-          </>
+          <LayoutProvider>
+            <>
+              <AppLayout deviceType={{ mobile, tablet, desktop }}>
+                {loading ? (
+                  <PageLoader />
+                ) : (
+                  <Component
+                    {...pageProps}
+                    deviceType={{ mobile, tablet, desktop }}
+                  />
+                )}
+              </AppLayout>
+              <GlobalStyle />
+            </>
+          </LayoutProvider>
         </LocationProvider>
       </ThemeProvider>
     </ApolloProvider>

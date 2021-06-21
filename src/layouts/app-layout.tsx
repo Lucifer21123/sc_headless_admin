@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Header from "./header/header";
 
+import { useRouter } from "next/router";
+
 import {
   LayoutWrapper,
   BodyContainer,
@@ -16,8 +18,16 @@ import SideBar from "components/Sidebar/Sidebar";
 
 import SidebarMenu from "components/SidbarMenu/index";
 
+import { themeSetting } from "site-settings/site-theme/theme.setting";
+
 import { useWindowSize } from "utils/use-windowsize";
 import { useScrollPosition } from "utils/use-scroll";
+
+//! import Layout context
+import { LayoutContext } from "contexts/layout/layout.context";
+//! import IsEmtpy.
+
+import isEmpty from "utils/is-empty";
 
 type LayoutProps = {
   deviceType: {
@@ -28,14 +38,31 @@ type LayoutProps = {
 };
 
 const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
+  //!define Hooks
   const [open, setOpen] = useState(false);
   const [leftMenuOpen, setLeftMenuOpen] = useState(false);
   const [scrollPositionTop, setScrollPosition] = useState(0);
   const [leftPosition, setLeftMenuPosition] = useState("92px");
   const [headerTransform, setTransform] = useState("0");
   const [myRef, setmyRef] = useState(null);
-
   const [top, bottom] = useScrollPosition();
+
+  //!catch Path for theme
+  const { pathname } = useRouter();
+  const {
+    layoutDispatch,
+    layoutState: { pageLayout },
+  } = React.useContext<any>(LayoutContext);
+  useEffect(() => {
+    let urls = themeSetting;
+    const current = urls.filter((item) => {
+      return pathname.indexOf(item.path) != -1;
+    });
+    console.log(current);
+    if (!isEmpty(current)) {
+      layoutDispatch({ type: current[0].theme });
+    }
+  }, [pathname]);
 
   useEffect(() => {
     if (scrollPositionTop - bottom < 0) {
@@ -74,18 +101,27 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
       <HeaderContainer transform={headerTransform}>
         <Header onMenuClick={onMenuClick} onBugerClick={onBugerClick} />
       </HeaderContainer>
-      <LeftMenuContainer position={leftPosition} leftMenuOpen={leftMenuOpen}>
-        <LeftMenu
-          leftMenuOpen={leftMenuOpen}
-          closeButtonClick={closeButtonClick}
-        ></LeftMenu>
-      </LeftMenuContainer>
-      <BodyContainer ref={myRef} onScroll={onScroll}>
-        <div className="wrapper">
-          <div className="main-content">{children}</div>
-        </div>
-      </BodyContainer>
-      {open && <OverLay handleSide={onOverLayClick} />}
+      {pageLayout == "default" ? (
+        <>
+          <LeftMenuContainer
+            position={leftPosition}
+            leftMenuOpen={leftMenuOpen}
+          >
+            <LeftMenu
+              leftMenuOpen={leftMenuOpen}
+              closeButtonClick={closeButtonClick}
+            ></LeftMenu>
+          </LeftMenuContainer>
+          <BodyContainer ref={myRef} onScroll={onScroll}>
+            <div className="wrapper">
+              <div className="main-content">{children}</div>
+            </div>
+          </BodyContainer>
+          {open && <OverLay handleSide={onOverLayClick} />}
+        </>
+      ) : (
+        <BodyContainer>{children}</BodyContainer>
+      )}
     </>
   );
 };

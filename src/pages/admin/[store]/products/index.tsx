@@ -42,7 +42,7 @@ const onSearchButtonClick = () => {};
 const ViewProductSection = ({}) => {
   //get the store///but now it didn't use .
   const router = useRouter();
-  const { id, comment } = router.query;
+  const { id, store } = router.query;
 
   const [productData, setProductData] = useState(null);
 
