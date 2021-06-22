@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import AddFeature from "components/AddFeatuer";
 import FeatureAddButton from "components/FeatureAddButton";
@@ -12,10 +12,12 @@ import {
   ListFeaturesBody,
   LinkToContainer,
   PageBoxSelect,
+  SearchSelectUl,
 } from "./index.style";
 
 import FormLabel from "components/FormLabel";
 import SearchInput from "components/SearchInput";
+import SelectPageItem from "components/SelectPageItem";
 
 const data = [
   {
@@ -37,8 +39,43 @@ const styleProperty = {
   Color: "#828282",
 };
 
+const SelectItemData = [
+  {
+    id: 1,
+    title: "Title here could be so much longer",
+    date: "252860580",
+    image: "02.10.2020",
+  },
+  {
+    id: 2,
+    title: "Title here could be so much longer",
+    date: "252860580",
+    image: "02.10.2020",
+  },
+  {
+    id: 3,
+    title: "Title here could be so much longer",
+    date: "252860580",
+    image: "02.10.2020",
+  },
+  {
+    id: 4,
+    title: "Title here could be so much longer",
+    date: "252860580",
+    image: "02.10.2020",
+  },
+  {
+    id: 5,
+    title: "Title here could be so much longer",
+    date: "252860580",
+    image: "02.10.2020",
+  },
+];
+
 const ServiceSection = () => {
   const [state1, setstate1] = useState(data);
+  const [selectData, setSelectData] = useState(SelectItemData);
+  const [searchHide, setSearchHide] = useState(true);
   useEffect(() => {
     console.log(state1);
   });
@@ -74,7 +111,26 @@ const ServiceSection = () => {
   };
 
   const onSearchChange = () => {};
-  const onSearchClick = () => {};
+  const onSearchClick = () => {
+    setSearchHide(!searchHide);
+  };
+  const dropMenuRef = useRef(null);
+  const handleClickOutside = (e) => {
+    if (dropMenuRef.current && dropMenuRef.current.contains(e.target)) {
+      return;
+    }
+    setSearchHide(false);
+  };
+  useEffect(() => {
+    if (searchHide) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [searchHide]);
 
   return (
     <ServiceSectionContainer>
@@ -115,9 +171,29 @@ const ServiceSection = () => {
             onChange={onSearchChange}
             onClick={onSearchClick}
             containerHeight="auto"
+            None={false}
           >
-            asddaf
+            sds
           </SearchInput>
+          {searchHide ? (
+            <></>
+          ) : (
+            <SearchSelectUl searchHide={searchHide} ref={dropMenuRef}>
+              {selectData.map((item, key) => {
+                return (
+                  <li>
+                    <SelectPageItem item={item} key={key}></SelectPageItem>
+                  </li>
+                );
+              })}
+            </SearchSelectUl>
+          )}
+
+          <FormLabel styleproperty={styleProperty}>
+            When shoppers click on a product that is linked to a landing page,
+            they will be taken to that page which details features of your
+            service.You must create the page first.
+          </FormLabel>
         </PageBoxSelect>
       </LinkToContainer>
     </ServiceSectionContainer>

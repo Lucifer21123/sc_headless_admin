@@ -126,6 +126,9 @@ const SearchInput = ({
             setHide(true);
           }
         }}
+        onMouseDown={() => {
+          onClick();
+        }}
         placeholder={Placeholder}
       />
       <button
