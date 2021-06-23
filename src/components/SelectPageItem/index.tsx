@@ -75,9 +75,9 @@ const CheckBoxContent = styled.div`
   align-items: center;
 `;
 
-const SelectPageItem = ({ item }) => {
-  const onCheckBoxClick = (checked) => {
-    console.log(checked);
+const SelectPageItem = ({ item, onClick,checked }) => {
+  const onCheckBoxClick = (checked_h) => {
+    onClick(item.id,checked_h);
   };
   return (
     <SelectItemContainer>
@@ -95,6 +95,7 @@ const SelectPageItem = ({ item }) => {
       </SelectInfo>
       <CheckBoxContent>
         <CheckBox
+          checked={checked}
           border="#afbbd4"
           activeBorder={"#f77d0e"}
           onClick={onCheckBoxClick}

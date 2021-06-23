@@ -11,11 +11,33 @@ const ProductEditContainer = styled.div`
     width: 60%;
     max-width: 560px;
   }
+  p {
+    padding-left: 8px;
+    opacity: 0.75;
+    color: #0b0212;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    margin-top: 8px;
+  }
+  h6 {
+    color: #335491;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    line-height: 12px;
+    text-align: left;
+    text-transform: uppercase;
+  }
 `;
 
 import ProductTitle from "./ProductTitle/ProductTitle";
 import ProductImage from "./ProductImage";
 import ProductType from "./ProductType";
+import Pricing from "./Pricing";
+import Inventroy from "./Inventory";
+import Availability from "./Availability";
 
 const ProductEdit = ({ data, onTitleChange, onDescriptionChange }) => {
   return (
@@ -27,6 +49,9 @@ const ProductEdit = ({ data, onTitleChange, onDescriptionChange }) => {
       ></ProductTitle>
       <ProductImage></ProductImage>
       <ProductType></ProductType>
+      <Pricing></Pricing>
+      <Inventroy></Inventroy>
+      <Availability></Availability>
     </ProductEditContainer>
   );
 };

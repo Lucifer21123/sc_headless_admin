@@ -46,15 +46,15 @@ import PopularItems from "components/SearchProductPopular/index";
 import SnatchButton from "components/SnatchButton/index";
 
 const onChange = (event) => {
-  console.log(event);
+
 };
 
 const onSearchClick = () => {
-  console.log("~~~search button click~~~~");
+
 };
 
 const onItemClick = (item) => {
-  console.log(item);
+
 };
 
 const SnatchClick = () => {};

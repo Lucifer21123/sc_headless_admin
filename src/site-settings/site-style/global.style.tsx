@@ -207,6 +207,19 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
       backgroundColor: "#f8f9fb",
       color: "#48414d !important",
     },
+    ".form-single": {
+      position: "relative",
+      maxWidth: "280px",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      marginRight: "15px",
+      marginBottom: "32px",
+    },
+    ".form__fluid": {
+      width: "100%",
+      maxWidth: "100%",
+      marginRight: 0,
+    },
     //@ts-ignore
     ...theme.globals,
   })

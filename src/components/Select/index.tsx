@@ -145,6 +145,12 @@ type currentType = {
  */
 
 const Select = ({ settings, list, label, click }) => {
+
+
+  
+
+
+
   const [current, setCurrent] = useState<currentType>({
     id: label,
     label: label,

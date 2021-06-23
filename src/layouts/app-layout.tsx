@@ -58,7 +58,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
     const current = urls.filter((item) => {
       return pathname.indexOf(item.path) != -1;
     });
-    console.log(current);
+
     if (!isEmpty(current)) {
       layoutDispatch({ type: current[0].theme });
     }

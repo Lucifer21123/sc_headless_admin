@@ -5,28 +5,38 @@ type CheckBoxContainerProps = {
   border: string;
   checked: boolean;
   activeBorder: string;
+  size: string;
+  borderSize: string;
 };
 const CheckBoxContainer = styled.div<CheckBoxContainerProps>`
-  width: 24px;
-  height: 24px;
-  border: 3px solid
+  width: ${(props) => props.size};
+  height: ${(props) => props.size};
+  border: ${(props) => props.borderSize} solid
     ${(props) => (props.checked ? props.activeBorder : props.border)};
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 3px;
+  margin-right: 8px;
 `;
 
-const CheckBox = ({ border, activeBorder, onClick }) => {
-  const [checked, setChecked] = useState(false);
+const CheckBox = ({
+  borderSize = "3px",
+  border,
+  activeBorder,
+  onClick,
+  checked,
+  size = "24px",
+}) => {
   return (
     <CheckBoxContainer
       border={border}
+      size={size}
       checked={checked}
       activeBorder={activeBorder}
+      borderSize={borderSize}
       onClick={() => {
-        setChecked(!checked);
-        onClick(checked);
+        onClick(!checked);
       }}
     >
       {!checked ? <></> : <img src={checkIcon} />}
