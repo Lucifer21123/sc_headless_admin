@@ -14,8 +14,6 @@ import LeftMenu from "./leftmenu";
 
 import OverLay from "./overlay";
 
-import SideBar from "components/Sidebar/Sidebar";
-
 import SidebarMenu from "components/SidbarMenu/index";
 
 import { themeSetting } from "site-settings/site-theme/theme.setting";
@@ -25,7 +23,6 @@ import { useScrollPosition } from "utils/use-scroll";
 
 //! import Layout context
 import { LayoutContext } from "contexts/layout/layout.context";
-
 
 //! import IsEmtpy.
 
@@ -51,18 +48,22 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
 
   //!catch Path for theme
   const { pathname } = useRouter();
+
   const {
     layoutDispatch,
     layoutState: { pageLayout },
   } = React.useContext<any>(LayoutContext);
   useEffect(() => {
+    console.log(pathname);
     let urls = themeSetting;
     const current = urls.filter((item) => {
       return pathname.indexOf(item.path) != -1;
     });
-
+    console.log(current);
     if (!isEmpty(current)) {
       layoutDispatch({ type: current[0].theme });
+    } else {
+      layoutDispatch({ type: "default" });
     }
   }, [pathname]);
 

@@ -1,6 +1,7 @@
 import Reaction from "components/Reaction";
 import { useState } from "react";
-
+import { useRouter } from "next/router";
+import Link from "next/link";
 import {
   ProductItemContainer,
   LeftContainer,
@@ -45,7 +46,8 @@ const ProductItems = ({ item, onBodyToggle, state }) => {
   const [bodystate, setState] = useState(true);
 
   const productItemPhoto = item.node.mutable.public;
-
+  const router = useRouter();
+  const { store } = router.query;
   const productInfo = {
     qty: item.node.soh,
     totalvariants: item.node.total_variants,
@@ -67,7 +69,7 @@ const ProductItems = ({ item, onBodyToggle, state }) => {
   const reach = item.node.internal.reach;
 
   const conversion = item.node.internal.conversion;
-
+  let editRouter = "/admin/" + store + "/products/" + item.node._id;
   if (!isEmpty(item.node.reporting.feedback)) {
     item.node.reporting.feedback.map((item, key) => {
       switch (item.reaction) {
@@ -129,7 +131,7 @@ const ProductItems = ({ item, onBodyToggle, state }) => {
             <a>
               <b>Boost</b>
             </a>
-            <a>Edit</a>
+            <Link href={editRouter}>Edit</Link>
             <a>Delete</a>
             <a className="openFill">
               {hide ? (
