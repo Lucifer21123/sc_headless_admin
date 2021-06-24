@@ -3,7 +3,6 @@ import {
   SortableDragImg,
   ColumnSortDrag,
 } from "./index.style";
-import product2 from "assets/images/product/viewProduct/7142447382608.png";
 //! component
 import { ReactSortable } from "react-sortablejs";
 import { useState } from "react";
@@ -11,7 +10,7 @@ const ProductImage = () => {
   const [list, setList] = useState([
     {
       id: "1",
-      backgroundImg: product2,
+      backgroundImg: "",
     },
     {
       id: "2",
