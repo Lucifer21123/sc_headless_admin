@@ -9,8 +9,13 @@ const FormLabelContent = styled.span<FormLabelContentProps>`
   color: ${(props) => props.styleproperty.Color};
   padding-left: 8px;
 `;
-
-const FormLabel = ({ styleproperty, children }) => {
+const styleProperty = {
+  fontSize: "14px",
+  Weight: "400",
+  marginBottom: "6px",
+  Color: "#828282",
+};
+const FormLabel = ({ styleproperty = styleProperty, children }) => {
   return (
     <FormLabelContent styleproperty={styleproperty}>
       {children}

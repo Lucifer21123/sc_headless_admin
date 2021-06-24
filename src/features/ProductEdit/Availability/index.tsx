@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import CheckBoxLabel from "components/CheckBoxLabel";
+import SnatchButton from "components/SnatchButton";
 
 const AvailabilityContainer = styled.div`
   padding: 24px;
@@ -42,8 +43,27 @@ const Availability_Box = styled.div`
   }
 `;
 
+export const ManageButtonContainer = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+const settings = {
+  width: "160px",
+  height: "40px",
+  fontSize: "16px",
+  radius: "5px",
+  bg: "#35558f",
+  hoverColor: "#274276",
+  borderColor: "#243d6d",
+  fontColor: "#fff",
+};
+
 const Availability = () => {
   const onAllowClick = (checked) => {};
+  const onAvailableButtonClick = () => {};
   return (
     <AvailabilityContainer>
       <h6>Availability</h6>
@@ -54,6 +74,11 @@ const Availability = () => {
         <CheckBoxLabel onClick={onAllowClick}>
           Allow Click & Collect for this store
         </CheckBoxLabel>
+        <ManageButtonContainer>
+          <SnatchButton setting={settings} onClick={onAvailableButtonClick}>
+            Manage Availability
+          </SnatchButton>
+        </ManageButtonContainer>
       </Availability_Box>
     </AvailabilityContainer>
   );

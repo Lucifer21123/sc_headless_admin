@@ -10,6 +10,11 @@ const CheckBoxLabelContainer = styled.div`
 
 const LabelContainer = styled.div`
   display: flex;
+  color: #0b0212;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
 `;
 
 const CheckBoxLabel = ({ onClick, children }) => {

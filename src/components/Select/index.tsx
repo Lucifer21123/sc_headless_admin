@@ -144,13 +144,25 @@ type currentType = {
  * 
  */
 
-const Select = ({ settings, list, label, click }) => {
+const selectSetting = {
+  fontSize: "16px",
+  fontWeight: "normal",
+  color: "#212529",
+  headerColor: "#0b0212",
+  backgroundColor: "#f8f9fb",
+  borderRadius: "8px",
+  boxShadow: "1px 1px 4px 1px rgb(11 2 18 / 8%)",
+  arrowTop: "50px",
+  arrowRight: "-10px",
+  itemFontSize: "16px",
+  itemFontColor: "#0b0212",
+  itemFontWeight: "normal",
+  hoverBackgroundColor: "#f8f9fb",
+  hoverColor: "#335491",
+  borderColor: "#0b0212",
+};
 
-
-  
-
-
-
+const Select = ({ settings = selectSetting, list, label, click }) => {
   const [current, setCurrent] = useState<currentType>({
     id: label,
     label: label,

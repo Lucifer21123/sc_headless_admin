@@ -38,6 +38,12 @@ import ProductType from "./ProductType";
 import Pricing from "./Pricing";
 import Inventroy from "./Inventory";
 import Availability from "./Availability";
+import Organization from "./Organization";
+import Organization2 from "./Organization2";
+import TermSection from "./Terms";
+import Permission from "./Permission";
+import LongDescription from "./LongDescription";
+import CustomizationSection from "./CustomizationSection";
 
 const ProductEdit = ({ data, onTitleChange, onDescriptionChange }) => {
   return (
@@ -52,6 +58,12 @@ const ProductEdit = ({ data, onTitleChange, onDescriptionChange }) => {
       <Pricing></Pricing>
       <Inventroy></Inventroy>
       <Availability></Availability>
+      <Organization></Organization>
+      <Organization2></Organization2>
+      <TermSection></TermSection>
+      <Permission></Permission>
+      <LongDescription></LongDescription>
+      <CustomizationSection></CustomizationSection>
     </ProductEditContainer>
   );
 };
