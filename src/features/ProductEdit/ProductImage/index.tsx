@@ -46,7 +46,7 @@ const ProductImage = () => {
     },
   ]);
   return (
-    <ImagesBoxLoader>
+    <ImagesBoxLoader id="2">
       <strong>Images</strong>
       <ColumnSortDrag>
         <ReactSortable list={list} setList={setList} tag="ul">

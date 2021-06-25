@@ -4,7 +4,7 @@ import CheckBoxLabel from "components/CheckBoxLabel";
 const LongDescription = () => {
   const onUseTabChecked = (checked) => {};
   return (
-    <LongDescriptionContainer>
+    <LongDescriptionContainer id="10">
       <h6>long description</h6>
       <CheckBoxContainer>
         <CheckBoxLabel onClick={onUseTabChecked}>

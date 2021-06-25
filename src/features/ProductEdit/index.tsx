@@ -1,4 +1,6 @@
 import styled from "styled-components";
+
+import { useState } from "react";
 const ProductEditContainer = styled.div`
   margin-right: 25px;
   max-width: 560px;
@@ -44,14 +46,15 @@ import TermSection from "./Terms";
 import Permission from "./Permission";
 import LongDescription from "./LongDescription";
 import CustomizationSection from "./CustomizationSection";
-
-const ProductEdit = ({ data, onTitleChange, onDescriptionChange }) => {
+import PreviewSection from "./PreviewSection";
+const ProductEdit = ({ data }) => {
+  const onChange = (type, value) => {};
   return (
     <ProductEditContainer>
       <ProductTitle
-        data={data}
-        onTitleChange={onTitleChange}
-        onDescriptionChange={onDescriptionChange}
+        data={data.mutable.public}
+        ageBracket={data.age_bracket}
+        onChange={onChange}
       ></ProductTitle>
       <ProductImage></ProductImage>
       <ProductType></ProductType>
@@ -64,6 +67,7 @@ const ProductEdit = ({ data, onTitleChange, onDescriptionChange }) => {
       <Permission></Permission>
       <LongDescription></LongDescription>
       <CustomizationSection></CustomizationSection>
+      <PreviewSection></PreviewSection>
     </ProductEditContainer>
   );
 };

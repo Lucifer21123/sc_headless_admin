@@ -79,7 +79,7 @@ const ProductType = () => {
       break;
   }
   return (
-    <ProductTypeContainer>
+    <ProductTypeContainer id="3">
       <h6>Product type</h6>
       <FormSingleSelect>
         <FormLabelContainer>

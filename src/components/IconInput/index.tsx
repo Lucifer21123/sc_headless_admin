@@ -1,7 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
-
-const IconInputContainer = styled.div`
+type Props = {
+  paddingLeft: string;
+  color: string;
+};
+const IconInputContainer = styled.div<Props>`
   width: 100%;
   display: flex;
   position: relative;
@@ -12,13 +15,14 @@ const IconInputContainer = styled.div`
     bottom: 0px;
     display: flex;
     align-items: center;
-    color: #0b0212;
+    color: ${(props) => props.color};
     font-size: 16px;
     font-weight: 400;
     text-align: left;
+    opacity: 0.5;
   }
   & .form-input {
-    padding-left: 28px;
+    padding-left: ${(props) => props.paddingLeft};
   }
   & input {
     :focus {
@@ -26,14 +30,21 @@ const IconInputContainer = styled.div`
     }
   }
 `;
-const IconInput = ({ value, placeholder, onChange, children }) => {
+const IconInput = ({
+  paddingLeft = "28px",
+  color = "#0b0212",
+  value,
+  placeholder,
+  onChange,
+  children,
+}) => {
   const [value1_h, setvalue1_h] = useState(value);
   const onCountInputChange = (e) => {
     setvalue1_h(e.target.value);
     onChange(e.target.value);
   };
   return (
-    <IconInputContainer>
+    <IconInputContainer paddingLeft={paddingLeft} color={color}>
       <input
         className="form-input"
         placeholder={placeholder}

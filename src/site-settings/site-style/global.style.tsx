@@ -263,6 +263,23 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
       display: "inline-block",
       marginTop: "8px",
     },
+    ".form-text": {
+      width: "100%",
+      opacity: ".75",
+      color: "#0b0212",
+      fontSize: "14px",
+      fontWeight: "400",
+      lineHeight: "14px",
+      textAlign: "left",
+      marginBottom: "0",
+      marginTop: "8px",
+      paddingLeft: "8px",
+    },
+    ".checkbox-body": {
+      display: "flex",
+      flexDirection: "column",
+      flex: 1,
+    },
     //@ts-ignore
     ...theme.globals,
   })

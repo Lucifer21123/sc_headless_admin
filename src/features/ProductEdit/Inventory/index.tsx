@@ -77,7 +77,7 @@ const Inventroy = () => {
   const OnAllowBackOrder = (checked_h) => {};
   const onQuantityClick = (checked_h) => {};
   return (
-    <InventoryContainer>
+    <InventoryContainer id="5">
       <h6>Inventory (All IELS ARE OPTIONAL)</h6>
       <DoubleInput>
         <div className="form-single">

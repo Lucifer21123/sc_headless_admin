@@ -7,7 +7,7 @@ const TermSection = () => {
     console.log(val);
   };
   return (
-    <TermsBoxContainer>
+    <TermsBoxContainer id="8">
       <h6>Terms and conditions (optional)</h6>
       <MaxText>
         <FormLabel>Guarantee text</FormLabel>

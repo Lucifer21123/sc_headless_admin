@@ -24,7 +24,7 @@ const list = [
 const Organization2 = () => {
   const onCategorySelect = (item) => {};
   return (
-    <Organization2Container>
+    <Organization2Container id="8">
       <h6>Organization</h6>
       <OrganizationSingle>
         <MembersForm>

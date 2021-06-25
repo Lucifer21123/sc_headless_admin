@@ -118,7 +118,7 @@ const Pricing = () => {
     console.log(item);
   };
   return (
-    <PricingContainer>
+    <PricingContainer id="4">
       <h6>Pricing</h6>
       <DoublePrice>
         <div className="form-single">

@@ -31,7 +31,7 @@ function createIsomorphLink() {
   });
 }
 
-function createApolloClient() {
+function createApolloClient(header = {}) {
   return new ApolloClient({
     ssrMode: true,
     link: createHttpLink({
@@ -46,7 +46,7 @@ function createApolloClient() {
 }
 
 export function initializeApollo(initialState: any = null) {
-  const _apolloClient = apolloClient ?? createApolloClient();
+  const _apolloClient = createApolloClient(initialState);
   // Create the Apollo Client once in the client
   if (!apolloClient) apolloClient = _apolloClient;
 

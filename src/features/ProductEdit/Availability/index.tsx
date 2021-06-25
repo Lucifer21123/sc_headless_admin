@@ -65,7 +65,7 @@ const Availability = () => {
   const onAllowClick = (checked) => {};
   const onAvailableButtonClick = () => {};
   return (
-    <AvailabilityContainer>
+    <AvailabilityContainer id="6">
       <h6>Availability</h6>
       <p>Product available in the following stores:</p>
       <Availability_Box>

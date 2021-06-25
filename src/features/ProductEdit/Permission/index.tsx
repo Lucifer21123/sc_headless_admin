@@ -81,7 +81,7 @@ const Permission = () => {
   const onFreeShippingChecked = (checked) => {};
 
   return (
-    <AdditionBox>
+    <AdditionBox id="9">
       <h6>additional permissions</h6>
       <SingleCheck>
         <span>

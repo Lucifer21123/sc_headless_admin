@@ -172,7 +172,7 @@ const Select = ({ settings = selectSetting, list, label, click }) => {
 
   useEffect(() => {
     setCurrent({ id: label, label: label });
-  }, []);
+  }, [label]);
 
   const handleClickOutside = (e) => {
     if (dropMenuRef.current && dropMenuRef.current.contains(e.target)) {
