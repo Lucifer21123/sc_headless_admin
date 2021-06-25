@@ -37,6 +37,9 @@ const NavProductContainer = styled.div`
       }
     }
   }
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
 `;
 
 const NavProduct = ({ data, onClick }) => {
@@ -49,6 +52,7 @@ const NavProduct = ({ data, onClick }) => {
               onClick={() => {
                 onClick(item.id);
               }}
+              key={key}
             >
               <a
                 href={"#" + item.id}
