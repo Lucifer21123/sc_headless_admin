@@ -11,10 +11,11 @@ export const CustomizationSectionContainer = styled.div`
   margin-bottom: 16px;
   position: relative;
   width: 100%;
-  padding: 24px;
 `;
 export const CustomizationHeader = styled.div`
   cursor: pointer;
+  padding: 24px;
+  margin-bottom: -12px;
   & h3 {
     color: #335491;
     font-size: 18px;
@@ -41,6 +42,7 @@ export const ArrowContainer = styled.div<CustomizationArrowProps>`
   }
 `;
 export const GitShoppingBody = styled.div`
+  padding: 0 24px;
   & h6 {
     margin-top: 20px;
     margin-bottom: 23px;

@@ -29,7 +29,10 @@ const Organization2 = () => {
       <OrganizationSingle>
         <MembersForm>
           <div className="form-single">
-            <FormLabel>Categories</FormLabel>
+            <div className="mb-1">
+              <FormLabel>Categories</FormLabel>
+            </div>
+
             <Select
               label="Category"
               list={list}
@@ -38,17 +41,13 @@ const Organization2 = () => {
           </div>
         </MembersForm>
         <ButtonContainer>
-          <Button variant="outlinedbitDarkBlue" size="small">
-            Create category
-          </Button>
+          <a>Create category</a>
         </ButtonContainer>
       </OrganizationSingle>
       <OrganizationUpdate>
         <p>Custom brands are not supported on a free account</p>
         <ButtonContainer>
-          <Button variant="outlinedbitDarkBlue" size="small">
-            Upgrade account
-          </Button>
+          <a>Upgrade account</a>
         </ButtonContainer>
       </OrganizationUpdate>
     </Organization2Container>

@@ -46,7 +46,9 @@ const Organization = () => {
       <OrganizationSingle>
         <MembersForm>
           <div className="form-single">
-            <FormLabel>Categories</FormLabel>
+            <div className="mb-1">
+              <FormLabel>Categories</FormLabel>
+            </div>
             <Select
               label="Category"
               list={list}
@@ -55,15 +57,15 @@ const Organization = () => {
           </div>
         </MembersForm>
         <ButtonContainer>
-          <Button variant="outlinedbitDarkBlue" size="small">
-            Create category
-          </Button>
+          <a>Create category</a>
         </ButtonContainer>
       </OrganizationSingle>
       <OrganizationSingle>
         <MembersForm>
           <div className="form-single">
-            <FormLabel>Brands</FormLabel>
+            <div className="mb-1">
+              <FormLabel>Brands</FormLabel>
+            </div>
             <Select
               label="Brand"
               list={brandlist}
@@ -72,9 +74,7 @@ const Organization = () => {
           </div>
         </MembersForm>
         <ButtonContainer>
-          <Button variant="outlinedbitDarkBlue" size="small">
-            Create brand
-          </Button>
+          <a>Create brand</a>
         </ButtonContainer>
       </OrganizationSingle>
     </OrganizationContainer>

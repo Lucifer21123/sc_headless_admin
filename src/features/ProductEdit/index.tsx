@@ -5,8 +5,7 @@ const ProductEditContainer = styled.div`
   margin-right: 25px;
   max-width: 560px;
   @media screen and (min-width: 992px) {
-    max-width: 684px;
-    width: 58%;
+    width: 90%;
     margin-top: 0px;
   }
   @media screen and (min-width: 1440px) {

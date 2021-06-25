@@ -17,6 +17,7 @@ const AvailabilityContainer = styled.div`
   & p {
     padding: 0 !important;
     margin-bottom: 30px !important;
+    margin-top: 0px !important;
   }
 `;
 
@@ -40,6 +41,7 @@ const Availability_Box = styled.div`
     font-weight: 400 !important;
     line-height: 14px !important;
     opacity: 1 !important;
+    margin-top: 0 !important;
   }
 `;
 
@@ -48,6 +50,7 @@ export const ManageButtonContainer = styled.div`
   flex: 1;
   align-items: center;
   justify-content: flex-end;
+  padding-top: 20px;
 `;
 
 const settings = {

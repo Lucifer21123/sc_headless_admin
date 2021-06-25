@@ -52,7 +52,7 @@ export const FormSingleSelect = styled.div`
 `;
 
 export const FormLabelContainer = styled.div`
-  padding-left: 8px;
+  margin-bottom: 6px;
 `;
 
 export const ProductTypeSelectContainer = styled.div`

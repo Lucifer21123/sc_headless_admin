@@ -7,6 +7,9 @@ import {
   CheckedChildrenBody,
   DoubleInputSelect,
   DoublePriceContainer,
+  SingleCheck1,
+  CheckLabelContainer1,
+  SingleCheck2,
 } from "./index.style";
 import { useState } from "react";
 
@@ -24,7 +27,7 @@ const Permission = () => {
   const [shippingEngabled, setShippingEnabled] = useState(true);
   const [classified, setClassified] = useState(true);
   const [propertyChecked, setPropertyChecked] = useState(true);
-  const [bargainEnabled, setBargainEnabled] = useState(false);
+  const [bargainEnabled, setBargainEnabled] = useState(true);
 
   let bargain = bargainEnabled ? "enabled" : "disabled";
   let order = preOrderEnabled ? "enabled" : "disabled";
@@ -92,7 +95,7 @@ const Permission = () => {
           onChange={onPreOrderChange}
         ></SwitchButton>
       </SingleCheck>
-      <SingleCheck>
+      <SingleCheck2>
         <span>
           Shipping <b>{shipping}</b>
         </span>
@@ -100,7 +103,7 @@ const Permission = () => {
           checked={shippingEngabled}
           onChange={onShippingChange}
         ></SwitchButton>
-      </SingleCheck>
+      </SingleCheck2>
       <ToggleTransition hide={shippingEngabled} transitionTime={"0.4s"}>
         <SingleCheckBody>
           <DoubleInput>
@@ -130,11 +133,11 @@ const Permission = () => {
               This is heavy item
             </CheckBoxLabel>
           </CheckLabelContainer>
-          <CheckLabelContainer>
+          <CheckLabelContainer1>
             <CheckBoxLabel onClick={onClickClassfied}>
               This item is classified as a dangerous good.
             </CheckBoxLabel>
-          </CheckLabelContainer>
+          </CheckLabelContainer1>
           <ToggleTransition hide={classified} transitionTime="0.4s">
             <CheckedChildrenBody>
               <p className="check">
@@ -238,7 +241,7 @@ const Permission = () => {
           </CheckLabelContainer>
         </SingleCheckBody>
       </ToggleTransition>
-      <SingleCheck>
+      <SingleCheck1>
         <span>
           Enable to be in the bargain page <b>{bargain}</b>
         </span>
@@ -246,64 +249,67 @@ const Permission = () => {
           checked={bargainEnabled}
           onChange={onBargainChange}
         ></SwitchButton>
-      </SingleCheck>
+      </SingleCheck1>
       <span className="warn-more">More about SplitChek bargains</span>
-      <SingleCheckBody>
-        <DoublePriceContainer>
-          <div className="form-single">
-            <FormLabel>max % bargain discount</FormLabel>
-            <CountInput
-              val=""
-              maxLength={12123}
-              placeholder=""
-              onChange={onMaxBargainChange}
-              hide={true}
-            ></CountInput>
-            <span className="desc">
-              Max discount that shoud be applied your item on the bargain page.
-              Min 15%
-            </span>
-          </div>
-          <div className="form-single">
-            <FormLabel>max % bargain order</FormLabel>
-            <CountInput
-              val=""
-              maxLength={12123}
-              placeholder=""
-              onChange={onMaxBargainOrder}
-              hide={true}
-            ></CountInput>
-            <span className="desc">
-              Item will be disabled from the bargain when max orders has been
-              reached
-            </span>
-          </div>
-        </DoublePriceContainer>
-      </SingleCheckBody>
-      <div className="form-single max-bottom">
-        <FormLabel>Notes to shoppers</FormLabel>
-        <CountInput
-          placeholder="product title"
-          val=""
-          onChange={onProductChange}
-          maxLength={180}
-        ></CountInput>
-      </div>
-      <p>
-        Notes to display to shoppers on the bargain page. For example, notify
-        them if this is weekly, monthly, yearly subscriptions on base pricing
-        model or if they can pickup from your store
-      </p>
-      <CheckLabelContainer>
-        <CheckBoxLabel onClick={onPriceRulesChecked}>
-          Disable price rulse forthis product when bargain used
-        </CheckBoxLabel>
-      </CheckLabelContainer>
-      <CheckLabelContainer>
-        <CheckBoxLabel onClick={onFreeShippingChecked}>
-          Enable free shiping on this item when bargain is active
-        </CheckBoxLabel>
-      </CheckLabelContainer>
+      <ToggleTransition hide={bargainEnabled} transitionTime="0.5s">
+        <SingleCheckBody>
+          <DoublePriceContainer>
+            <div className="form-single">
+              <FormLabel>max % bargain discount</FormLabel>
+              <CountInput
+                val=""
+                maxLength={12123}
+                placeholder=""
+                onChange={onMaxBargainChange}
+                hide={true}
+              ></CountInput>
+              <span className="desc">
+                Max discount that shoud be applied your item on the bargain
+                page. Min 15%
+              </span>
+            </div>
+            <div className="form-single">
+              <FormLabel>max % bargain order</FormLabel>
+              <CountInput
+                val=""
+                maxLength={12123}
+                placeholder=""
+                onChange={onMaxBargainOrder}
+                hide={true}
+              ></CountInput>
+              <span className="desc">
+                Item will be disabled from the bargain when max orders has been
+                reached
+              </span>
+            </div>
+          </DoublePriceContainer>
+        </SingleCheckBody>
+        <div className="form-single max-bottom">
+          <FormLabel>Notes to shoppers</FormLabel>
+          <CountInput
+            placeholder="product title"
+            val=""
+            onChange={onProductChange}
+            maxLength={180}
+          ></CountInput>
+        </div>
+        <p>
+          Notes to display to shoppers on the bargain page. For example, notify
+          them if this is weekly, monthly, yearly subscriptions on base pricing
+          model or if they can pickup from your store
+        </p>
+
+        <CheckLabelContainer>
+          <CheckBoxLabel onClick={onPriceRulesChecked}>
+            Disable price rulse forthis product when bargain used
+          </CheckBoxLabel>
+        </CheckLabelContainer>
+        <CheckLabelContainer>
+          <CheckBoxLabel onClick={onFreeShippingChecked}>
+            Enable free shiping on this item when bargain is active
+          </CheckBoxLabel>
+        </CheckLabelContainer>
+      </ToggleTransition>
     </AdditionBox>
   );
 };

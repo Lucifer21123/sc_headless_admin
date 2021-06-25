@@ -52,6 +52,8 @@ export const SeasonTitleBoxOther = styled.div`
     font-weight: 400;
     line-height: 22px;
     text-align: left;
+    padding: 0 !important;
+    margin-bottom: 15px !important;
   }
   & h5 {
     color: #315293;
@@ -70,14 +72,12 @@ export const MembersForm = styled.div`
   margin-bottom: 24px;
   display: flex;
   flex-direction: column;
-  padding-left: 6px;
 `;
 
 export const MemversTagForm = styled.div`
   margin-bottom: 8px;
   display: flex;
   flex-direction: column;
-  padding-left: 6px;
 `;
 
 export const SelectBefore = styled.div`

@@ -23,22 +23,46 @@ export const MembersForm = styled.div`
   flex-direction: column;
   align-items: flex-end;
   flex: 1;
+  max-width: 100%;
+  min-width: 240px;
   margin-right: 30px;
   & .form-single {
-    max-width: 100%;
-    min-width: 240px;
     margin: 0;
     width: 100%;
   }
 `;
 export const ButtonContainer = styled.div`
   display: flex;
+  flex: 1;
   align-items: flex-end;
   & Button {
     padding: 0;
     max-width: 160px;
     min-width: 160px;
     width: 100%;
+  }
+  & a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 160px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+    font-weight: 500;
+    background-color: #fff;
+    border: 2px solid #35558f !important;
+    outline: 0;
+    text-decoration: none;
+    cursor: pointer;
+    color: #35558f !important;
+    :hover {
+      background: #35558f !important;
+      color: #fff !important;
+    }
   }
 `;
 
@@ -58,5 +82,6 @@ export const OrganizationUpdate = styled.div`
     font-size: 18px !important;
     font-weight: 400 !important;
     opacity: 1 !important;
+    padding: 0 !important;
   }
 `;

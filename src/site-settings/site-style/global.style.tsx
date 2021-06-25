@@ -252,6 +252,7 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
       lineHeight: "14px",
       textAlign: "left",
       marginTop: "5px",
+      marginBottom: "25px",
     },
     ".desc": {
       opacity: ".75",
@@ -279,6 +280,9 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
       display: "flex",
       flexDirection: "column",
       flex: 1,
+    },
+    ".mb-1": {
+      marginBottom: "6px",
     },
     //@ts-ignore
     ...theme.globals,

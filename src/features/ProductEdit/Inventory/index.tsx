@@ -81,9 +81,12 @@ const Inventroy = () => {
       <h6>Inventory (All IELS ARE OPTIONAL)</h6>
       <DoubleInput>
         <div className="form-single">
-          <FormLabel styleproperty={styleProperty}>
-            SKU(Stock keeping Unit)
-          </FormLabel>
+          <div className="mb-1">
+            <FormLabel styleproperty={styleProperty}>
+              SKU(Stock keeping Unit)
+            </FormLabel>
+          </div>
+
           <CountInput
             val={skuValue}
             maxLength="10000"
@@ -93,9 +96,11 @@ const Inventroy = () => {
           ></CountInput>
         </div>
         <div className="form-single">
-          <FormLabel styleproperty={styleProperty}>
-            Barcode (ISBN, UPC etc)
-          </FormLabel>
+          <div className="mb-1">
+            <FormLabel styleproperty={styleProperty}>
+              Barcode (ISBN, UPC etc)
+            </FormLabel>
+          </div>
           <CountInput
             val={barCode}
             maxLength="10000"
@@ -115,7 +120,10 @@ const Inventroy = () => {
       </CheckBoxContainer>
       <TripleInput>
         <div className="form-single">
-          <FormLabel styleproperty={styleProperty}>Quantity</FormLabel>
+          <div className="mb-1">
+            <FormLabel styleproperty={styleProperty}>Quantity</FormLabel>
+          </div>
+
           <CountInput
             val={quantity}
             maxLength="10000"
@@ -125,9 +133,11 @@ const Inventroy = () => {
           ></CountInput>
         </div>
         <div className="form-single">
-          <FormLabel styleproperty={styleProperty}>
-            Sell in multiples of
-          </FormLabel>
+          <div className="mb-1">
+            <FormLabel styleproperty={styleProperty}>
+              Sell in multiples of
+            </FormLabel>
+          </div>
           <CountInput
             val={sellMultiple}
             maxLength="10000"
@@ -137,7 +147,9 @@ const Inventroy = () => {
           ></CountInput>
         </div>
         <div className="form-single">
-          <FormLabel styleproperty={styleProperty}>Max backorders</FormLabel>
+          <div className="mb-1">
+            <FormLabel styleproperty={styleProperty}>Max backorders</FormLabel>
+          </div>
           <CountInput
             val={maxorders}
             maxLength="10000"

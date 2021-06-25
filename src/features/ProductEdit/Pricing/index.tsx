@@ -14,6 +14,7 @@ const PricingContainer = styled.div`
   background-color: white;
   display: flex;
   flex-direction: column;
+  border-radius: 8px;
 
   & h6 {
     color: #335491;
@@ -26,6 +27,9 @@ const PricingContainer = styled.div`
     text-transform: uppercase;
     display: inline-block;
     margin-bottom: 24px;
+  }
+  p {
+    padding-left: 0px !important;
   }
 `;
 
@@ -49,6 +53,13 @@ const DoublePrice = styled.div`
 
   & .form-single {
     margin-bottom: 32px;
+    max-width: 240px;
+    :first-of-type {
+      margin-right: 25px;
+    }
+    :last-of-type {
+      margin-right: 0px;
+    }
     & p {
       width: 100%;
       opacity: 0.75;
@@ -103,7 +114,7 @@ const TaxSelectData = [
 ];
 
 const Pricing = () => {
-  const [chargeTax, setChargeTax] = useState(false);
+  const [chargeTax, setChargeTax] = useState(true);
   const [taxChecked, setTaxChecked] = useState(false);
   const onPriceChange_Service = (value) => {};
   const onCompareAtChange_Service = (value) => {};
@@ -122,7 +133,10 @@ const Pricing = () => {
       <h6>Pricing</h6>
       <DoublePrice>
         <div className="form-single">
-          <FormLabel styleproperty={styleProperty}>Price</FormLabel>
+          <div className="mb-1">
+            <FormLabel styleproperty={styleProperty}>Price</FormLabel>
+          </div>
+
           <IconInput placeholder="" value="" onChange={onPriceChange_Service}>
             $
           </IconInput>
@@ -134,7 +148,10 @@ const Pricing = () => {
         </div>
 
         <div className="form-single ">
-          <FormLabel styleproperty={styleProperty}>Compare at</FormLabel>
+          <div className="mb-1">
+            <FormLabel styleproperty={styleProperty}>Compare at</FormLabel>
+          </div>
+
           <IconInput
             placeholder=""
             value=""

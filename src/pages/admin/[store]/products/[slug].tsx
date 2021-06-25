@@ -2,6 +2,13 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import styled from "styled-components";
+
+const AsideContainer = styled.div`
+  max-width: 560px !important;
+  width: 100%;
+  padding-left: 24px;
+`;
+
 import NavProduct from "features/ProductEdit/NavProduct";
 import ProductEdit from "features/ProductEdit";
 import Loader from "components/Loader/page-loader";
@@ -47,7 +54,10 @@ const Slug = () => {
     <>
       <NavProduct onClick={onNavClick}></NavProduct>
       <div className="wrapper">
-        <div className="main-content">{content}</div>
+        <div className="main-content">
+          {content}
+          <AsideContainer>asd</AsideContainer>
+        </div>
       </div>
     </>
   );

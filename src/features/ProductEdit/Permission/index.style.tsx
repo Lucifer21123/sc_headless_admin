@@ -34,6 +34,45 @@ export const SingleCheck = styled.div`
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
+    & b {
+      margin-left: 6px;
+    }
+  }
+`;
+export const SingleCheck2 = styled.div`
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 13px;
+  & span {
+    color: #0b0212;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    & b {
+      margin-left: 6px;
+    }
+  }
+`;
+
+export const SingleCheck1 = styled.div`
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  & span {
+    color: #0b0212;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    & b {
+      margin-left: 6px;
+    }
   }
 `;
 
@@ -53,6 +92,9 @@ export const DoubleInput = styled.div`
 `;
 export const CheckLabelContainer = styled.div`
   margin-bottom: 20px;
+`;
+export const CheckLabelContainer1 = styled.div`
+  margin-bottom: 8px;
 `;
 
 export const CheckedChildrenBody = styled.div`

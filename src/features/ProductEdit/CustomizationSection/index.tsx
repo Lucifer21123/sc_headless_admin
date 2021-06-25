@@ -127,7 +127,7 @@ const CustomizationSection = () => {
                 onChange={onCustomTextPrice}
                 maxLength={100}
               ></CountInput>
-              <span>
+              <span className="desc">
                 Instead of using $0 or the actual price, use this to display
                 custom prices e.g. From $5.90
               </span>

@@ -135,6 +135,10 @@ const ProductTitle = ({ data, onChange, ageBracket }) => {
           <FormLabel styleproperty={styleProperty}>Marketing tags</FormLabel>
           <MultipleOptionSelect></MultipleOptionSelect>
         </MemversTagForm>
+        <p>
+          These tags are displayed to shoppers and must be relevant to them.
+          e.g. Vegan Friendly, Gluten Free, GST Free, Organic
+        </p>
       </SeasonTitleBoxOther>
     </SeasonTitleBox>
   );

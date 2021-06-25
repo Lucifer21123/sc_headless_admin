@@ -25,9 +25,10 @@ export const MembersForm = styled.div`
   flex-direction: column;
   align-items: flex-end;
   flex: 1;
+  min-width: 240px;
+  max-width: 100%;
   margin-right: 30px;
   & .form-single {
-    max-width: 100%;
     min-width: 240px;
     margin: 0;
     width: 100%;
@@ -36,10 +37,36 @@ export const MembersForm = styled.div`
 export const ButtonContainer = styled.div`
   display: flex;
   align-items: flex-end;
+  flex: 1;
   & Button {
     padding: 0;
     max-width: 160px;
     min-width: 160px;
     width: 100%;
+  }
+  & a {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 160px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+    font-weight: 500;
+    background-color: #fff;
+    border: 2px solid #35558f !important;
+    outline: 0;
+    text-decoration: none;
+    cursor: pointer;
+    color: #35558f !important;
+    :hover {
+      background: #35558f !important;
+      color: #fff !important;
+    }
   }
 `;
