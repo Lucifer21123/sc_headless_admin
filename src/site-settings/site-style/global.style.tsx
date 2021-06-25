@@ -167,6 +167,7 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
       display: "flex",
       alignItems: "flex-start",
       padding: "20px 0 40px 219px",
+      justifyContent: "center",
       "@media (max-width: 1300px)": {
         padding: "20px 0 40px 219px",
       },

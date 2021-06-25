@@ -7,14 +7,7 @@ import backSvg from "assets/icons/back.svg";
 const ProductEditContainer = styled.div`
   margin-right: 25px;
   max-width: 560px;
-  @media screen and (min-width: 992px) {
-    width: 90%;
-    margin-top: 0px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 60%;
-    max-width: 560px;
-  }
+
   p {
     padding-left: 8px;
     opacity: 0.75;
@@ -33,6 +26,15 @@ const ProductEditContainer = styled.div`
     line-height: 12px;
     text-align: left;
     text-transform: uppercase;
+  }
+  @media screen and (max-width: 992px) {
+    width: 90%;
+    margin-top: 80px;
+    margin-right: 0px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 60%;
+    max-width: 560px;
   }
 `;
 
