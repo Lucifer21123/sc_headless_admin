@@ -30,70 +30,32 @@ const NavProductContainer = styled.div`
         font-weight: 400;
         text-align: left;
         padding: 3px 0;
+        text-decoration: none;
+        :hover {
+          text-decoration: none;
+        }
       }
     }
   }
 `;
-const Navdata = [
-  {
-    id: 1,
-    title: "Short info",
-  },
-  {
-    id: 2,
-    title: "images",
-  },
-  {
-    id: 3,
-    title: "Product type",
-  },
-  {
-    id: 4,
-    title: "Pricing",
-  },
-  {
-    id: 5,
-    title: "Avaiability",
-  },
-  {
-    id: 6,
-    title: "Organization",
-  },
-  {
-    id: 7,
-    title: "Terms and conditions",
-  },
-  {
-    id: 8,
-    title: "Additional permissions",
-  },
-  {
-    id: 9,
-    title: "Long description",
-  },
-  {
-    id: 10,
-    title: "Customization",
-  },
-  {
-    id: 11,
-    title: "SC search engine preview",
-  },
-];
 
-const NavProduct = ({ data = Navdata, onClick }) => {
+const NavProduct = ({ data, onClick }) => {
   return (
     <NavProductContainer>
       <ul>
         {data.map((item, key) => {
           return (
             <li
-              key={key}
               onClick={() => {
                 onClick(item.id);
               }}
             >
-              <a href={"#" + item.id}>{item.title}</a>
+              <a
+                href={"#" + item.id}
+                className={item.active ? "active" : "none"}
+              >
+                {item.title}
+              </a>
             </li>
           );
         })}

@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 import { useState } from "react";
+
+import backSvg from "assets/icons/back.svg";
+
 const ProductEditContainer = styled.div`
   margin-right: 25px;
   max-width: 560px;
@@ -33,6 +36,29 @@ const ProductEditContainer = styled.div`
   }
 `;
 
+const BackButtonCotainer = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin-bottom: 8px;
+  & a {
+    color: #35558f;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+
+    :hover {
+      text-decoration: none;
+    }
+  }
+
+  & img {
+    margin-right: 6px;
+  }
+`;
+
 import ProductTitle from "./ProductTitle/ProductTitle";
 import ProductImage from "./ProductImage";
 import ProductType from "./ProductType";
@@ -46,10 +72,16 @@ import Permission from "./Permission";
 import LongDescription from "./LongDescription";
 import CustomizationSection from "./CustomizationSection";
 import PreviewSection from "./PreviewSection";
-const ProductEdit = ({ data }) => {
+import Link from "next/link";
+const ProductEdit = ({ data, store }) => {
   const onChange = (type, value) => {};
+  let link = "/admin/" + store + "/products";
   return (
     <ProductEditContainer>
+      <BackButtonCotainer>
+        <img src={backSvg}></img>
+        <Link href={link}> Edit Product</Link>
+      </BackButtonCotainer>
       <ProductTitle
         data={data.mutable.public}
         ageBracket={data.age_bracket}

@@ -35,6 +35,7 @@ import CountInput from "components/CountInput";
 import IconInput from "components/IconInput";
 import ToggleTransition from "components/ToggleTransition";
 import CheckBoxLabel from "components/CheckBoxLabel";
+import { truncateSync } from "fs";
 
 const selectSetting = {
   fontSize: "16px",
@@ -145,9 +146,9 @@ const SelectItemData = [
 const ServiceSection = () => {
   const [state1, setstate1] = useState(data);
   const [selectData, setSelectData] = useState(SelectItemData);
-  const [searchHide, setSearchHide] = useState(false);
+  const [searchHide, setSearchHide] = useState(true);
   const [selectedData, setSelectedData] = useState([]);
-  const [chargeTax, setChargeTax] = useState(false);
+  const [chargeTax, setChargeTax] = useState(true);
   const [taxChecked, setTaxChecked] = useState(false);
 
   const onTaxSelect = (item) => {
@@ -239,7 +240,7 @@ const ServiceSection = () => {
     if (dropMenuRef.current && dropMenuRef.current.contains(e.target)) {
       return;
     }
-    setSearchHide(false);
+    setSearchHide(true);
   };
 
   const onChargeClick = (checked) => {

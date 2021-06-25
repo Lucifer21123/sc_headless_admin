@@ -284,6 +284,9 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
     ".mb-1": {
       marginBottom: "6px",
     },
+    ".section-content": {
+      padding: 0,
+    },
     //@ts-ignore
     ...theme.globals,
   })

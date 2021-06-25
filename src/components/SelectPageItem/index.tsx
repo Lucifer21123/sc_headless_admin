@@ -68,16 +68,16 @@ const SelectInfoUl = styled.ul`
 
 const CheckBoxContent = styled.div`
   position: absolute;
-  right: 35px;
+  right: 25px;
   top: 0;
   bottom: 0;
   display: flex;
   align-items: center;
 `;
 
-const SelectPageItem = ({ item, onClick,checked }) => {
+const SelectPageItem = ({ item, onClick, checked }) => {
   const onCheckBoxClick = (checked_h) => {
-    onClick(item.id,checked_h);
+    onClick(item.id, checked_h);
   };
   return (
     <SelectItemContainer>
