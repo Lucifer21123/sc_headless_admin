@@ -60,25 +60,20 @@ const LeftMenu = ({ leftMenuOpen, closeButtonClick }) => {
   const [width, height] = useWindowSize();
 
   useEffect(() => {
+    console.log("-------current-----");
+
     let leftMenuHeight = leftMenuRef.current.offsetHeight;
-    if (height < leftMenuHeight) {
-      setLeftMenuHeight(height - 89 - 50 + "px");
+    console.log(leftMenuHeight);
+    console.log("height", height);
+
+    if (height - 90 < leftMenuHeight) {
+      setLeftMenuHeight(height - 89 - 90 + "px");
       setOverflow(true);
     } else {
       setLeftMenuHeight("auto");
       setOverflow(false);
     }
     setHeight(height);
-  }, [leftMenuRef]);
-
-  useEffect(() => {
-    if (height < currentHeight) {
-      setLeftMenuHeight(height - 89 - 50 + "px");
-      setOverflow(true);
-    } else {
-      setLeftMenuHeight("auto");
-      setOverflow(false);
-    }
   }, [height]);
 
   const onClickSubItem = (itemshow, flag) => {
@@ -87,12 +82,18 @@ const LeftMenu = ({ leftMenuOpen, closeButtonClick }) => {
     }
 
     let leftMenuHeight = leftMenuRef.current.offsetHeight;
-    if (height - 89 - 80 < leftMenuHeight) {
-      setLeftMenuHeight(height - 89 - 50 + "px");
-      setOverflow(true);
-    }
 
-    setHeight(height);
+    if (height - 89 < leftMenuHeight) {
+      setLeftMenuHeight(height - 89 + "px");
+      setOverflow(true);
+    } else {
+      setLeftMenuHeight("auto");
+      setOverflow(false);
+    }
+    if (leftMenuHeight < 824) {
+      setLeftMenuHeight("auto");
+      setOverflow(false);
+    }
   };
 
   const onItemClick = () => {};
@@ -118,7 +119,7 @@ const LeftMenu = ({ leftMenuOpen, closeButtonClick }) => {
         </AdminMenuLogo>
       </AdminMenuHeader>
       <AdminMenuContainer leftMenuOpen={leftMenuOpen}>
-        <AdminMenuNav hide={hide} ref={leftMenuRef}>
+        <AdminMenuNav hide={hide}>
           <MinimizeButtonContainer
             onClick={() => {
               setHide(!hide);
@@ -150,7 +151,7 @@ const LeftMenu = ({ leftMenuOpen, closeButtonClick }) => {
             height={leftMenuHeight}
             className="nft-scrollbar"
           >
-            <AdminMenuList>
+            <AdminMenuList ref={leftMenuRef}>
               {MenuData.map((item, key) => {
                 return item.type == "menuItem" ? (
                   <MenuItem key={key} hide={hide} item={item.label}>

@@ -29,7 +29,7 @@ const ProductEditContainer = styled.div`
   }
   @media screen and (max-width: 992px) {
     width: 90%;
-    margin-top: 80px;
+    margin-top: 60px;
     margin-right: 0px;
   }
   @media screen and (min-width: 1440px) {
