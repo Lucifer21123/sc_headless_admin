@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useState } from "react";
 //!import image
-import product_small from "assets/images/product/editProduct/product_small.png";
-import category_mini from "assets/images/product/editProduct/category_mini.png";
+import product_smallImage from "assets/images/product/editProduct/product_small.png";
+import category_miniImage from "assets/images/product/editProduct/category_mini.png";
 import CheckBox from "components/CustomCheckBox";
 
 const KitProductContainer = styled.div`
@@ -96,9 +96,9 @@ const KitProduct = ({ item, onChecked }) => {
       }}
     >
       <ProductAvatarContainer>
-        <img src={product_small}></img>
+        <img src={product_smallImage}></img>
         <span>
-          <img src={category_mini} alt="" />
+          <img src={category_miniImage} alt="" />
         </span>
       </ProductAvatarContainer>
       <SelectInfo>
