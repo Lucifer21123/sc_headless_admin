@@ -76,6 +76,85 @@ const MobileCreate = styled.a`
   }
 `;
 
+const SectionButton = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-right: 20px;
+  @media screen and (max-width: 992px) {
+    width: 90%;
+    margin-top: 60px;
+    margin-right: 0px;
+  }
+  @media screen and (min-width: 1440px) {
+    max-width: 560px;
+  }
+`;
+
+const ProductContent = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ButtonContainer = styled.a`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 148px;
+  min-width: 148px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: 0.3s;
+  font-weight: 500;
+  background-color: #fff;
+  border: 2px solid #35558f !important;
+  outline: 0;
+  text-decoration: none;
+  cursor: pointer;
+  color: #35558f !important;
+  :hover {
+    background: #35558f !important;
+    color: #fff !important;
+  }
+  @media screen and (max-width: 575px) {
+    min-width: 100px;
+    max-width: 100px;
+  }
+`;
+const ButtonContainer1 = styled.a`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 148px;
+  min-width: 148px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: 0.3s;
+  font-weight: 500;
+  background-color: #fff;
+  border: 2px solid #35558f !important;
+  outline: 0;
+  text-decoration: none;
+  cursor: pointer;
+  color: #35558f !important;
+  :hover {
+    background: #35558f !important;
+    color: #fff !important;
+  }
+  @media screen and (max-width: 575px) {
+    min-width: 100px;
+    max-width: 100px;
+  }
+`;
+
 import NavProduct from "features/ProductEdit/NavProduct";
 import ProductEdit from "features/ProductEdit";
 import Loader from "components/Loader/page-loader";
@@ -227,7 +306,17 @@ const Slug = () => {
       </MobileNav>
       <div className="wrapper">
         <div className="main-content">
-          {content}
+          <ProductContent>
+            {content}
+            <SectionButton>
+              <a className="btn-border-red">Delete all info</a>
+              <div className="d-flex">
+                <ButtonContainer1>Cancel edit</ButtonContainer1>
+                <ButtonContainer>Save</ButtonContainer>
+              </div>
+            </SectionButton>
+          </ProductContent>
+
           <AsideContainer>
             <SectionContentTitle>statistic</SectionContentTitle>
             <AsideSection></AsideSection>

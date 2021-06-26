@@ -33,15 +33,23 @@ export const MembersForm = styled.div`
     margin: 0;
     width: 100%;
   }
+  @media (max-width: 575px) {
+    margin-right: 0;
+    margin-bottom: 16px;
+    max-width: 100% !important;
+    min-width: 100%;
+  }
 `;
 export const ButtonContainer = styled.div`
+  margin-left: 5px;
   display: flex;
   align-items: flex-end;
   flex: 1;
+  justify-content: flex-end;
   & Button {
     padding: 0;
     max-width: 160px;
-    min-width: 160px;
+    min-width: 134px;
     width: 100%;
   }
   & a {
@@ -53,6 +61,7 @@ export const ButtonContainer = styled.div`
     justify-content: center;
     width: 100%;
     max-width: 160px;
+    min-width: 134px;
     height: 40px;
     border-radius: 5px;
     font-size: 16px;

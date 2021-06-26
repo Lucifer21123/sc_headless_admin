@@ -6,6 +6,7 @@ import joySvg from "assets/images/Product/viewProduct/joy.svg";
 import wowSvg from "assets/images/Product/viewProduct/wow.svg";
 import angrySvg from "assets/images/Product/viewProduct/angry.svg";
 import Progress from "components/Progress";
+import AssProduct from "./AssProdcut";
 const AsideSection = () => {
   const feedback = {
     like: 100,
@@ -185,6 +186,7 @@ const AsideSection = () => {
           </ul>
         </Page.ReachAndConversation>
       </Page.StatisticBox>
+      <AssProduct></AssProduct>
     </Page.ScrollDiv>
   );
 };

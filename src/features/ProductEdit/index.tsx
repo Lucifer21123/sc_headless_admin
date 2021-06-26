@@ -6,7 +6,7 @@ import backSvg from "assets/icons/back.svg";
 
 const ProductEditContainer = styled.div`
   margin-right: 25px;
-  max-width: 560px;
+  max-width: 450px;
 
   p {
     padding-left: 8px;
@@ -33,7 +33,6 @@ const ProductEditContainer = styled.div`
     margin-right: 0px;
   }
   @media screen and (min-width: 1440px) {
-    width: 60%;
     max-width: 560px;
   }
 `;

@@ -50,7 +50,6 @@ const ViewProductSection = ({}) => {
 
   //get Products
   useEffect(() => {
-    console.log("----useEffect------");
     if (store == undefined) {
       return;
     }

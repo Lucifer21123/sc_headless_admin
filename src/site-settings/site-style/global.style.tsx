@@ -168,6 +168,13 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
       alignItems: "flex-start",
       padding: "20px 0 40px 219px",
       justifyContent: "center",
+      "@media (max-width: 3000px)": {
+        paddingLeft: "0",
+      },
+      "@media (max-width: 2000px)": {
+        paddingLeft: "0",
+      },
+
       "@media (max-width: 1300px)": {
         padding: "20px 0 40px 219px",
       },
@@ -287,6 +294,26 @@ export const GlobalStyle = createGlobalStyle(({ theme }) =>
     },
     ".section-content": {
       padding: 0,
+    },
+    ".btn-border-red": {
+      color: "#fa0128",
+      border: "2px solid #fa0128",
+      position: "relative",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "100%",
+      maxWidth: "148px",
+      height: "40px",
+      borderRadius: "5px",
+      fontSize: "16px",
+      transition: ".3s",
+      fontWeight: "500",
+      backgroundColor: " #fff",
+    },
+    ".d-flex": {
+      display: "flex",
+      justifyContent: "space-between",
     },
     //@ts-ignore
     ...theme.globals,

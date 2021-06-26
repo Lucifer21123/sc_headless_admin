@@ -13,7 +13,7 @@ import Select from "components/Select";
 
 import StandardSection from "./ProductTypeSection/standardSection";
 import ServiceSection from "./ProductTypeSection/ServiceSection/index";
-
+import KitSection from "./ProductTypeSection/KitSection";
 const styleProperty = {
   fontSize: "14px",
   Weight: "400",
@@ -75,6 +75,8 @@ const ProductType = () => {
     case 2:
       productTyepeContent = <ServiceSection></ServiceSection>;
       break;
+    case 3:
+      productTyepeContent = <KitSection></KitSection>;
     default:
       break;
   }

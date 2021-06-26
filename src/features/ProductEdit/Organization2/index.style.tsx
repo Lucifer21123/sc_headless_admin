@@ -30,11 +30,19 @@ export const MembersForm = styled.div`
     margin: 0;
     width: 100%;
   }
+
+  @media (max-width: 575px) {
+    margin-right: 0;
+    margin-bottom: 16px;
+    max-width: 100% !important;
+    min-width: 100%;
+  }
 `;
 export const ButtonContainer = styled.div`
   display: flex;
   flex: 1;
   align-items: flex-end;
+  justify-content: flex-end;
   & Button {
     padding: 0;
     max-width: 160px;
@@ -48,6 +56,7 @@ export const ButtonContainer = styled.div`
     justify-content: center;
     width: 100%;
     max-width: 160px;
+    min-width: 134px;
     height: 40px;
     border-radius: 5px;
     font-size: 16px;
