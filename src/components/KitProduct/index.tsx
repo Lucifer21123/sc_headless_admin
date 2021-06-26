@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 //!import image
 import product_small from "assets/images/product/editProduct/product_small.png";
-import category_mini from "assets/images/product/editProduct/category-mini.png";
+import category_mini from "assets/images/product/editProduct/category_mini.png";
 import CheckBox from "components/CustomCheckBox";
 
 const KitProductContainer = styled.div`

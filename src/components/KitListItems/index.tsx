@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as Page from "./index.style";
 import product_small from "assets/images/product/editProduct/product_small.png";
-import category_mini from "assets/images/product/editProduct/category-mini.png";
+import category_mini from "assets/images/product/editProduct/category_mini.png";
 const KitListItems = ({ item, onDelete, onChange }) => {
   const [count, setcount] = useState(item.count);
   return (
