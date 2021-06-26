@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useState } from "react";
 //!import image
-import product_smallImage from "assets/images/product/editProduct/product_small.png";
-import category_miniImage from "assets/images/product/editProduct/category_mini.png";
+import product_smallImage from "assets/images/Product/editProduct/product_small.png";
+import category_miniImage from "assets/images/Product/editProduct/category_mini.png";
 import CheckBox from "components/CustomCheckBox";
 
 const KitProductContainer = styled.div`
